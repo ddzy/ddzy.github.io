@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-Hans">
+<html lang="zh-CN">
 <head><meta name="generator" content="Hexo 3.8.0">
   <link rel="stylesheet" href="/style/style.css">
 <script>
@@ -14,7 +14,7 @@
       search: false,
       friends: false,
       reward: false,
-      lazy: true
+      lazy: false
     }
   }
 </script>
@@ -31,6 +31,8 @@
 
 
 
+
+    <link rel="icon" href="/favicon.ico" type="image/x-ico">
 
 
 
@@ -52,14 +54,23 @@
 <meta name="format-detection" content="telephone=no">
 <meta name="keywords" content="nlvi, Nlvi">
 
+  <link rel="apple-touch-icon" sizes="72x72" href="/favicon.ico">
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/favicon.ico">
 
 
+  <meta name="subtitle" content="blog">
 
-  <meta name="keywords" content="博客 blog">
+
+  <meta name="description" content="个人博客, 记录frontend的点点滴滴">
+
+
+  <meta name="keywords" content="博客 blog 个人博客">
 
 
   <title>
     阳哥小站
+    
+      | blog
     
   </title>
 </head>
@@ -78,6 +89,8 @@
   <div class="logo-inner syuanpi tvIn">
     <span><a href="/">阳哥小站</a></span>
     
+      <span id="subtitle">blog</span>
+    
   </div>
 </div>
     <nav class="main-nav">
@@ -90,7 +103,7 @@
     
     <li class="menu-item">
       <a href="/" id="article">
-        <span class="base-name">Articles</span>
+        <span class="base-name">文章</span>
         
           <span class="menu-item-label">article</span>
         
@@ -101,8 +114,20 @@
       
     
     <li class="menu-item">
+      <a href="/categories" id="categories">
+        <span class="base-name">分类</span>
+        
+          <span class="menu-item-label">categories</span>
+        
+      </a>
+    </li>
+  
+    
+      
+    
+    <li class="menu-item">
       <a href="/archives" id="archives">
-        <span class="base-name">Archives</span>
+        <span class="base-name">归档</span>
         
           <span class="menu-item-label">archives</span>
         
@@ -114,21 +139,9 @@
     
     <li class="menu-item">
       <a href="javascript:;" id="tags">
-        <span class="base-name">Tags</span>
+        <span class="base-name">标签</span>
         
           <span class="menu-item-label">tags</span>
-        
-      </a>
-    </li>
-  
-    
-      
-    
-    <li class="menu-item">
-      <a href="/about" id="about">
-        <span class="base-name">About</span>
-        
-          <span class="menu-item-label">about</span>
         
       </a>
     </li>
@@ -142,7 +155,7 @@
       <div class="tagcloud-mask"></div>  
 <div class="tagcloud" id="tagcloud">
   <div class="tagcloud-inner">
-    
+    <a href="/tags/react/" style="font-size: 14px;">react</a> <a href="/tags/感想/" style="font-size: 14px;">感想</a>
   </div>
 </div>
   
@@ -156,7 +169,7 @@
         
             <div class="mobile-nav-item">
                 <a href="/">
-                    <span>Articles</span>
+                    <span>文章</span>
                     
                         <span class="menu-item-label">article</span>
                     
@@ -166,8 +179,19 @@
       
         
             <div class="mobile-nav-item">
+                <a href="/categories">
+                    <span>分类</span>
+                    
+                        <span class="menu-item-label">categories</span>
+                    
+                </a>
+            </div>
+        
+      
+        
+            <div class="mobile-nav-item">
                 <a href="/archives">
-                    <span>Archives</span>
+                    <span>归档</span>
                     
                         <span class="menu-item-label">archives</span>
                     
@@ -179,7 +203,7 @@
           <div class="mobile-nav-item inner-cloud">
             <div class="mobile-nav-tag">
               <a href="javascript:;" id="mobile-tags">
-                <span>Tags</span>
+                <span>标签</span>
                 
                     <span class="menu-item-label">tags</span>
                 
@@ -187,21 +211,10 @@
             </div>
             <div class="mobile-nav-tagcloud">
               <div class="mobile-tagcloud-inner">
-                
+                <a href="/tags/react/" style="font-size: 14px;">react</a> <a href="/tags/感想/" style="font-size: 14px;">感想</a>
               </div>
             </div>
           </div>
-        
-      
-        
-            <div class="mobile-nav-item">
-                <a href="/about">
-                    <span>About</span>
-                    
-                        <span class="menu-item-label">about</span>
-                    
-                </a>
-            </div>
         
       
     </div>
@@ -224,7 +237,7 @@
           
     
       <div class="about syuanpi fadeInUp">
-        <h2 class="title"> About </h2>
+        <h2 class="title"> 关于 </h2>
         <div class="content">
           
             front ender
@@ -264,6 +277,17 @@
     
     
         
+        
+        
+        
+            <a href="https://www.zhihu.com/people/bu-jing-tong-jsbu-zhao-dui-xiang-81/activities" class="iconfont icon-zhihu" title="zhihu"></a>
+        
+        
+        
+        
+        
+    
+        
             <a href="https://github.com/ddzy" class="iconfont icon-social-github" title="github"></a>
         
         
@@ -287,11 +311,11 @@
     </div>
     <div class="theme">
         <span>
-            Powered by
+            动力来源于
             <a href="http://hexo.io/" target="_blank">Hexo </a>
         </span>
         <span>
-            Theme
+            主题
             <a href="https://github.com/ColMugX/hexo-theme-Nlvi"> Nlvi </a>
         </span>
     </div>
@@ -317,9 +341,10 @@
 
 
 
+  <script src="https://cdn.bootcss.com/mathjax/2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  <script type="text/x-mathjax-config;executed=true">MathJax.Hub.Config({tex2jax: {inlineMath: [["$","$"], ["\\(","\\)"]]}});</script>
 
 
-  <script src="/script/lib/lazyload/lazyload.min.js"></script>
 
 
 
