@@ -280,7 +280,9 @@
         <p>自己配置使用webpack过程中遇到的常见错误, 小本子记录下来, 后续也可以做个参考.</p>
 <a id="more"></a>
 <h2 id="打包ts报错"><a href="#打包ts报错" class="headerlink" title="打包ts报错"></a><strong>打包ts报错</strong></h2><hr>
-<p><code>Module not found: Error: Can&#39;t resolve &#39;./components/hello&#39; in &#39;D:\Code\webpack_study\first\src</code></p>
+<blockquote>
+<p>Module not found: Error: Can’t resolve ‘./components/hello’ in ‘D:\Code\webpack_study\first\src</p>
+</blockquote>
 <p><strong>问题原因</strong>: import导入<code>ts</code>, <code>tsx</code>, <code>js</code>, <code>jsx</code>等模块时, 默认不会携带后缀名, 导致webpack无法解析.</p>
 <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; sayHello &#125; <span class="keyword">from</span> <span class="string">'./components/Hello'</span>;</span><br></pre></td></tr></table></figure>
 <p><strong>解决办法</strong>: webpack.config中增加<code>resolve</code>配置项.</p>

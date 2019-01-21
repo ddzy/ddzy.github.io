@@ -279,10 +279,15 @@
       
         <p>对使用webpack过程中常用的loader做一个总结</p>
 <a id="more"></a>
-<h2 id="css-loader"><a href="#css-loader" class="headerlink" title="css-loader"></a>css-loader</h2><hr>
+<h2 id="css-loader"><a href="#css-loader" class="headerlink" title="css-loader"></a><strong>css-loader</strong></h2><hr>
+<blockquote>
 <p>处理<code>.css</code>文件</p>
-<h2 id="style-loader"><a href="#style-loader" class="headerlink" title="style-loader"></a>style-loader</h2><hr>
+</blockquote>
+<h2 id="style-loader"><a href="#style-loader" class="headerlink" title="style-loader"></a><strong>style-loader</strong></h2><hr>
+<blockquote>
 <p>与<code>css-loader</code>结合使用, 将生成的css融合到<code>style</code>标签, 嵌入到页面上</p>
+</blockquote>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="keyword">module</span>: &#123;</span><br><span class="line">  rules: [</span><br><span class="line">    &#123;</span><br><span class="line">      test: <span class="regexp">/\.css$/</span>,</span><br><span class="line">      use: [</span><br><span class="line">        &#123; loader: <span class="string">'style-loader'</span>, &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">          loader: <span class="string">'css-loader'</span>,</span><br><span class="line">          options: &#123;</span><br><span class="line">            modules: <span class="literal">true</span>,   <span class="comment">// 启动css模块化</span></span><br><span class="line">          &#125;,</span><br><span class="line">        &#125;,</span><br><span class="line">      ],</span><br><span class="line">    &#125;</span><br><span class="line">  ],</span><br><span class="line">&#125;,</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
 
       
     
