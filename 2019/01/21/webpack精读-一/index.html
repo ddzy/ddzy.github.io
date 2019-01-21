@@ -279,25 +279,30 @@
       
         <p>厌倦了整日的写项目, 想起来之前学过的webpack基本忘得差不多了, webpack又很重要, 几乎贯穿了整个前端生涯. 所以还是加足马力, 学它一波, 顺便做个笔记, 日后也好做个对照.</p>
 <a id="more"></a>
-<h2 id="entry"><a href="#entry" class="headerlink" title="entry"></a>entry</h2><p>app: 入口文件名<br>vendors: 公共模块, 多个模块都需要引入的库</p>
+<h2 id="entry"><a href="#entry" class="headerlink" title="entry"></a>entry</h2><hr>
+<p>app: 入口文件名<br>vendors: 公共模块, 多个模块都需要引入的库</p>
 <blockquote>
 <p>DllPlugin: 替换vendors</p>
 </blockquote>
 <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  ...</span><br><span class="line">  entry: &#123;</span><br><span class="line">    app: <span class="string">'./src/app.js'</span>,</span><br><span class="line">    vendors: [<span class="string">'React'</span>, <span class="string">'ReactDOM'</span>, <span class="string">'jQuery'</span>],</span><br><span class="line">  &#125;,</span><br><span class="line">  ...</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h2 id="output"><a href="#output" class="headerlink" title="output"></a>output</h2><p>path: 打包后的输出路径<br>filename: 输出文件名</p>
+<h2 id="output"><a href="#output" class="headerlink" title="output"></a>output</h2><hr>
+<p>path: 打包后的输出路径<br>filename: 输出文件名</p>
 <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  ...</span><br><span class="line">  output: &#123;</span><br><span class="line">    path: path.resolve(__dirname, <span class="string">'build'</span>),</span><br><span class="line">    filename: <span class="string">'app.bundle.js'</span>,</span><br><span class="line">    publicPath: <span class="string">'/public/'</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">  ...</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h2 id="mode"><a href="#mode" class="headerlink" title="mode"></a>mode</h2><blockquote>
+<h2 id="mode"><a href="#mode" class="headerlink" title="mode"></a>mode</h2><hr>
+<blockquote>
 <p>可避免在命令行传递 –mode=development 参数</p>
 </blockquote>
 <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  mode: <span class="string">'development'</span> | <span class="string">'production'</span>,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h2 id="loader"><a href="#loader" class="headerlink" title="loader"></a>loader</h2><p>预处理文件: <code>json</code> | <code>ts</code> | <code>css</code> | <code>less</code> | <code>sass</code> | <code>dataUrl</code>.</p>
+<h2 id="loader"><a href="#loader" class="headerlink" title="loader"></a>loader</h2><hr>
+<p>预处理文件: <code>json</code> | <code>ts</code> | <code>css</code> | <code>less</code> | <code>sass</code> | <code>dataUrl</code>.</p>
 <blockquote>
 <p>loader按照数组中相反的顺序执行</p>
 </blockquote>
 <h3 id="style-loader-amp-css-loader"><a href="#style-loader-amp-css-loader" class="headerlink" title="style-loader &amp; css-loader"></a>style-loader &amp; css-loader</h3><p>style-loader: 将组件样式包裹到 <code>style</code>标签, 嵌入到文档中</p>
 <p>css-loader</p>
 <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  ...</span><br><span class="line">  <span class="keyword">module</span>: &#123;</span><br><span class="line">    rules: [</span><br><span class="line">      &#123;</span><br><span class="line">        test: <span class="regexp">/\.css$/</span>,</span><br><span class="line">        use: [</span><br><span class="line">          &#123; loader: <span class="string">'style-loader'</span>, &#125;,</span><br><span class="line">          &#123;</span><br><span class="line">            loader: <span class="string">'css-loader'</span>,</span><br><span class="line">            options: &#123;</span><br><span class="line">              modules: <span class="literal">true</span>,   <span class="comment">// 启用模块化css</span></span><br><span class="line">            &#125;,</span><br><span class="line">          &#125;,</span><br><span class="line">        ],</span><br><span class="line">      &#125;,</span><br><span class="line">    ],</span><br><span class="line">  &#125;,</span><br><span class="line">  ...</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h2 id="plugins"><a href="#plugins" class="headerlink" title="plugins"></a>plugins</h2><h2 id="未完待续…"><a href="#未完待续…" class="headerlink" title="未完待续…"></a>未完待续…</h2>
+<h2 id="plugins"><a href="#plugins" class="headerlink" title="plugins"></a>plugins</h2><hr>
+<h2 id="未完待续…"><a href="#未完待续…" class="headerlink" title="未完待续…"></a>未完待续…</h2>
       
     
     </div>
@@ -310,6 +315,12 @@
   
     
   <nav class="article-page">
+    
+      <a href="/2019/01/21/webpack错误集锦-一/" id="art-left" class="art-left">
+        <span class="next-title">
+          <i class="iconfont icon-left"></i>webpack错误集锦(一)
+        </span>
+      </a>
     
     
       <a href="/2019/01/20/毕设之路-一/" id="art-right" class="art-right">
