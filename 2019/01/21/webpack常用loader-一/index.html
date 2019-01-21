@@ -296,7 +296,7 @@
 <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  test: <span class="regexp">/\.css$/</span>,</span><br><span class="line">  use: [</span><br><span class="line">    &#123;</span><br><span class="line">      loader: <span class="string">'postcss-loader'</span>,</span><br><span class="line">      options: &#123;</span><br><span class="line">        ...</span><br><span class="line">      &#125;,</span><br><span class="line">    &#125;</span><br><span class="line">  ],</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="autoprefixer"><a href="#autoprefixer" class="headerlink" title="autoprefixer"></a><strong>autoprefixer</strong></h2><hr>
 <blockquote>
-<p>自动添加浏览器厂商前缀, 与postcss-loader结合使用</p>
+<p>自动添加浏览器厂商前缀, 与<code>postcss-loader</code>结合使用</p>
 </blockquote>
 <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  test: <span class="regexp">/\.css$/</span>,</span><br><span class="line">  use: [</span><br><span class="line">    &#123;</span><br><span class="line">      loader: <span class="string">'postcss-loader'</span>,</span><br><span class="line">      options: &#123;</span><br><span class="line">        plugins: [</span><br><span class="line">          <span class="built_in">require</span>(<span class="string">'autoprefixer'</span>)(&#123;</span><br><span class="line">            browsers: [xxx],</span><br><span class="line">          &#125;),</span><br><span class="line">        ],</span><br><span class="line">      &#125;,</span><br><span class="line">    &#125;</span><br><span class="line">  ],</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
@@ -311,6 +311,12 @@
   
     
   <nav class="article-page">
+    
+      <a href="/2019/01/21/webpack常用plugins-一/" id="art-left" class="art-left">
+        <span class="next-title">
+          <i class="iconfont icon-left"></i>webpack常用plugins(一)
+        </span>
+      </a>
     
     
       <a href="/2019/01/21/webpack错误集锦-一/" id="art-right" class="art-right">

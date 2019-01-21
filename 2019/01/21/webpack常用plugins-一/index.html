@@ -67,11 +67,9 @@
   <meta name="keywords" content="博客 blog 个人博客">
 
 
-  <title>
-  
-    归档 · 阳哥小站
-  
-</title>
+  <meta name="keywords" content="webpack, Nlvi">
+
+  <title> webpack常用plugins(一) · 阳哥小站 </title>
 </head>
 <body>
   <div class="progress">
@@ -157,6 +155,17 @@
     <a href="/tags/react/" style="font-size: 14px;">react</a> <a href="/tags/webpack/" style="font-size: 14px;">webpack</a>
   </div>
 </div>
+
+  
+  <aside class="post-toc">
+    <span class="title" id="toc-switch"><span>文章导航</span></span>
+    <div class="toc-inner syuanpi back-1" style="display:none;">
+      <li class="title-link"><a href="javascript:;" class="toTop">webpack常用plugins(一)</a></li>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#html-webpack-plugin"><span class="toc-text">html-webpack-plugin</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#mini-css-extract-plugin"><span class="toc-text">mini-css-extract-plugin</span></a></li></ol>
+    </div>
+  </aside>
+
+
   
     
   </div>
@@ -235,117 +244,88 @@
         <div class="main-wrapper">
           
     
-    <div class="archive syuanpi fadeInUp" id="archive">
-        
-            <h1 class="archive-title">Total</h1>
-            <span class="archive-num">一共有 5 篇文章</span>
-        
-        <div class="archive-list">
-            <ul>
-        
+  
+  <article class="
+  post
+   is_post 
+  ">
+    <header class="post-header">
+      <div class="post-time syuanpi fadeInUpShort back-1">
+        <div class="post-time-wrapper">
+          <span>2019-01-21</span>
+          
             
-                
-                
-                
-                    
-                     
-                        <h2 class="archive-year"> 2019 </h2>
-                    
-                
+              <span class="post-category"><a href="/categories/frontend/">frontend</a></span>
             
+          
+          
             
-            <li class="archive-post">
-                <span class="archive-post-time">
-                
-                    01-21
-                
-                </span>
-                <span class="archive-post-link">
-                    <a href="/2019/01/21/webpack常用plugins-一/">webpack常用plugins(一)</a>
-                </span>
-            </li>
-
-        
+              <aside class="post-tags syuanpi fadeInUpShort back-3">
+              
+                <a href="/tags/webpack/">webpack</a>
+              
+              </aside>
             
-                
-                
-                
-            
-            
-            <li class="archive-post">
-                <span class="archive-post-time">
-                
-                    01-21
-                
-                </span>
-                <span class="archive-post-link">
-                    <a href="/2019/01/21/webpack常用loader-一/">webpack常用loader(一)</a>
-                </span>
-            </li>
-
-        
-            
-                
-                
-                
-            
-            
-            <li class="archive-post">
-                <span class="archive-post-time">
-                
-                    01-21
-                
-                </span>
-                <span class="archive-post-link">
-                    <a href="/2019/01/21/webpack错误集锦-一/">webpack错误集锦(一)</a>
-                </span>
-            </li>
-
-        
-            
-                
-                
-                
-            
-            
-            <li class="archive-post">
-                <span class="archive-post-time">
-                
-                    01-21
-                
-                </span>
-                <span class="archive-post-link">
-                    <a href="/2019/01/21/webpack精读-一/">webpack精读(一)</a>
-                </span>
-            </li>
-
-        
-            
-                
-                
-                
-            
-            
-            <li class="archive-post">
-                <span class="archive-post-time">
-                
-                    01-20
-                
-                </span>
-                <span class="archive-post-link">
-                    <a href="/2019/01/20/毕设之路-一/">毕设之路(一)</a>
-                </span>
-            </li>
-
-        
-            </ul>
+          
         </div>
+      </div>
+      <h1 class="post-title syuanpi fadeInUpShort back-2">
+        
+          webpack常用plugins(一)
+        
+      </h1>
+    </header>
+    <div class="post-content syuanpi fadeInUpShort back-3">
+      
+        <p>对常用的<code>webpack-plugins</code>作一个整合</p>
+<a id="more"></a>
+<h2 id="html-webpack-plugin"><a href="#html-webpack-plugin" class="headerlink" title="html-webpack-plugin"></a><strong>html-webpack-plugin</strong></h2><hr>
+<blockquote>
+<p>自动生成并管理 <code>index.html</code> 文件</p>
+</blockquote>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  plugins: [</span><br><span class="line">    <span class="keyword">new</span> htmlWebpackPlugin(&#123;</span><br><span class="line">      title: <span class="string">''</span>,</span><br><span class="line">    &#125;)</span><br><span class="line">  ],</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="mini-css-extract-plugin"><a href="#mini-css-extract-plugin" class="headerlink" title="mini-css-extract-plugin"></a><strong>mini-css-extract-plugin</strong></h2><hr>
+<blockquote>
+<p>分离<code>.css</code>文件到单独trunk</p>
+</blockquote>
+
+      
+    
     </div>
     
-  <nav class="pagination">
-      <span class="page-number current">1</span>
+      
+
+      
+    
+  </article>
+  
+    
+  <nav class="article-page">
+    
+    
+      <a href="/2019/01/21/webpack常用loader-一/" id="art-right" class="art-right">
+        <span class="prev-title"> 
+          webpack常用loader(一)<i class="iconfont icon-right"></i>  
+        </span>
+      </a>
+    
   </nav>
 
+    
+  <i id="com-switch" class="iconfont icon-more jumping-in long infinite" style="font-size:24px;display:block;text-align:center;transform:rotate(180deg);"></i>
+  <div class="post-comments" id="post-comments" style="display: block;margin: auto 16px;">
+    
+    
+    
+
+    
+
+  </div>
+
+
+
+  
+  
 
 
         </div>
