@@ -277,7 +277,7 @@
     </header>
     <div class="post-content syuanpi fadeInUpShort back-3">
       
-        <p>对常用的<code>webpack-plugins</code>作一个整合</p>
+        <p>对webpack常用的plugin作一个整合</p>
 <a id="more"></a>
 <h2 id="html-webpack-plugin"><a href="#html-webpack-plugin" class="headerlink" title="html-webpack-plugin"></a><strong>html-webpack-plugin</strong></h2><hr>
 <blockquote>
@@ -307,6 +307,9 @@
 <blockquote>
 <p>热部署服务器</p>
 </blockquote>
+<p>package.json</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">scripts: &#123;</span><br><span class="line">  <span class="string">"start"</span>: <span class="string">"webpack-dev-server"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>webpack.config</p>
 <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  devServer &#123;</span><br><span class="line">    open: <span class="literal">true</span>,</span><br><span class="line">    hot: <span class="literal">true</span>,</span><br><span class="line">    port: <span class="number">3333</span>,</span><br><span class="line">    compress: <span class="literal">true</span>,</span><br><span class="line">    clientLogLevel: <span class="string">'none'</span>,</span><br><span class="line">    before(app) &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(</span><br><span class="line">        <span class="string">`App running at http://localhost:<span class="subst">$&#123;this.port&#125;</span>`</span>.green</span><br><span class="line">      );</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     
