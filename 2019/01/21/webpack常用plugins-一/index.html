@@ -161,7 +161,7 @@
     <span class="title" id="toc-switch"><span>文章导航</span></span>
     <div class="toc-inner syuanpi back-1" style="display:none;">
       <li class="title-link"><a href="javascript:;" class="toTop">webpack常用plugins(一)</a></li>
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#html-webpack-plugin"><span class="toc-text">html-webpack-plugin</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#mini-css-extract-plugin"><span class="toc-text">mini-css-extract-plugin</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#optimize-css-assets-webpack-plugin"><span class="toc-text">optimize-css-assets-webpack-plugin</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#cssnano"><span class="toc-text">cssnano</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#html-webpack-plugin"><span class="toc-text">html-webpack-plugin</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#mini-css-extract-plugin"><span class="toc-text">mini-css-extract-plugin</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#optimize-css-assets-webpack-plugin"><span class="toc-text">optimize-css-assets-webpack-plugin</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#cssnano"><span class="toc-text">cssnano</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#colors"><span class="toc-text">colors</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#webpack-dev-server"><span class="toc-text">webpack-dev-server</span></a></li></ol>
     </div>
   </aside>
 
@@ -298,7 +298,16 @@
 <blockquote>
 <p>压缩<code>css</code>文件</p>
 </blockquote>
-
+<h2 id="colors"><a href="#colors" class="headerlink" title="colors"></a><strong>colors</strong></h2><hr>
+<blockquote>
+<p>给<code>terminal</code>的log日志添加颜色</p>
+</blockquote>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="string">'colors'</span>.green);</span><br></pre></td></tr></table></figure>
+<h2 id="webpack-dev-server"><a href="#webpack-dev-server" class="headerlink" title="webpack-dev-server"></a><strong>webpack-dev-server</strong></h2><hr>
+<blockquote>
+<p>热部署服务器</p>
+</blockquote>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  devServer &#123;</span><br><span class="line">    open: <span class="literal">true</span>,</span><br><span class="line">    hot: <span class="literal">true</span>,</span><br><span class="line">    port: <span class="number">3333</span>,</span><br><span class="line">    compress: <span class="literal">true</span>,</span><br><span class="line">    clientLogLevel: <span class="string">'none'</span>,</span><br><span class="line">    before(app) &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(</span><br><span class="line">        <span class="string">`App running at http://localhost:<span class="subst">$&#123;this.port&#125;</span>`</span>.green</span><br><span class="line">      );</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     
     </div>

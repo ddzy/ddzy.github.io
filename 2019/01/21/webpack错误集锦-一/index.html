@@ -161,7 +161,7 @@
     <span class="title" id="toc-switch"><span>文章导航</span></span>
     <div class="toc-inner syuanpi back-1" style="display:none;">
       <li class="title-link"><a href="javascript:;" class="toTop">webpack错误集锦(一)</a></li>
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#打包ts报错"><span class="toc-text">打包ts报错</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#webpack构建命令"><span class="toc-text">webpack构建命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置node环境变量"><span class="toc-text">配置node环境变量</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#打包ts报错"><span class="toc-text">打包ts报错</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#webpack构建命令"><span class="toc-text">webpack构建命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置node环境变量"><span class="toc-text">配置node环境变量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#webpack-dev-server报错"><span class="toc-text">webpack-dev-server报错</span></a></li></ol>
     </div>
   </aside>
 
@@ -304,6 +304,12 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save-dev cross-env</span><br></pre></td></tr></table></figure>
 <p><strong>package.json</strong></p>
 <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">scripts: &#123;</span><br><span class="line">  <span class="string">"build"</span>: <span class="string">"cross-env NODE_ENV=production webpack --config webpack.config.js"</span>,</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+<h2 id="webpack-dev-server报错"><a href="#webpack-dev-server报错" class="headerlink" title="webpack-dev-server报错"></a><strong>webpack-dev-server报错</strong></h2><hr>
+<blockquote>
+<p>[HMR] Hot Module Replacement is disabled</p>
+</blockquote>
+<p>未在<code>webpack.config</code>中添加 <code>hot-module-replacement-plugin</code>.</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  plugins: [</span><br><span class="line">    <span class="keyword">new</span> webpack.HotModuleReplacementPlugin(),</span><br><span class="line">  ],</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
       
     
     </div>
