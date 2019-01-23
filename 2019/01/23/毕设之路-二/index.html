@@ -327,6 +327,17 @@
 </blockquote>
 <p><strong>解决</strong>: 互相依赖的字段, 例如 <code>comments</code> &amp; <code>replys</code>, 创建新的 <code>reply</code> 时, 要将其push同步到 <code>comments</code>中.</p>
 <h2 id="react"><a href="#react" class="headerlink" title="react"></a><strong>react</strong></h2><hr>
+<blockquote>
+<p><code>componentDidMount</code>执行两次的问题</p>
+</blockquote>
+<p><strong>原因</strong>: 使用<code>react-transition-group</code>作路由过渡, 每次enter和leave的时候, componentDidMount会执行两次</p>
+<p><strong>解决</strong>: 重构<code>RouterConfig</code></p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">&lt;CSSTransition exit=&#123;<span class="literal">false</span>&#125;&gt;</span><br><span class="line">  &lt;Switch location=&#123;props.location&#125;&gt;</span><br><span class="line">    &#123;...&#125;</span><br><span class="line">  &lt;<span class="regexp">/Switch&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>CSSTransition&gt;</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>Can’t setState (or forceUpdate) on an unmounted component, This is a no-op, but it indicates a memory leak in your application.</p>
+</blockquote>
+<p><strong>原因</strong>: 未及时清理副作用</p>
+<p><strong>解决</strong>: <code>componentWillUnmount</code> 中清理 <code>定时器</code> | <code>监听器</code> | <code>setState</code> 等.</p>
 
       
     
