@@ -161,7 +161,7 @@
     <span class="title" id="toc-switch"><span>文章导航</span></span>
     <div class="toc-inner syuanpi back-1" style="display:none;">
       <li class="title-link"><a href="javascript:;" class="toTop">七牛云绑定域名</a></li>
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#注册七牛云"><span class="toc-text">注册七牛云</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建存储空间"><span class="toc-text">创建存储空间</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建加速域名"><span class="toc-text">创建加速域名</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#获取CNAME"><span class="toc-text">获取CNAME</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#添加CNAME记录"><span class="toc-text">添加CNAME记录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#验证解析是否成功"><span class="toc-text">验证解析是否成功</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#测试"><span class="toc-text">测试</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#注册七牛云"><span class="toc-text">注册七牛云</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建存储空间"><span class="toc-text">创建存储空间</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建加速域名"><span class="toc-text">创建加速域名</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#获取CNAME"><span class="toc-text">获取CNAME</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#添加CNAME记录"><span class="toc-text">添加CNAME记录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#验证解析是否成功"><span class="toc-text">验证解析是否成功</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#测试"><span class="toc-text">测试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#结语"><span class="toc-text">结语</span></a></li></ol>
     </div>
   </aside>
 
@@ -297,7 +297,8 @@
 <p><img src="/2019/01/23/七牛云绑定域名/images/4.jpg" alt="配置CNAME"></p>
 <p>鼠标悬停表格项, 复制对应的CNAME, 如图:</p>
 <p><img src="/2019/01/23/七牛云绑定域名/images/5.jpg" alt="复制CNAME"></p>
-<h2 id="添加CNAME记录"><a href="#添加CNAME记录" class="headerlink" title="添加CNAME记录"></a><strong>添加CNAME记录</strong></h2><blockquote>
+<h2 id="添加CNAME记录"><a href="#添加CNAME记录" class="headerlink" title="添加CNAME记录"></a><strong>添加CNAME记录</strong></h2><hr>
+<blockquote>
 <p>同时也是阿里云的多级域名解析步骤</p>
 </blockquote>
 <ol>
@@ -340,13 +341,25 @@
 </ol>
 <p><img src="/2019/01/23/七牛云绑定域名/images/12.jpg" alt="七牛云CNAME配置成功"></p>
 <p>返回到七牛云的<code>对象存储</code>页, 出现如上图所示, 则表明已经成功了<code>50%</code>! 接着, 进行最后一步, 测试域名是否绑定成功.</p>
-<h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a><strong>测试</strong></h2><ol>
+<h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a><strong>测试</strong></h2><hr>
+<ol>
 <li>进入<code>内容管理</code>页, 点击<code>上传文件</code>按钮, 上传你的图片, 之后点击<code>关闭按钮</code>即可, 如图:</li>
 </ol>
 <p><img src="/2019/01/23/七牛云绑定域名/images/13.jpg" alt="内容管理页"><br><img src="/2019/01/23/七牛云绑定域名/images/14.jpg" alt="上传完成"></p>
 <ol start="2">
-<li>关闭之后, 我们可以看到:</li>
+<li>关闭之后, 我们在右边的查看按钮, 点击<code>复制外链</code></li>
 </ol>
+<p><img src="/2019/01/23/七牛云绑定域名/images/15.jpg" alt="图片预览"></p>
+<p>我们可以清楚的看到, 此时已经可以正常的显示图片了:</p>
+<p><img src="/2019/01/23/七牛云绑定域名/images/16.jpg" alt="图片正常显示"></p>
+<p>但是, 此时值得注意的是, 我们的地址栏的域名, 并不是我们自定义的域名, 而是七牛云分配的域名, 这就有点尴尬了…</p>
+<p>此时, 我们只要将外链域名下拉框更改为<code>自定义域名</code>, 并且保存即可.</p>
+<p><img src="/2019/01/23/七牛云绑定域名/images/17.jpg" alt="修改外链域名"></p>
+<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a><strong>结语</strong></h2><hr>
+<blockquote>
+<p>每天进步一点点</p>
+</blockquote>
+<p><img src="/2019/01/23/七牛云绑定域名/images/18.jpg" alt="child"></p>
 
       
     
