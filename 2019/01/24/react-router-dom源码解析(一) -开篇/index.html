@@ -67,9 +67,9 @@
   <meta name="keywords" content="博客 blog 个人博客">
 
 
-  <meta name="keywords" content="webpack, Nlvi">
+  <meta name="keywords" content="react, Nlvi">
 
-  <title> webpack错误集锦(一) · 阳哥小站 </title>
+  <title> react-router-dom源码解析(一) -开篇 · 阳哥小站 </title>
 </head>
 <body>
   <div class="progress">
@@ -160,8 +160,8 @@
   <aside class="post-toc">
     <span class="title" id="toc-switch"><span>文章导航</span></span>
     <div class="toc-inner syuanpi back-1" style="display:none;">
-      <li class="title-link"><a href="javascript:;" class="toTop">webpack错误集锦(一)</a></li>
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#打包ts报错"><span class="toc-text">打包ts报错</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#webpack构建命令"><span class="toc-text">webpack构建命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置node环境变量"><span class="toc-text">配置node环境变量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#webpack-dev-server报错"><span class="toc-text">webpack-dev-server报错</span></a></li></ol>
+      <li class="title-link"><a href="javascript:;" class="toTop">react-router-dom源码解析(一) -开篇</a></li>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#源于"><span class="toc-text">源于</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#准备工作"><span class="toc-text">准备工作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#fork"><span class="toc-text">fork</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#精简"><span class="toc-text">精简</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#观摩"><span class="toc-text">观摩</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#大致体系"><span class="toc-text">大致体系</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-text">总结</span></a></li></ol>
     </div>
   </aside>
 
@@ -252,7 +252,7 @@
     <header class="post-header">
       <div class="post-time syuanpi fadeInUpShort back-1">
         <div class="post-time-wrapper">
-          <span>2019-01-21</span>
+          <span>2019-01-24</span>
           
             
               <span class="post-category"><a href="/categories/frontend/">frontend</a></span>
@@ -262,7 +262,7 @@
             
               <aside class="post-tags syuanpi fadeInUpShort back-3">
               
-                <a href="/tags/webpack/">webpack</a>
+                <a href="/tags/react/">react</a>
               
               </aside>
             
@@ -271,45 +271,36 @@
       </div>
       <h1 class="post-title syuanpi fadeInUpShort back-2">
         
-          webpack错误集锦(一)
+          react-router-dom源码解析(一) -开篇
         
       </h1>
     </header>
     <div class="post-content syuanpi fadeInUpShort back-3">
       
-        <p>自己配置使用webpack过程中遇到的常见错误, 小本子记录下来, 后续也可以做个参考.</p>
+        <p>库用的多了, 自然想了解以下它的原理是怎样的, 这是react-router-dom源码系列的第一篇, 后续会分多个部分来分别研究其中常用的<code>Browser</code>, <code>HashRouter</code>, <code>Link</code>, <code>NavLink</code>, <code>Route</code>, <code>Switch</code>, <code>Redirect</code>等组件</p>
 <a id="more"></a>
-<h2 id="打包ts报错"><a href="#打包ts报错" class="headerlink" title="打包ts报错"></a><strong>打包ts报错</strong></h2><hr>
+<h2 id="源于"><a href="#源于" class="headerlink" title="源于"></a><strong>源于</strong></h2><hr>
+<p>写这篇文章是源于我对原理的究其所根, 会用了不行, 得知道原理. 毕竟, 作为新时代优秀大学生, 尽量不成为一个低级码农…</p>
+<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a><strong>准备工作</strong></h2><hr>
+<h3 id="fork"><a href="#fork" class="headerlink" title="fork"></a>fork</h3><p>进入gayhub, 找到react-router, 将其fork下来, 项目一级目录大概是这样的:</p>
+<p><img src="/2019/01/24/react-router-dom源码解析(一) -开篇/images/1.jpg" alt="react-router一级目录"></p>
+<h3 id="精简"><a href="#精简" class="headerlink" title="精简"></a>精简</h3><p><code>cd</code>到<code>react-router/packages/</code>目录下, 看到里面有四个对应的文件夹, 这个已经很熟悉了, 我们阅读的是<code>react-router-dom</code>, 所以只保留如下两个项目文件夹:</p>
+<p><img src="/2019/01/24/react-router-dom源码解析(一) -开篇/images/2.jpg" alt="react-router二级packages目录"></p>
 <blockquote>
-<p>Module not found: Error: Can’t resolve ‘./components/hello’ in ‘D:\Code\webpack_study\first\src</p>
+<p>这里要注意, 源码中react-router和react-router-dom是分开的, 而我们项目中只引用了react-router-dom这一个包, 因为react-router的作者将两者合并为一个包, 方便开发者使用</p>
 </blockquote>
-<p><strong>问题原因</strong>: import导入<code>ts</code>, <code>tsx</code>, <code>js</code>, <code>jsx</code>等模块时, 默认不会携带后缀名, 导致webpack无法解析.</p>
-<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; sayHello &#125; <span class="keyword">from</span> <span class="string">'./components/Hello'</span>;</span><br></pre></td></tr></table></figure>
-<p><strong>解决办法</strong>: webpack.config中增加<code>resolve</code>配置项.</p>
-<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  ...</span><br><span class="line">  resolve: &#123;</span><br><span class="line">    extensions: [<span class="string">'.tsx'</span>, <span class="string">'.ts'</span>, <span class="string">'.jsx'</span>, <span class="string">'.js'</span>,],</span><br><span class="line">  &#125;,</span><br><span class="line">  ...</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h2 id="webpack构建命令"><a href="#webpack构建命令" class="headerlink" title="webpack构建命令"></a><strong>webpack构建命令</strong></h2><hr>
-<ol>
-<li>package.json中配置</li>
-</ol>
-<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">scripts: &#123;</span><br><span class="line">  <span class="string">"build"</span>: <span class="string">"webpack --config webpack.config.js"</span>,</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
-<ol start="2">
-<li>npm内置的npx命令直接执行</li>
-</ol>
-<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npx webpack --config webpack.config.js</span><br></pre></td></tr></table></figure>
-<h2 id="配置node环境变量"><a href="#配置node环境变量" class="headerlink" title="配置node环境变量"></a><strong>配置node环境变量</strong></h2><hr>
-<blockquote>
-<p>配置<code>webpack</code>过程中需要使用<code>process.env.NODE_ENV</code>, 而默认是不存在的</p>
-</blockquote>
-<p><strong>cross-env包</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save-dev cross-env</span><br></pre></td></tr></table></figure>
-<p><strong>package.json</strong></p>
-<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">scripts: &#123;</span><br><span class="line">  <span class="string">"build"</span>: <span class="string">"cross-env NODE_ENV=production webpack --config webpack.config.js"</span>,</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
-<h2 id="webpack-dev-server报错"><a href="#webpack-dev-server报错" class="headerlink" title="webpack-dev-server报错"></a><strong>webpack-dev-server报错</strong></h2><hr>
-<blockquote>
-<p>[HMR] Hot Module Replacement is disabled</p>
-</blockquote>
-<p>未在<code>webpack.config</code>中添加 <code>hot-module-replacement-plugin</code>.</p>
-<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  plugins: [</span><br><span class="line">    <span class="keyword">new</span> webpack.HotModuleReplacementPlugin(),</span><br><span class="line">  ],</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+<h3 id="观摩"><a href="#观摩" class="headerlink" title="观摩"></a>观摩</h3><p><code>react-router-dom</code>和<code>react-router</code>的目录结构简直一毛一样, 先来看<code>react-router</code>, 找到<code>react-router/modules/</code> 目录:</p>
+<p><img src="/2019/01/24/react-router-dom源码解析(一) -开篇/images/3.jpg" alt="react-router的modules目录"></p>
+<p>可以看到一个个熟悉的身影, 这里也就是我们的对应的源码目录, 一切将从这里开始… 同样的, 进入到<code>react-router-dom/modules</code>目录:</p>
+<p><img src="/2019/01/24/react-router-dom源码解析(一) -开篇/images/4.jpg" alt="react-router-dom的modules目录"></p>
+<p>同样也是很熟悉了.</p>
+<h2 id="大致体系"><a href="#大致体系" class="headerlink" title="大致体系"></a><strong>大致体系</strong></h2><hr>
+<p>其实<code>react-router-dom</code>的结构并没有那么复杂, 大致就是下面的这么一个图:</p>
+<p><img src="/2019/01/24/react-router-dom源码解析(一) -开篇/images/5.jpg" alt="react-router-dom体系结构"></p>
+<p>可以看到, 大名鼎鼎的react-router-dom的底层API都是依靠了<code>history</code>这个依赖包, <code>history</code>提供了<code>createBrowserHistory</code>和<code>createHashHistory</code>这两个API供开发者使用. 而react-router-dom的<code>BrowserRouter</code>和<code>HistoryRouter</code>其实只是对上述提到的两个API进行了一层封装.</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a><strong>总结</strong></h2><hr>
+<p>这篇文章只是对整个流程做了一个概述, 后续的章节将会一一学习各个API.</p>
+
       
     
     </div>
@@ -323,16 +314,10 @@
     
   <nav class="article-page">
     
-      <a href="/2019/01/21/webpack常用loader-一/" id="art-left" class="art-left">
-        <span class="next-title">
-          <i class="iconfont icon-left"></i>webpack常用loader(一)
-        </span>
-      </a>
     
-    
-      <a href="/2019/01/21/webpack精读-一/" id="art-right" class="art-right">
+      <a href="/2019/01/23/七牛云绑定域名/" id="art-right" class="art-right">
         <span class="prev-title"> 
-          webpack精读(一)<i class="iconfont icon-right"></i>  
+          七牛云绑定域名<i class="iconfont icon-right"></i>  
         </span>
       </a>
     
