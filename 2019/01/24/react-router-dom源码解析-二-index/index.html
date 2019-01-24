@@ -69,7 +69,7 @@
 
   <meta name="keywords" content="react, Nlvi">
 
-  <title> react-router-dom源码解析(一) -开篇 · 阳哥小站 </title>
+  <title> react-router-dom源码解析(二) -index · 阳哥小站 </title>
 </head>
 <body>
   <div class="progress">
@@ -160,8 +160,8 @@
   <aside class="post-toc">
     <span class="title" id="toc-switch"><span>文章导航</span></span>
     <div class="toc-inner syuanpi back-1" style="display:none;">
-      <li class="title-link"><a href="javascript:;" class="toTop">react-router-dom源码解析(一) -开篇</a></li>
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#源于"><span class="toc-text">源于</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#准备工作"><span class="toc-text">准备工作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#fork"><span class="toc-text">fork</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#精简"><span class="toc-text">精简</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#观摩"><span class="toc-text">观摩</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#大致体系"><span class="toc-text">大致体系</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-text">总结</span></a></li></ol>
+      <li class="title-link"><a href="javascript:;" class="toTop">react-router-dom源码解析(二) -index</a></li>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#目录规划"><span class="toc-text">目录规划</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#index导入"><span class="toc-text">index导入</span></a></li></ol>
     </div>
   </aside>
 
@@ -271,35 +271,29 @@
       </div>
       <h1 class="post-title syuanpi fadeInUpShort back-2">
         
-          react-router-dom源码解析(一) -开篇
+          react-router-dom源码解析(二) -index
         
       </h1>
     </header>
     <div class="post-content syuanpi fadeInUpShort back-3">
       
-        <p>库用的多了, 自然想了解以下它的原理是怎样的, 这是react-router-dom源码系列的第一篇, 后续会分多个部分来分别研究其中常用的<code>Browser</code>, <code>HashRouter</code>, <code>Link</code>, <code>NavLink</code>, <code>Route</code>, <code>Switch</code>, <code>Redirect</code>等组件</p>
+        <p>react-router-dom源码学习系列第二篇, 主要讲解并对react-router-dom的目录结构进行规划.</p>
 <a id="more"></a>
-<h2 id="源于"><a href="#源于" class="headerlink" title="源于"></a><strong>源于</strong></h2><hr>
-<p>写这篇文章是源于我对原理的究其所根, 会用了不行, 得知道原理. 毕竟, 作为新时代优秀大学生, 尽量不成为一个低级码农…</p>
-<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a><strong>准备工作</strong></h2><hr>
-<h3 id="fork"><a href="#fork" class="headerlink" title="fork"></a>fork</h3><p>进入gayhub, 找到react-router, 将其fork下来, 项目一级目录大概是这样的:</p>
-<p><img src="/2019/01/24/react-router-dom源码解析(一) -开篇/images/1.jpg" alt="react-router一级目录"></p>
-<h3 id="精简"><a href="#精简" class="headerlink" title="精简"></a>精简</h3><p><code>cd</code>到<code>react-router/packages/</code>目录下, 看到里面有四个对应的文件夹, 这个已经很熟悉了, 我们阅读的是<code>react-router-dom</code>, 所以只保留如下两个项目文件夹:</p>
-<p><img src="/2019/01/24/react-router-dom源码解析(一) -开篇/images/2.jpg" alt="react-router二级packages目录"></p>
-<blockquote>
-<p>这里要注意, 源码中react-router和react-router-dom是分开的, 而我们项目中只引用了react-router-dom这一个包, 因为react-router的作者将两者合并为一个包, 方便开发者使用</p>
-</blockquote>
-<h3 id="观摩"><a href="#观摩" class="headerlink" title="观摩"></a>观摩</h3><p><code>react-router-dom</code>和<code>react-router</code>的目录结构简直一毛一样, 先来看<code>react-router</code>, 找到<code>react-router/modules/</code> 目录:</p>
-<p><img src="/2019/01/24/react-router-dom源码解析(一) -开篇/images/3.jpg" alt="react-router的modules目录"></p>
-<p>可以看到一个个熟悉的身影, 这里也就是我们的对应的源码目录, 一切将从这里开始… 同样的, 进入到<code>react-router-dom/modules</code>目录:</p>
-<p><img src="/2019/01/24/react-router-dom源码解析(一) -开篇/images/4.jpg" alt="react-router-dom的modules目录"></p>
-<p>同样也是很熟悉了.</p>
-<h2 id="大致体系"><a href="#大致体系" class="headerlink" title="大致体系"></a><strong>大致体系</strong></h2><hr>
-<p>其实<code>react-router-dom</code>的结构并没有那么复杂, 大致就是下面的这么一个图:</p>
-<p><img src="/2019/01/24/react-router-dom源码解析(一) -开篇/images/5.jpg" alt="react-router-dom体系结构"></p>
-<p>可以看到, 大名鼎鼎的react-router-dom的底层API都是依靠了<code>history</code>这个依赖包, <code>history</code>提供了<code>createBrowserHistory</code>和<code>createHashHistory</code>这两个API供开发者使用. 而react-router-dom的<code>BrowserRouter</code>和<code>HistoryRouter</code>其实只是对上述提到的两个API进行了一层封装.</p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a><strong>总结</strong></h2><hr>
-<p>这篇文章只是对整个流程做了一个概述, 后续的章节将会一一学习各个API.</p>
+<h2 id="目录规划"><a href="#目录规划" class="headerlink" title="目录规划"></a>目录规划</h2><hr>
+<p>上一篇文章主要说了<code>react-router-dom</code>的源代码目录的总体架构, 了解到了其基本的文件划分, 这一篇文章也是对我们自己的源代码目录进行规划. 毕竟<code>多说不练非君子</code>…</p>
+<p>使用<code>create-react-app</code>快速搭建一个开发环境, 我习惯用tsx进行书写, 所以该命令大致是这样的:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">create-react-app yyg-react-router-dom --scripts-version=react-scripts-ts</span><br></pre></td></tr></table></figure>
+<p>然后<code>cd</code>到项目文件夹下, 创建<code>src</code>并在其下创建同名目录, 代表我们自己编写的<code>react-router-dom</code>, 并在之中新建react-router-dom对应的各个组件:</p>
+<p><img src="/2019/01/24/react-router-dom源码解析-二-index/images/1.jpg" alt="react-router-dom组件结构"></p>
+<p>在任意一个组件文件中, 书写入如下代码:</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> * <span class="keyword">as</span> React <span class="keyword">from</span> <span class="string">'react'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> interface IHashRouterProps &#123; &#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> HashRouter = React.memo&lt;IHashRouterProps&gt;((</span><br><span class="line">  props: IHashRouterProps,</span><br><span class="line">): JSX.Element =&gt; &#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;React.Fragment /&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> HashRouter;</span><br></pre></td></tr></table></figure>
+<p><strong>注意</strong>: 这里只是做一个测试而已, 同理, 将上述模板分别copy到其他剩余的七个组件中, 并且修改为组件对应的名称.</p>
+<h2 id="index导入"><a href="#index导入" class="headerlink" title="index导入"></a><strong>index导入</strong></h2><hr>
+<p>最后, 在<code>index.tsx</code>中导入我们自己的<code>react-router-dom</code>组件, 作统一导出, 一方面是为了美观, 更重要的是我们的组件规范.</p>
+<p>在<code>index.tsx</code>中:</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> BrowserRouter <span class="keyword">from</span> <span class="string">'./components/BrowserRouter'</span>;</span><br><span class="line"><span class="keyword">import</span> HashRouter <span class="keyword">from</span> <span class="string">'./components/HashRouter'</span>;</span><br><span class="line"><span class="keyword">import</span> Link <span class="keyword">from</span> <span class="string">'./components/Link'</span>;</span><br><span class="line"><span class="keyword">import</span> NavLink <span class="keyword">from</span> <span class="string">'./components/NavLink'</span>;</span><br><span class="line"><span class="keyword">import</span> Redirect <span class="keyword">from</span> <span class="string">'./components/Redirect'</span>;</span><br><span class="line"><span class="keyword">import</span> Route <span class="keyword">from</span> <span class="string">'./components/Route'</span>;</span><br><span class="line"><span class="keyword">import</span> Switch <span class="keyword">from</span> <span class="string">'./components/Switch'</span>;</span><br><span class="line"><span class="keyword">import</span> withRouter <span class="keyword">from</span> <span class="string">'./components/withRouter'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> &#123;</span><br><span class="line">  BrowserRouter,</span><br><span class="line">  HashRouter,</span><br><span class="line">  Link,</span><br><span class="line">  NavLink,</span><br><span class="line">  Redirect,</span><br><span class="line">  Route,</span><br><span class="line">  Switch,</span><br><span class="line">  withRouter,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>作完这一步, 我们的项目基本结构基本搭建好了, 后续的可能会用到的工具函数, 后面再说…</p>
+<p>下一篇, 会学习<code>BrowserRouter</code>组件的源码…</p>
 
       
     
@@ -314,16 +308,10 @@
     
   <nav class="article-page">
     
-      <a href="/2019/01/24/react-router-dom源码解析-二-index/" id="art-left" class="art-left">
-        <span class="next-title">
-          <i class="iconfont icon-left"></i>react-router-dom源码解析(二) -index
-        </span>
-      </a>
     
-    
-      <a href="/2019/01/23/七牛云绑定域名/" id="art-right" class="art-right">
+      <a href="/2019/01/24/react-router-dom源码解析(一) -开篇/" id="art-right" class="art-right">
         <span class="prev-title"> 
-          七牛云绑定域名<i class="iconfont icon-right"></i>  
+          react-router-dom源码解析(一) -开篇<i class="iconfont icon-right"></i>  
         </span>
       </a>
     
