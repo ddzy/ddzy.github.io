@@ -161,7 +161,7 @@
     <span class="title" id="toc-switch"><span>文章导航</span></span>
     <div class="toc-inner syuanpi back-1" style="display:none;">
       <li class="title-link"><a href="javascript:;" class="toTop">react-router-dom源码解析(三) -BrowserRouter</a></li>
-      
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Topic"><span class="toc-text">Topic</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Main"><span class="toc-text">Main</span></a></li></ol>
     </div>
   </aside>
 
@@ -279,7 +279,13 @@
       
         <p>个人react-router-dom源码学习系列第三篇 —— BrowserRouter组件</p>
 <a id="more"></a>
+<h2 id="Topic"><a href="#Topic" class="headerlink" title="Topic"></a><strong>Topic</strong></h2><hr>
+<blockquote>
 <p>上一篇主要学习了官方的<code>react-router-dom</code>源码目录结构, 并且创建了我们自己的源码目录体系. 这一篇文章主要是一起学习<code>BrowserRouter</code>的源码, 并且使用<code>.tsx</code>完善自己的<code>react-router-dom</code>.</p>
+</blockquote>
+<h2 id="Main"><a href="#Main" class="headerlink" title="Main"></a><strong>Main</strong></h2><hr>
+<p><code>BrowserRouter</code>使用<code>history</code>库的<code>createBrowserHistory</code>API, 通过传递给其的相关<code>props</code>, 创建history对象, 作为<code>props</code>传递给<code>react-router</code>的<code>Router</code>组件, 源码是这样的:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">// 创建history, 将history作为props传递至Router</span><br><span class="line">history = createHistory(this.props);</span><br><span class="line"></span><br><span class="line">render() &#123;</span><br><span class="line">  return &lt;Router history=&#123;this.history&#125; children=&#123;this.props.children&#125; /&gt;;</span><br><span class="line">&#125;</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
 
       
     
