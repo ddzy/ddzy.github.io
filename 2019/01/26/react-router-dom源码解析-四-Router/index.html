@@ -161,7 +161,7 @@
     <span class="title" id="toc-switch"><span>文章导航</span></span>
     <div class="toc-inner syuanpi back-1" style="display:none;">
       <li class="title-link"><a href="javascript:;" class="toTop">react-router-dom源码解析(四) -Router</a></li>
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#细说"><span class="toc-text">细说</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#context创建"><span class="toc-text">context创建</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#路由监听"><span class="toc-text">路由监听</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实践"><span class="toc-text">实践</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#测试"><span class="toc-text">测试</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#细说"><span class="toc-text">细说</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#context创建"><span class="toc-text">context创建</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#路由监听"><span class="toc-text">路由监听</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实践"><span class="toc-text">实践</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#测试"><span class="toc-text">测试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#"><span class="toc-text">**</span></a></li></ol>
     </div>
   </aside>
 
@@ -319,8 +319,13 @@
 <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// src/yyg-react-router-dom/components/BrowserRouter.tsx</span></span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"><span class="keyword">const</span> browserHistory: History = createBrowserHistory(props);</span><br><span class="line"><span class="comment">// 挂在到window</span></span><br><span class="line">Reflect.set(<span class="built_in">window</span>, <span class="string">'browserHistory'</span>, browserHistory);</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
 <p>接着, 打开chrome的console栏, 输入<code>browserRouter</code>, 出现如图所示就代表已经成功了…</p>
 <p><img src="/2019/01/26/react-router-dom源码解析-四-Router/images/2.jpg" alt="console栏browserRouter测试挂载"></p>
-<p>然后, 命令行中输入<code>browserRouter.push(&#39;/duan&#39;)</code>, 可以看到url地址栏已经变化了, 但是….. console栏没有输出我们的<code>Route.tsx</code>中的<code>context</code>, 按理说, 我们已经在<code>Router</code>中监听了url的变化, 而这种变化会即时反映到<code>Context.Provider</code>中, 但是这里并不是我们预期的那样…</p>
-
+<p>然后, 命令行中输入<code>browserRouter.push(&#39;/duan&#39;)</code>, 可以看到url地址栏已经变化了, 但是….. console栏没有输出我们的<code>Route.tsx</code>中的<code>context</code>, 按理说, 我们已经在<code>Router</code>中监听了url的变化, 而这种变化会即时反映到<code>Context.Provider</code>中, 但是这里并不是我们预期的那样…原因在哪里呢???</p>
+<p>带着这个问题, 我们再次打开<code>App.tsx</code>, 我们发现, 此时的</p>
+<p><img src="/2019/01/26/react-router-dom源码解析-四-Router/images/3.jpg" alt="Route和BrowserRouter并不是父子关系"></p>
+<p><code>Route</code>和<code>BrowserRouter</code>并不是父子关系, 也就是说<code>Consume</code>和<code>Provider</code>是分开的, 这也是问题所在. 将<code>&lt;Route&gt;</code>组件放置在<code>&lt;BrowserRouter&gt;内</code>. 保存打开chrome, console中输入<code>browserRouter.push(&#39;/zhaoyang&#39;)</code>, 这时候, 可以清楚的看到:</p>
+<p><img src="/2019/01/26/react-router-dom源码解析-四-Router/images/4.jpg" alt="测试成功"></p>
+<p>每一次url的变化, <code>Route</code>组件都能正常的接收到这种改变, 到这里, 我们的测试步骤就完成了. 当然, 还有一些错误处理, 后续可以再完善…</p>
+<h2 id=""><a href="#" class="headerlink" title="**"></a><em>**</em></h2>
       
     
     </div>
