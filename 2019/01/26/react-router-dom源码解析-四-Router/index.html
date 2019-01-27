@@ -315,6 +315,11 @@
 <p>完成上述步骤之后, 我们<code>npm start</code>启动服务器, console栏中可以看到如下输出:</p>
 <p><img src="/2019/01/26/react-router-dom源码解析-四-Router/images/1.jpg" alt="测试context输出"></p>
 <p>我们可以看到, 这里输出了一个空对象, 当然这也就是我们为<code>RouterContext</code>设置的默认值了. 出现这一步, 代表我们已经打通了<code>context</code>传递的流程. 接下来, 我们还得测试<strong>url的变化, 是否能反映到Router中的context, 然后又能否通过context的<code>Provider</code>分发给对应的<code>Consumer</code></strong></p>
+<p>这里, 有个小方法, 我们可以将<code>history</code>对象挂在到<code>window</code>上, 这样可以方便的在chrome中调试了. 打开<code>BrowserRouter.tsx</code>组件, 在创建好<code>browserHistory</code>对象之后, 同时将其挂载到<code>window</code>上:</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// src/yyg-react-router-dom/components/BrowserRouter.tsx</span></span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"><span class="keyword">const</span> browserHistory: History = createBrowserHistory(props);</span><br><span class="line"><span class="comment">// 挂在到window</span></span><br><span class="line">Reflect.set(<span class="built_in">window</span>, <span class="string">'browserHistory'</span>, browserHistory);</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<p>接着, 打开chrome的console栏, 输入<code>browserRouter</code>, 出现如图所示就代表已经成功了…</p>
+<p><img src="/2019/01/26/react-router-dom源码解析-四-Router/images/2.jpg" alt="console栏browserRouter测试挂载"></p>
+<p>然后, 命令行中输入<code>browserRouter.push(&#39;/duan&#39;)</code>, 可以看到url地址栏已经变化了, 但是….. console栏没有输出我们的<code>Route.tsx</code>中的<code>context</code>, 按理说, 我们已经在<code>Router</code>中监听了url的变化, 而这种变化会即时反映到<code>Context.Provider</code>中, 但是这里并不是我们预期的那样…</p>
 
       
     
