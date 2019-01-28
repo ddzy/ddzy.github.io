@@ -161,7 +161,7 @@
     <span class="title" id="toc-switch"><span>文章导航</span></span>
     <div class="toc-inner syuanpi back-1" style="display:none;">
       <li class="title-link"><a href="javascript:;" class="toTop">react-router-dom源码解析(五) -Route</a></li>
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#细说"><span class="toc-text">细说</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#前置知识"><span class="toc-text">前置知识</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#源码分析"><span class="toc-text">源码分析</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实践"><span class="toc-text">实践</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-text">总结</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#细说"><span class="toc-text">细说</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#前置知识"><span class="toc-text">前置知识</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#path-to-regexp"><span class="toc-text">path-to-regexp</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#源码分析"><span class="toc-text">源码分析</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实践"><span class="toc-text">实践</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-text">总结</span></a></li></ol>
     </div>
   </aside>
 
@@ -286,10 +286,9 @@
 </blockquote>
 <p>由此可见, <code>Route</code>同样是多么的重要.</p>
 <h2 id="细说"><a href="#细说" class="headerlink" title="细说"></a><strong>细说</strong></h2><hr>
-<h3 id="前置知识"><a href="#前置知识" class="headerlink" title="前置知识"></a>前置知识</h3><p>学习<code>Route</code>组件源码之前, 我们要准备一个前置知识:</p>
-<ul>
-<li>path-to-regexp</li>
-</ul>
+<h3 id="前置知识"><a href="#前置知识" class="headerlink" title="前置知识"></a>前置知识</h3><p>花了几分钟时间, 画了一张脑图, 大概是这一篇文章的大致脉络😰…</p>
+<p><img src="/2019/01/27/react-router-dom源码解析-五-Route/images/3.jpg" alt="文章大致脉络"></p>
+<h3 id="path-to-regexp"><a href="#path-to-regexp" class="headerlink" title="path-to-regexp"></a>path-to-regexp</h3><p>学习<code>Route</code>组件源码之前, 先来看一下这个库:</p>
 <p><code>react-router-dom</code>官方再源码中引用了这个库, 库的地址也可以在<a href="https://github.com/pillarjs/path-to-regexp" target="_blank" rel="noopener">这里</a>找到. 见名闻其意 —— path-to-regexp, 顾名思义, 就是将path, 例如<code>url</code>转化为不同模式的<code>RegExp</code>, 同时也提供了一些配置项供我们使用.</p>
 <p>来看一下path-to-regexp库提供的这个方法:</p>
 <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> path = <span class="string">'/user/:id/profile/:secret'</span>;</span><br><span class="line"><span class="keyword">const</span> keys: pathToRegexp.Key[] = [];</span><br><span class="line"><span class="keyword">const</span> regexp: <span class="built_in">RegExp</span> = pathToRegexp(path, keys, &#123;&#125;);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(&#123; path, keys, regexp &#125;);</span><br></pre></td></tr></table></figure>
