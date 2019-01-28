@@ -292,20 +292,26 @@
 </ul>
 <p><code>react-router-dom</code>官方再源码中引用了这个库, 库的地址也可以在<a href="https://github.com/pillarjs/path-to-regexp" target="_blank" rel="noopener">这里</a>找到. 见名闻其意 —— path-to-regexp, 顾名思义, 就是将path, 例如<code>url</code>转化为不同模式的<code>RegExp</code>, 同时也提供了一些配置项供我们使用.</p>
 <p>来看一下path-to-regexp库提供的这个方法:</p>
-<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> path = <span class="string">'/user/:id/profile/:secret'</span>;</span><br><span class="line"><span class="keyword">const</span> keys: pathToRegexp.Key[] = [];</span><br><span class="line"><span class="keyword">const</span> regexp = pathToRexexp(path, keys, &#123;&#125;);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(&#123; path, keys, regexp &#125;);</span><br></pre></td></tr></table></figure>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> path = <span class="string">'/user/:id/profile/:secret'</span>;</span><br><span class="line"><span class="keyword">const</span> keys: pathToRegexp.Key[] = [];</span><br><span class="line"><span class="keyword">const</span> regexp: <span class="built_in">RegExp</span> = pathToRegexp(path, keys, &#123;&#125;);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(&#123; path, keys, regexp &#125;);</span><br></pre></td></tr></table></figure>
 <p>这是官方提供的例子, 我们在控制台打印可以看到如下结果:</p>
 <p><img src="/2019/01/27/react-router-dom源码解析-五-Route/images/1.jpg" alt="path-to-regexp示例"></p>
 <p>我们可以看到, <code>path-to-regexp</code>根据我们输入的<code>path</code>路径, 以及<code>keys</code>空数组, 生成了对应的<code>regexp</code>对象, 以及保存着url参数的数组. 那么我们可以思考一下, 我们能否将这个小例子, 引申到<code>react-router-dom</code>中呢? 答案是肯定的.</p>
 <p>先来捋一下<code>Route</code>组件的设计思路:</p>
 <ol>
 <li>接收到带有{ path, sensitive, exact, … }的props</li>
-<li>判断props是否具有<code>Switch</code>组件已经生成的<code>match</code>对象<ul>
+<li>判断props是否具有<code>Switch</code>组件已经计算好的的<code>match</code>对象<ul>
 <li>有的话, 执行下一步<code>render</code></li>
 <li>没有的话, 计算<code>match</code></li>
 </ul>
 </li>
 <li>根据props的{ children, component, render }执行<code>render</code></li>
 </ol>
+<p>再将目光转向上面提到的例子, 我们可否将例子里的<code>path</code>当作<code>Route</code>的<code>path</code>props? 接着第一个例子, 抛砖引玉, 我们再来看一个:</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> path = <span class="string">'/user/:id/profile/:secret'</span>;</span><br><span class="line"><span class="keyword">const</span> keys: pathToRegexp.Key[] = [];</span><br><span class="line"><span class="keyword">const</span> pathname = <span class="string">'/user/19980808/profile/duan'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> regexp: <span class="built_in">RegExp</span> = pathToRegexp(path, keys, &#123;&#125;);</span><br><span class="line"><span class="keyword">const</span> result = pathname.match(regexp);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(result);</span><br></pre></td></tr></table></figure>
+<p>可以看到打印出了如下结果:</p>
+<p><img src="/2019/01/27/react-router-dom源码解析-五-Route/images/2.jpg" alt="例子2"></p>
+<p>这里, 我增加了<code>pathname</code>常量, 根据例子一中生成的<code>regexp</code>的<code>match</code>方法, 来生成一个捕获之后的对象. 生成的数组的前三项分别是<code>精确匹配后的url</code>, <code>:id</code>参数, <code>:secret</code>参数. 得出这个结果, 我们可以整合一下, 能否例子二中的<code>pathname</code>当作<code>props.location.pathname</code>?</p>
+<p><code>Route</code>的<code>path</code>props根据<code>path-to-reg</code>生成一个<code>regexp</code>对象, 该<code>regexp</code>根据<code>porps.location.pathname</code>生成捕获到的对象, 该对象中具有匹配之后的<code>pathname</code>, 以及<code>path</code>中携带的参数.</p>
 <h2 id="实践"><a href="#实践" class="headerlink" title="实践"></a><strong>实践</strong></h2><hr>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a><strong>总结</strong></h2><hr>
 
