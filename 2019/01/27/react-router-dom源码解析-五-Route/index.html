@@ -339,16 +339,20 @@
 <p>这里, 也是<strong>重点</strong>: 通过执行一个名叫<code>compilePath</code>方法, 传递了相关的props参数, 接收到了{ regexp, keys }两个返回值, 是不是很熟悉? 没错, 和我们的<code>例子一</code>中的是一样的, 将<code>path</code>转化成了对应的<code>regexp</code>, 将<code>path</code>中携带的参数提取到了<code>keys</code>数组中.</p>
 <p>顺藤摸瓜, 来到<code>compilePath()</code>函数:</p>
 <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// src/yyg-react-router-dom/components/matchPatch.js</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">compilePath</span>(<span class="params">path, options</span>) </span>&#123;</span><br><span class="line">  ...</span><br><span class="line">  ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>该函数作为连接<code>path-to-regexp</code>的桥梁, 主要任务是通过传入的<code>options</code>配置项 ,将<code>path</code>转化为<code>regexp</code> ,该函数同样接收两个参数</p>
+<p>该函数作为连接<code>path-to-regexp</code>的桥梁, 主要任务是通过传入的<code>options</code>配置项 ,将<code>path</code>转化为<code>regexp</code> ,该函数同样接收两个参数:</p>
 <ul>
 <li>path 需要转化的路径</li>
 <li>options 配置项<ul>
 <li>sensitive 是否区分大小写</li>
 <li>strict 是否忽略路径后的斜杠</li>
-<li>end 是否精确匹配</li>
+<li>end 是否精确匹配, 在做嵌套<code>Route</code>的时候非常有用, 本人被坑过🙂🙂🙂…</li>
 </ul>
 </li>
 </ul>
+<p>接着下一步:</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// src/yyg-react-router-dom/components/Route.js</span></span><br><span class="line"><span class="keyword">const</span> cacheKey = <span class="string">'`$&#123;options.end&#125;$&#123;options.strict&#125;$&#123;options.sensitive&#125;`'</span>;</span><br><span class="line"><span class="keyword">const</span> pathCache = cache[cacheKey] || (cache[cacheKey] = &#123;&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (pathCache[path]) <span class="keyword">return</span> pathCache[path];</span><br><span class="line"></span><br><span class="line">......</span><br><span class="line">......</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (cacheCount &lt; cacheLimit) &#123;</span><br><span class="line">  pathCache[path] = result;</span><br><span class="line">  cacheCount++;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>其中, 用到了几个全局常量对象, 这里就不做标注了.</p>
+<p><strong><em>如上所示, 其实是对<code>path-to-regexp</code>处理的结果进行了缓存, 由于<code>options</code>的参数是可选的, 所以这时对其进行缓存处理, 每一次计算<code>regexp</code>都会查询<code>cache</code>中有无缓存, 有利于优化性能</em></strong>. 这也是看源码值得学习的地方, 理解作者思路, 学习大牛写法🙂…</p>
 <h2 id="实践"><a href="#实践" class="headerlink" title="实践"></a><strong>实践</strong></h2><hr>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a><strong>总结</strong></h2><hr>
 
