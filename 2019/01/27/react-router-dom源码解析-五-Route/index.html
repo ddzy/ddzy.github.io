@@ -152,7 +152,7 @@
       <div class="tagcloud-mask"></div>  
 <div class="tagcloud" id="tagcloud">
   <div class="tagcloud-inner">
-    <a href="/tags/mood/" style="font-size: 14px;">mood</a> <a href="/tags/react/" style="font-size: 14px;">react</a> <a href="/tags/webpack/" style="font-size: 14px;">webpack</a> <a href="/tags/七牛云/" style="font-size: 14px;">七牛云</a> <a href="/tags/毕设/" style="font-size: 14px;">毕设</a>
+    <a href="/tags/react/" style="font-size: 14px;">react</a> <a href="/tags/webpack/" style="font-size: 14px;">webpack</a> <a href="/tags/七牛云/" style="font-size: 14px;">七牛云</a> <a href="/tags/毕设/" style="font-size: 14px;">毕设</a>
   </div>
 </div>
 
@@ -219,7 +219,7 @@
             </div>
             <div class="mobile-nav-tagcloud">
               <div class="mobile-tagcloud-inner">
-                <a href="/tags/mood/" style="font-size: 14px;">mood</a> <a href="/tags/react/" style="font-size: 14px;">react</a> <a href="/tags/webpack/" style="font-size: 14px;">webpack</a> <a href="/tags/七牛云/" style="font-size: 14px;">七牛云</a> <a href="/tags/毕设/" style="font-size: 14px;">毕设</a>
+                <a href="/tags/react/" style="font-size: 14px;">react</a> <a href="/tags/webpack/" style="font-size: 14px;">webpack</a> <a href="/tags/七牛云/" style="font-size: 14px;">七牛云</a> <a href="/tags/毕设/" style="font-size: 14px;">毕设</a>
               </div>
             </div>
           </div>
@@ -280,7 +280,16 @@
         <p>react-router-dom源码解析系列第五篇 - Route, 一起来学习<code>Route</code>组件的思想和继续完善我们自己的<code>react-router</code>库.</p>
 <a id="more"></a>
 <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a><strong>前言</strong></h2><hr>
+<p>上一篇主要学习了<code>react-router-dom</code>中<code>Router</code>组件的基本思想和简单实现, 我们可以发现, <code>Router</code>作为整个体系的<code>Powered by</code>-动力来源, 起着至关重要的作用. 而这一篇将要学习的<code>Route</code>组件, 是整个体系中的<code>执行者</code>:</p>
+<blockquote>
+<p>给你一个<code>path</code>, 你拿去, 把对应的<code>component</code>render出来.</p>
+</blockquote>
+<p>由此可见, <code>Route</code>同样是多么的重要.</p>
 <h2 id="细说"><a href="#细说" class="headerlink" title="细说"></a><strong>细说</strong></h2><hr>
+<p>逐行来分析, 首先, 映入眼帘的是这么一行代码:</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">invariant(context, <span class="string">"You should not use &lt;Route&gt; outside a &lt;Router&gt;"</span>);</span><br></pre></td></tr></table></figure>
+<p>作者通过引入<code>tiny-invariant</code>这么一个库, 判断<code>context</code>存在与否, 从而断定<code>Route</code>组件是否直接从属于<code>Router</code>, 这是一个<code>错误处理机制</code>. 同时, 我们也可以思考, 完成一个成熟完善的库, 除了有缜密的思维和扎实的功底, 也需要机制的错误处理机制, 这也是我欠缺的地方, 还需要多加学习+练习.</p>
+<p>当然, 这里我们也可以不需要<code>install</code>这个库, 直接<code>if</code>判断即可, 不用搞那么麻烦.</p>
 <h2 id="实践"><a href="#实践" class="headerlink" title="实践"></a><strong>实践</strong></h2><hr>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a><strong>总结</strong></h2><hr>
 
@@ -291,6 +300,26 @@
       
 
       
+  <hr class="copy-line">
+  <div class="post-copyright">
+    <div class="copy-author">
+      <span>作者 :</span>
+      <span>zhaoyang Duan</span>
+    </div>
+    <div class="copy-url">
+      <span>地址 :</span>
+      <a href="https://blog.yyge.top/2019/01/27/react-router-dom源码解析-五-Route/">https://blog.yyge.top/2019/01/27/react-router-dom源码解析-五-Route/</a>
+    </div>
+    <div class="copy-origin">
+      <span>来源 :</span>
+      <a href="https://blog.yyge.top">https://blog.yyge.top</a>
+    </div>
+    <div class="copy-license">
+      
+      MIT
+    </div>
+  </div>
+
     
   </article>
   
@@ -298,9 +327,9 @@
   <nav class="article-page">
     
     
-      <a href="/2019/01/26/博客之悟/" id="art-right" class="art-right">
+      <a href="/2019/01/26/react-router-dom源码解析-四-Router/" id="art-right" class="art-right">
         <span class="prev-title"> 
-          博客之悟<i class="iconfont icon-right"></i>  
+          react-router-dom源码解析(四) -Router<i class="iconfont icon-right"></i>  
         </span>
       </a>
     
