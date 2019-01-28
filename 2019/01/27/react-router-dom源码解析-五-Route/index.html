@@ -161,7 +161,7 @@
     <span class="title" id="toc-switch"><span>文章导航</span></span>
     <div class="toc-inner syuanpi back-1" style="display:none;">
       <li class="title-link"><a href="javascript:;" class="toTop">react-router-dom源码解析(五) -Route</a></li>
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#细说"><span class="toc-text">细说</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实践"><span class="toc-text">实践</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-text">总结</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#细说"><span class="toc-text">细说</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#前置知识"><span class="toc-text">前置知识</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#源码分析"><span class="toc-text">源码分析</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实践"><span class="toc-text">实践</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-text">总结</span></a></li></ol>
     </div>
   </aside>
 
@@ -286,7 +286,7 @@
 </blockquote>
 <p>由此可见, <code>Route</code>同样是多么的重要.</p>
 <h2 id="细说"><a href="#细说" class="headerlink" title="细说"></a><strong>细说</strong></h2><hr>
-<p>学习<code>Route</code>组件源码之前, 我们要准备一个前置知识:</p>
+<h3 id="前置知识"><a href="#前置知识" class="headerlink" title="前置知识"></a>前置知识</h3><p>学习<code>Route</code>组件源码之前, 我们要准备一个前置知识:</p>
 <ul>
 <li>path-to-regexp</li>
 </ul>
@@ -311,7 +311,26 @@
 <p>可以看到打印出了如下结果:</p>
 <p><img src="/2019/01/27/react-router-dom源码解析-五-Route/images/2.jpg" alt="例子2"></p>
 <p>这里, 我增加了<code>pathname</code>常量, 根据例子一中生成的<code>regexp</code>的<code>match</code>方法, 来生成一个捕获之后的对象. 生成的数组的前三项分别是<code>精确匹配后的url</code>, <code>:id</code>参数, <code>:secret</code>参数. 得出这个结果, 我们可以整合一下, 能否例子二中的<code>pathname</code>当作<code>props.location.pathname</code>?</p>
-<p><code>Route</code>的<code>path</code>props根据<code>path-to-reg</code>生成一个<code>regexp</code>对象, 该<code>regexp</code>根据<code>porps.location.pathname</code>生成捕获到的对象, 该对象中具有匹配之后的<code>pathname</code>, 以及<code>path</code>中携带的参数.</p>
+<p><code>Route</code>的<code>path</code>props根据<code>path-to-reg</code>生成一个<code>regexp</code>对象, 该<code>regexp</code>根据<code>porps.location.pathname</code>生成捕获到的对象, 该数组对象中具有匹配之后的<code>pathname</code>, 以及<code>path</code>中携带的参数.</p>
+<h3 id="源码分析"><a href="#源码分析" class="headerlink" title="源码分析"></a>源码分析</h3><p>根据前置知识的分析, 了解到其实<code>Route</code>组件是引用了<code>path-to-regexp</code>这个库, 可以说一切的核心都是围绕这个库展开的, 下面来看一看具体的源码…</p>
+<p>首先来看一下:</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// src/yyg-react-router-dom/components/Route.js</span></span><br><span class="line"><span class="keyword">const</span> match = <span class="keyword">this</span>.props.computedMatch</span><br><span class="line">  ? <span class="keyword">this</span>.props.computedMatch <span class="comment">// &lt;Switch&gt; already computed the match for us</span></span><br><span class="line">    : <span class="keyword">this</span>.props.path</span><br><span class="line">      ? matchPath(location.pathname, <span class="keyword">this</span>.props)</span><br><span class="line">      : context.match;</span><br></pre></td></tr></table></figure>
+<p>这一段代码刚好印证了之前提到了<code>Route</code>组件设计思路的第二步, 当然目前<code>Switch</code>组件的源码还没看… 其中可以看到, 当<code>props.computedMatch</code>不存在的话, 就会执行<code>matchPath</code>这个method. 接着, 我们进入到<code>matchPath</code>这个函数内部, 也就是<code>Route</code>同目录下的<code>matchPath.js</code>看一看…</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// src/yyg-react-router-dom/components/matchPath.js</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">matchPath</span>(<span class="params">pathname, options = &#123;&#125;</span>) </span>&#123;</span><br><span class="line">  ...</span><br><span class="line">  ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>可以看到, matchPath函数接受两个参数:</p>
+<ul>
+<li>pathname<ul>
+<li>也就是对应的<code>context.location.pathname</code></li>
+</ul>
+</li>
+<li>options<ul>
+<li>Route接收到的<code>props</code> —— { path, sensitive, exact, strict }</li>
+</ul>
+</li>
+</ul>
+<p>可以说, 余下的一切都是围绕这两个参数展开的…</p>
+<p>接着再往下看:</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// src/yyg-react-router-dom/components/matchPath.js</span></span><br></pre></td></tr></table></figure>
 <h2 id="实践"><a href="#实践" class="headerlink" title="实践"></a><strong>实践</strong></h2><hr>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a><strong>总结</strong></h2><hr>
 
