@@ -286,10 +286,14 @@
 </blockquote>
 <p>由此可见, <code>Route</code>同样是多么的重要.</p>
 <h2 id="细说"><a href="#细说" class="headerlink" title="细说"></a><strong>细说</strong></h2><hr>
-<p>逐行来分析, 首先, 映入眼帘的是这么一行代码:</p>
-<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">invariant(context, <span class="string">"You should not use &lt;Route&gt; outside a &lt;Router&gt;"</span>);</span><br></pre></td></tr></table></figure>
-<p>作者通过引入<code>tiny-invariant</code>这么一个库, 判断<code>context</code>存在与否, 从而断定<code>Route</code>组件是否直接从属于<code>Router</code>, 这是一个<code>错误处理机制</code>. 同时, 我们也可以思考, 完成一个成熟完善的库, 除了有缜密的思维和扎实的功底, 也需要机制的错误处理机制, 这也是我欠缺的地方, 还需要多加学习+练习.</p>
-<p>当然, 这里我们也可以不需要<code>install</code>这个库, 直接<code>if</code>判断即可, 不用搞那么麻烦.</p>
+<p>学习<code>Route</code>组件源码之前, 我们要准备一个前置知识:</p>
+<ul>
+<li>path-to-regexp</li>
+</ul>
+<p><code>react-router-dom</code>官方再源码中引用了这个库, 库的地址也可以在<a href="https://github.com/pillarjs/path-to-regexp" target="_blank" rel="noopener">这里</a>找到. 见名闻其意 —— path-to-regexp, 顾名思义, 就是将path, 例如<code>url</code>转化为不同模式的<code>RegExp</code>, 同时也提供了一些配置项供我们使用.</p>
+<p>来看一下path-to-regexp库提供的这个方法:</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> path = <span class="string">'/user/:id/profile/:secret'</span>;</span><br><span class="line"><span class="keyword">const</span> keys: pathToRegexp.Key[] = [];</span><br><span class="line"><span class="keyword">const</span> regexp = pathToRexexp(path, keys, &#123;&#125;);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(&#123; path, keys, regexp &#125;);</span><br></pre></td></tr></table></figure>
+<p>这是官方提供的例子, 我们在控制台打印可以看到如下结果:</p>
 <h2 id="实践"><a href="#实践" class="headerlink" title="实践"></a><strong>实践</strong></h2><hr>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a><strong>总结</strong></h2><hr>
 
