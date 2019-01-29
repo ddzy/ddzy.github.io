@@ -161,7 +161,7 @@
     <span class="title" id="toc-switch"><span>文章导航</span></span>
     <div class="toc-inner syuanpi back-1" style="display:none;">
       <li class="title-link"><a href="javascript:;" class="toTop">react-router-dom源码解析(五) -Route</a></li>
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#细说"><span class="toc-text">细说</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#前置知识"><span class="toc-text">前置知识</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#path-to-regexp"><span class="toc-text">path-to-regexp</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#源码分析"><span class="toc-text">源码分析</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实践"><span class="toc-text">实践</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-text">总结</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#细说"><span class="toc-text">细说</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#前置知识"><span class="toc-text">前置知识</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#path-to-regexp"><span class="toc-text">path-to-regexp</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#源码分析"><span class="toc-text">源码分析</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实践"><span class="toc-text">实践</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#测试"><span class="toc-text">测试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-text">总结</span></a></li></ol>
     </div>
   </aside>
 
@@ -373,6 +373,13 @@
 <p>我们发现, 该函数内部其实是调用了<code>React</code>的静态方法, 所以, 不是那么神秘.</p>
 <p>到了这里, 基本上<code>Route</code>组件的源码已经看完了, 剩下了一些<code>Error</code>或者<code>Warning</code>处理, 可以当作参考. 下面该继续来完善自己的<code>react-router-dom</code>库…</p>
 <h2 id="实践"><a href="#实践" class="headerlink" title="实践"></a><strong>实践</strong></h2><hr>
+<blockquote>
+<p>隔了一天写的, 接着上面的源码简单分析, 今天主要是完善一下自己的<code>yyg-react-router-dom库</code></p>
+</blockquote>
+<p>话不多说, 顺着昨天的思路: <code>Route</code>通过传入的<code>props</code>计算<code>match</code>, 在计算<code>match</code>的过程中引用了<code>path-to-regexp</code>npm包, 用来转化<code>path</code>为<code>RegExp</code>, 从而与<code>location.pathname</code>作匹配, 得出计算之后的<code>match</code>对象.</p>
+<p>紧接着, 由于<code>Route</code>的props有三种渲染方式-<code>children</code> | <code>render</code> | <code>component</code>, 所以这里做了一些判断, 同时, 加入了对<code>preact</code>的兼容处理以及<code>错误处理</code>.</p>
+<p>那么, 回顾了一下昨天的思路, 就开始动手coding了…</p>
+<h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a><strong>测试</strong></h2><hr>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a><strong>总结</strong></h2><hr>
 
       
