@@ -425,7 +425,13 @@
 <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// src/App.tsx</span></span><br><span class="line"><span class="keyword">const</span> App = React.memo&lt;IAppProps&gt;((</span><br><span class="line">  props: IAppProps,</span><br><span class="line">): JSX.Element =&gt; &#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">      &lt;BrowserRouter&gt;</span><br><span class="line">        &lt;Route</span><br><span class="line">          path=&#123;[<span class="string">"/user/:name/profile/:secret"</span>]&#125;</span><br><span class="line">          exact</span><br><span class="line">          component=&#123;One&#125;</span><br><span class="line">        /&gt;</span><br><span class="line">      &lt;<span class="regexp">/BrowserRouter&gt;</span></span><br><span class="line"><span class="regexp">    &lt;/</span>div&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 <p>打开浏览器, 可以看到, 我们自己的组件可以正常渲染, 并且测试组件<code>Test.tsx</code>中也正常打印出了<code>context</code>对象, 像这样:</p>
 <p><img src="http://oos.blog.yyge.top/2019/1/27/react-router-dom%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90%28%E4%BA%94%29%20-Route/images/4.gif?imageView2/0/q/75|watermark/2/text/6Ziz5ZOl5bCP56uZ/font/5b6u6L2v6ZuF6buR/fontsize/440/fill/IzE4OTBGRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10|imageslim" alt="动图展示测试Route组件"></p>
+<p>此外, 其他的配置项都是没有问题, 这里由于文章篇幅太长, 就不一一展示了…</p>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a><strong>总结</strong></h2><hr>
+<p>写了两天, 终于搞定了这篇文章, 还是收获颇丰的: 通过<code>Route</code>组件, 掌握了内部的运作机理, 比如<code>match</code>计算, location计算等, 又通过计算match, 初步了解了<code>path-to-regexp</code>这个库.</p>
+<blockquote>
+<p>不静下心看看源码, 永远不知道你和别人查了多远</p>
+</blockquote>
+<p>学无止境, 下一篇文章继续阅读学习<code>Switch</code>组件的源码, 再会!</p>
 
       
     
