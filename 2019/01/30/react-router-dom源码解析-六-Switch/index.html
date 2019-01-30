@@ -161,7 +161,7 @@
     <span class="title" id="toc-switch"><span>文章导航</span></span>
     <div class="toc-inner syuanpi back-1" style="display:none;">
       <li class="title-link"><a href="javascript:;" class="toTop">react-router-dom源码解析(六) -Switch</a></li>
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#细说"><span class="toc-text">细说</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实践"><span class="toc-text">实践</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#测试"><span class="toc-text">测试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#源码"><span class="toc-text">源码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-text">总结</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#细说"><span class="toc-text">细说</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#前置知识"><span class="toc-text">前置知识</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#源码分析"><span class="toc-text">源码分析</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实践"><span class="toc-text">实践</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#测试"><span class="toc-text">测试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#源码"><span class="toc-text">源码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-text">总结</span></a></li></ol>
     </div>
   </aside>
 
@@ -280,7 +280,23 @@
         <p>上一篇文章学习了<code>Route</code>组件的实现机理, 而体系中的<code>Switch</code>组件, 与<code>Route</code>密切相关, 所以, 今天来咀嚼一下它.</p>
 <a id="more"></a>
 <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a><strong>前言</strong></h2><hr>
+<blockquote>
+<p>无尽的知识, 能让一个沉默的人变得兴奋</p>
+</blockquote>
+<p>一句话开头, 希望能带着这种劲头, 开始今天的<code>Switch</code>的学习…</p>
 <h2 id="细说"><a href="#细说" class="headerlink" title="细说"></a><strong>细说</strong></h2><hr>
+<h3 id="前置知识"><a href="#前置知识" class="headerlink" title="前置知识"></a>前置知识</h3><p>经过上一次的<code>Route</code>的源码学习, 我们学习到了<code>Route</code>组件的设计思路, 即:</p>
+<p><img src="/2019/01/30/react-router-dom源码解析-六-Switch/images/1.jpg" alt="Route回顾"></p>
+<p><code>Route</code>的作用主要是计算<code>match</code>, 根据<code>match</code>和决定渲染<code>component</code>, 那么这篇文章学的<code>Switch</code>, 则是:</p>
+<blockquote>
+<p>计算match, 将计算之后的<code>computedMatch</code>传递给<code>Route</code></p>
+</blockquote>
+<p><code>Route</code>组件接收到<code>computedMatch</code>之后, 不再去计算<code>match</code>, 而是直接进行<code>render</code>. 这也印证了<code>Switch</code>这个名称, 即为<code>切换</code>.</p>
+<p>一句话概括:</p>
+<blockquote>
+<p><code>Switch</code>的子组件<code>Route</code>只能有一个被渲染出来</p>
+</blockquote>
+<h3 id="源码分析"><a href="#源码分析" class="headerlink" title="源码分析"></a>源码分析</h3><p>废话少说, 打开<code>react-router/modules/Switch.js</code>, 可以看到, <code>Switch</code>的源码非常简洁, 好像也并没有什么难得,<br>保持这种<code>轻敌</code>的心态, 一步步来分析:</p>
 <h2 id="实践"><a href="#实践" class="headerlink" title="实践"></a><strong>实践</strong></h2><hr>
 <h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a><strong>测试</strong></h2><hr>
 <h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a><strong>源码</strong></h2><hr>
