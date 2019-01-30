@@ -348,7 +348,10 @@
     utils.switchToc();
     theme.reward && utils.showReward();
     theme.search && utils.search();
-    theme.lazy && $('img.lazy').lazyload();
+    // theme.lazy && $('img.lazy').lazyload();
+    theme.lazy && $('img.lazy').lazyload({
+      effect : "fadeIn",
+    });
 
     $(document).ready(function() {
       $('.container').show();
