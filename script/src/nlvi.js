@@ -79,7 +79,7 @@
             var imgHead = "<img src='" + this.src;
             if (theme.lazy) {
               // imgHead = "<img class='lazy' data-src='" + this.src;
-              imgHead = `<img class="lazy" data-original="${this.src}" style="background-color: #ddd;"`;
+              imgHead = `<img class="lazy" data-original="${this.src}" style="background-color: #ddd;" width="600" height="300"`;
             }
             // $(this).replaceWith("<a href='" + this.src + "' data-title='" + this.alt + "' data-lightbox='group'>" + imgHead + "' alt='" + this.alt + "'></a>");
 
