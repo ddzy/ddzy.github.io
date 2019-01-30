@@ -74,16 +74,15 @@
       },
       picPos: function() {
         $('.post-content').each(function() {
-          $(this).find('img').each(function () {
+          $(this).find('img').each(function() {
             $(this).parent('p').css('text-align', 'center');
             var imgHead = "<img src='" + this.src;
             if (theme.lazy) {
               // imgHead = "<img class='lazy' data-src='" + this.src;
-              imgHead = `<img class="lazy" data-original="${this.src}" style="background-color: #ddd;" width="600" height="300"`;
+
+              imgHead = `<img class="lazy" data-original="${this.src}" style="background-color: #ddd; width: 100%; height: 0; padding-top: 75%; background-size: 100%;"`;
             }
             // $(this).replaceWith("<a href='" + this.src + "' data-title='" + this.alt + "' data-lightbox='group'>" + imgHead + "' alt='" + this.alt + "'></a>");
-
-            console.log(this.config);
 
             $(this).replaceWith(
               `<a href="${this.src}" data-title="${this.alt}" data-lightbox="group">
@@ -352,7 +351,10 @@
     theme.search && utils.search();
     // theme.lazy && $('img.lazy').lazyload();
     theme.lazy && $('img.lazy').lazyload({
-      effect : "fadeIn",
+      effect: "fadeIn",
+      load: function () {
+        $(this).removeAttr("style");
+      },
     });
 
     $(document).ready(function() {
