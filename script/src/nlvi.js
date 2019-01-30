@@ -83,7 +83,7 @@
             }
             // $(this).replaceWith("<a href='" + this.src + "' data-title='" + this.alt + "' data-lightbox='group'>" + imgHead + "' alt='" + this.alt + "'></a>");
 
-            console.log(theme);
+            console.log(this.config);
 
             $(this).replaceWith(
               `<a href="${this.src}" data-title="${this.alt}" data-lightbox="group">
