@@ -67,12 +67,9 @@
   <meta name="keywords" content="博客 blog 个人博客">
 
 
-  <title>
-  DZY
-  
-    | 大三老猫-frontender
-  
-</title>
+  <meta name="keywords" content="七牛云, Nlvi">
+
+  <title> 七牛云域名HTTPS配置 · DZY </title>
 </head>
 <body>
   <div class="progress">
@@ -158,6 +155,17 @@
     <a href="/tags/react/" style="font-size: 14px;">react</a> <a href="/tags/webpack/" style="font-size: 14px;">webpack</a> <a href="/tags/七牛云/" style="font-size: 14px;">七牛云</a> <a href="/tags/毕设/" style="font-size: 14px;">毕设</a>
   </div>
 </div>
+
+  
+  <aside class="post-toc">
+    <span class="title" id="toc-switch"><span>文章导航</span></span>
+    <div class="toc-inner syuanpi back-1" style="display:none;">
+      <li class="title-link"><a href="javascript:;" class="toTop">七牛云域名HTTPS配置</a></li>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#引申"><span class="toc-text">引申</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#问题来源"><span class="toc-text">问题来源</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#解决办法"><span class="toc-text">解决办法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置"><span class="toc-text">配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-text">总结</span></a></li></ol>
+    </div>
+  </aside>
+
+
   
     
   </div>
@@ -235,191 +243,110 @@
       <main class="main" id="main">
         <div class="main-wrapper">
           
-  
-
-<section class="posts">
-  
     
   
   <article class="
   post
-  
+   is_post 
   ">
     <header class="post-header">
       <div class="post-time syuanpi fadeInUpShort back-1">
         <div class="post-time-wrapper">
-          <span>2019-01-21</span>
+          <span>2019-01-30</span>
           
             
-              <span class="post-category"><a href="/categories/frontend/">frontend</a></span>
+              <span class="post-category"><a href="/categories/freebie/">freebie</a></span>
             
           
+          
+            
+              <aside class="post-tags syuanpi fadeInUpShort back-3">
+              
+                <a href="/tags/七牛云/">七牛云</a>
+              
+              </aside>
+            
           
         </div>
       </div>
       <h1 class="post-title syuanpi fadeInUpShort back-2">
         
-          <a href="/2019/01/21/webpack常用loader-一/">webpack常用loader(一)</a>
+          七牛云域名HTTPS配置
         
       </h1>
     </header>
     <div class="post-content syuanpi fadeInUpShort back-3">
       
-        
-          <p>对使用webpack过程中常用的loader做一个总结</p>
-        
+        <p>继上一次配置完七牛云的<code>自定义域名</code>服务后, 本来平安无事的, 谁知今天突然抽风, <code>CentBrowser</code>提示<code>Mixed Content: This content should also be served over HTTPS</code>…</p>
+<a id="more"></a>
+<h2 id="引申"><a href="#引申" class="headerlink" title="引申"></a><strong>引申</strong></h2><hr>
+<h3 id="问题来源"><a href="#问题来源" class="headerlink" title="问题来源"></a>问题来源</h3><blockquote>
+<p><code>Chrome</code>默认不允许带有<code>HTTPS</code>协议的域名访问<code>HTTP</code>的域名下的内容</p>
+</blockquote>
+<h3 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h3><blockquote>
+<p>需要在七牛云配置域名的<code>HTTPS</code>服务</p>
+</blockquote>
+<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a><strong>配置</strong></h2><hr>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a><strong>总结</strong></h2><hr>
+<p>浏览器的安全策略, 总而言之有利也有弊, 像<code>Chrome</code>这种, 直接把你的<code>HTTP</code>请求<code>block</code>掉, 对于企业来说, 是个提醒, 提醒要更换相对安全的<code>HTTPS</code>服务, 但是对于个人来说, 则显得有些多余了…</p>
+
       
-    
-      <p class="content-link">
-        <a href="/2019/01/21/webpack常用loader-一/#more">
-          <span>继续阅读</span>
-        </a>
-      </p>
     
     </div>
     
-  </article>
-  
-  
+      
 
-  
-    
-  
-  <article class="
-  post
-  
-  ">
-    <header class="post-header">
-      <div class="post-time syuanpi fadeInUpShort back-1">
-        <div class="post-time-wrapper">
-          <span>2019-01-21</span>
-          
-            
-              <span class="post-category"><a href="/categories/frontend/">frontend</a></span>
-            
-          
-          
-        </div>
-      </div>
-      <h1 class="post-title syuanpi fadeInUpShort back-2">
-        
-          <a href="/2019/01/21/webpack错误集锦-一/">webpack错误集锦(一)</a>
-        
-      </h1>
-    </header>
-    <div class="post-content syuanpi fadeInUpShort back-3">
       
-        
-          <p>自己配置使用webpack过程中遇到的常见错误, 小本子记录下来, 后续也可以做个参考.</p>
-        
-      
-    
-      <p class="content-link">
-        <a href="/2019/01/21/webpack错误集锦-一/#more">
-          <span>继续阅读</span>
-        </a>
-      </p>
-    
+  <hr class="copy-line">
+  <div class="post-copyright">
+    <div class="copy-author">
+      <span>作者 :</span>
+      <span>zhaoyang Duan</span>
     </div>
-    
-  </article>
-  
-  
-
-  
-    
-  
-  <article class="
-  post
-  
-  ">
-    <header class="post-header">
-      <div class="post-time syuanpi fadeInUpShort back-1">
-        <div class="post-time-wrapper">
-          <span>2019-01-21</span>
-          
-            
-              <span class="post-category"><a href="/categories/frontend/">frontend</a></span>
-            
-          
-          
-        </div>
-      </div>
-      <h1 class="post-title syuanpi fadeInUpShort back-2">
-        
-          <a href="/2019/01/21/webpack精读-一/">webpack精读(一)</a>
-        
-      </h1>
-    </header>
-    <div class="post-content syuanpi fadeInUpShort back-3">
-      
-        
-          <p>厌倦了整日的写项目, 想起来之前学过的webpack基本忘得差不多了, webpack又很重要, 几乎贯穿了整个前端生涯. 所以还是加足马力, 学它一波, 顺便做个笔记, 日后也好做个对照.</p>
-        
-      
-    
-      <p class="content-link">
-        <a href="/2019/01/21/webpack精读-一/#more">
-          <span>继续阅读</span>
-        </a>
-      </p>
-    
+    <div class="copy-url">
+      <span>地址 :</span>
+      <a href="https://blog.yyge.top/2019/01/30/七牛云域名HTTPS配置/">https://blog.yyge.top/2019/01/30/七牛云域名HTTPS配置/</a>
     </div>
-    
-  </article>
-  
-  
-
-  
-    
-  
-  <article class="
-  post
-  
-  ">
-    <header class="post-header">
-      <div class="post-time syuanpi fadeInUpShort back-1">
-        <div class="post-time-wrapper">
-          <span>2019-01-20</span>
-          
-            
-              <span class="post-category"><a href="/categories/frontend/">frontend</a></span>
-            
-          
-          
-        </div>
-      </div>
-      <h1 class="post-title syuanpi fadeInUpShort back-2">
-        
-          <a href="/2019/01/20/毕设之路-一/">毕设之路(一)</a>
-        
-      </h1>
-    </header>
-    <div class="post-content syuanpi fadeInUpShort back-3">
-      
-        
-          <p>写这个毕业设计真是难受, 各种坑, 踩过这个又来那个, 而且由于没有合理的记录, 下一次遇到又是一脸懵逼, 所以特将这些东西记录下来, 以示警醒.</p>
-        
-      
-    
-      <p class="content-link">
-        <a href="/2019/01/20/毕设之路-一/#more">
-          <span>继续阅读</span>
-        </a>
-      </p>
-    
+    <div class="copy-origin">
+      <span>来源 :</span>
+      <a href="https://blog.yyge.top">https://blog.yyge.top</a>
     </div>
+    <div class="copy-license">
+      
+      著作权归作者所有，转载请联系作者获得授权。
+    </div>
+  </div>
+
     
   </article>
   
-  
-
-  
-</section>
-  
-  <nav class="pagination">
-      <a class="extend prev" rel="prev" href="/">< 上一页</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+    
+  <nav class="article-page">
+    
+    
+      <a href="/2019/01/27/react-router-dom源码解析-五-Route/" id="art-right" class="art-right">
+        <span class="prev-title"> 
+          react-router-dom源码解析(五) -Route<i class="iconfont icon-right"></i>  
+        </span>
+      </a>
+    
   </nav>
+
+    
+  <i id="com-switch" class="iconfont icon-more jumping-in long infinite" style="font-size:24px;display:block;text-align:center;transform:rotate(180deg);"></i>
+  <div class="post-comments" id="post-comments" style="display: block;margin: auto 16px;">
+    
+    
+    
+
+    
+
+  </div>
+
+
+
+  
+  
 
 
         </div>
