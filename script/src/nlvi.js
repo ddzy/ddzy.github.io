@@ -74,14 +74,20 @@
       },
       picPos: function() {
         $('.post-content').each(function() {
-          $(this).find('img').each(function() {
+          $(this).find('img').each(function () {
             $(this).parent('p').css('text-align', 'center');
             var imgHead = "<img src='" + this.src;
             if (theme.lazy) {
               // imgHead = "<img class='lazy' data-src='" + this.src;
               imgHead = `<img class="lazy" data-src="{${this.src}}" width="400" height="200" style="background-color: #ddd;"`;
             }
-            $(this).replaceWith("<a href='" + this.src + "' data-title='" + this.alt + "' data-lightbox='group'>" + imgHead + "' alt='" + this.alt + "'></a>");
+            // $(this).replaceWith("<a href='" + this.src + "' data-title='" + this.alt + "' data-lightbox='group'>" + imgHead + "' alt='" + this.alt + "'></a>");
+
+            $(this).replaceWith(
+              `<a href="${this.src}" data-title="${this.alt}" data-lightbox="group">
+                ${imgHead} alt="${this.alt}">
+              </a>`
+            );
           });
         });
       },
