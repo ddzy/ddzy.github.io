@@ -161,7 +161,7 @@
     <span class="title" id="toc-switch"><span>文章导航</span></span>
     <div class="toc-inner syuanpi back-1" style="display:none;">
       <li class="title-link"><a href="javascript:;" class="toTop">react-router-dom源码解析(一) -开篇</a></li>
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#源于"><span class="toc-text">源于</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#准备工作"><span class="toc-text">准备工作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#fork"><span class="toc-text">fork</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#精简"><span class="toc-text">精简</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#观摩"><span class="toc-text">观摩</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#大致体系"><span class="toc-text">大致体系</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-text">总结</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#源于"><span class="toc-text">源于</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#准备工作"><span class="toc-text">准备工作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#fork"><span class="toc-text">fork</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#精简"><span class="toc-text">精简</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#观摩"><span class="toc-text">观摩</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#大致体系"><span class="toc-text">大致体系</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#源码"><span class="toc-text">源码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-text">总结</span></a></li></ol>
     </div>
   </aside>
 
@@ -298,6 +298,8 @@
 <p>其实<code>react-router-dom</code>的结构并没有那么复杂, 大致就是下面的这么一个图:</p>
 <p><img src="/2019/01/24/react-router-dom源码解析(一) -开篇/images/5.jpg" alt="react-router-dom体系结构"></p>
 <p>可以看到, 大名鼎鼎的react-router-dom的底层API都是依靠了<code>history</code>这个依赖包, <code>history</code>提供了<code>createBrowserHistory</code>和<code>createHashHistory</code>这两个API供开发者使用. 而react-router-dom的<code>BrowserRouter</code>和<code>HistoryRouter</code>其实只是对上述提到的两个API进行了一层封装.</p>
+<h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a><strong>源码</strong></h2><hr>
+<p>源码地址: <a href="https://github.com/ddzy/yyg-react-router-dom" target="_blank" rel="noopener">点我</a></p>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a><strong>总结</strong></h2><hr>
 <p>这篇文章只是对整个流程做了一个概述, 后续的章节将会一一学习各个API.</p>
 

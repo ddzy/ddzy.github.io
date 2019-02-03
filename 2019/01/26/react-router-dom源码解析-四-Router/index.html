@@ -161,7 +161,7 @@
     <span class="title" id="toc-switch"><span>文章导航</span></span>
     <div class="toc-inner syuanpi back-1" style="display:none;">
       <li class="title-link"><a href="javascript:;" class="toTop">react-router-dom源码解析(四) -Router</a></li>
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#细说"><span class="toc-text">细说</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#context创建"><span class="toc-text">context创建</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#路由监听"><span class="toc-text">路由监听</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实践"><span class="toc-text">实践</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#测试"><span class="toc-text">测试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-text">总结</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#细说"><span class="toc-text">细说</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#context创建"><span class="toc-text">context创建</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#路由监听"><span class="toc-text">路由监听</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实践"><span class="toc-text">实践</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#测试"><span class="toc-text">测试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#源码"><span class="toc-text">源码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-text">总结</span></a></li></ol>
     </div>
   </aside>
 
@@ -325,6 +325,8 @@
 <p><code>Route</code>和<code>BrowserRouter</code>并不是父子关系, 也就是说<code>Consume</code>和<code>Provider</code>是分开的, 这也是问题所在. 将<code>&lt;Route&gt;</code>组件放置在<code>&lt;BrowserRouter&gt;内</code>. 保存打开chrome, console中输入<code>browserRouter.push(&#39;/zhaoyang&#39;)</code>, 这时候, 可以清楚的看到:</p>
 <p><img src="https://oos.blog.yyge.top/2019/1/26/react-router-dom%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90%28%E5%9B%9B%29%20-Router/images/4.jpg?imageView2/0/q/75|watermark/2/text/6Ziz5ZOl5bCP56uZ/font/5b6u6L2v6ZuF6buR/fontsize/440/fill/IzE4OTBGRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10|imageslim" alt="测试成功"></p>
 <p>每一次url的变化, <code>Route</code>组件都能正常的接收到这种改变, 到这里, 我们的测试步骤就完成了. 当然, 还有一些错误处理, 后续可以再完善…</p>
+<h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a><strong>源码</strong></h2><hr>
+<p>源码地址: <a href="https://github.com/ddzy/yyg-react-router-dom" target="_blank" rel="noopener">点我</a></p>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a><strong>总结</strong></h2><hr>
 <p>这一篇主要学习了<code>Router</code>组件的工作流程, 下一篇将会看看<code>Route</code>, 同样也是非常重要的一个组件. 最后, 附上一张流程图, 对这一节作一个总结:</p>
 <p><img src="https://oos.blog.yyge.top/2019/1/26/react-router-dom%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90%28%E5%9B%9B%29%20-Router/images/5.jpg?imageView2/0/q/75|watermark/2/text/6Ziz5ZOl5bCP56uZ/font/5b6u6L2v6ZuF6buR/fontsize/440/fill/IzE4OTBGRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10|imageslim" alt="流程图"></p>
