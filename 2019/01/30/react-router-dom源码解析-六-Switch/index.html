@@ -315,6 +315,9 @@
 <p>好记性不如烂笔头</p>
 </blockquote>
 <p>分析完了源码之后, 接着完善自己的<code>yyg-react-router-dom</code>库.</p>
+<p><code>First and foremost</code> —— 首先也是最重要的一步, 就是定义<code>Switch</code>所需的<code>props</code>, 也就是约束<code>interface</code>.</p>
+<p>打开<a href="https://reacttraining.com/react-router/web/api/Switch" target="_blank" rel="noopener">react-router官网</a>, 可以看到, <code>Switch</code>接收了两个<code>props</code>, 分别是<code>location</code>和<code>children</code>, 🆗, 来书写<code>interface</code>.</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// src/yyg-react-router-dom/components/Switch.tsx</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">interface</span> ISwitchProps &#123;</span><br><span class="line">  location?: Location;</span><br><span class="line">  children: React.ReactNode;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a><strong>测试</strong></h2><hr>
 <h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a><strong>源码</strong></h2><hr>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a><strong>总结</strong></h2><hr>
