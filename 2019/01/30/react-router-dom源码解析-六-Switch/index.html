@@ -297,7 +297,7 @@
 <p><code>Switch</code>的子组件<code>Route</code>只能有一个被渲染出来</p>
 </blockquote>
 <hr>
-<h3 id="分割线"><a href="#分割线" class="headerlink" title="分割线"></a>分割线</h3><p>中间隔了五天, 由于在<code>Gayhub</code>上看到了一个<code>vscode</code>的<code>issue</code>, 关于在<code>工作区查找文件</code>的, 所以有感而发, 花了几天时间学了一下<code>vscode</code>插件创作<code>File Positioning</code>, 昨天下午成功发布🐓🐓🐓</p>
+<h3 id="分割线"><a href="#分割线" class="headerlink" title="分割线"></a>分割线</h3><p>中间隔了五天, 由于在<code>Gayhub</code>上看到了一个<code>vscode</code>的<code>issue</code>, 关于在<code>工作区查找文件</code>的, 所以有感而发, 花了几天时间写了一个<code>vscode</code>插件 —— <code>File Positioning</code>, 昨天下午成功发布🐓🐓🐓</p>
 <h3 id="源码分析"><a href="#源码分析" class="headerlink" title="源码分析"></a>源码分析</h3><p>废话少说, 还是接着上次的进度. 打开<code>react-router/modules/Switch.js</code>, 可以看到, <code>Switch</code>的源码非常简洁, 好像也并没有什么难的,<br>保持这种<code>轻敌</code>的心态, 一步步来分析:</p>
 <p>首先, 可以看到:</p>
 <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">return</span> (</span><br><span class="line">  &lt;RouterContext.Consumer&gt;</span><br><span class="line">    &#123;<span class="function">(<span class="params">context</span>) =&gt;</span> &#123;</span><br><span class="line">      ...</span><br><span class="line">      ...</span><br><span class="line">    &#125;&#125;</span><br><span class="line">  &lt;<span class="regexp">/RouterContext.Consumer&gt;</span></span><br><span class="line"><span class="regexp">);</span></span><br></pre></td></tr></table></figure>
