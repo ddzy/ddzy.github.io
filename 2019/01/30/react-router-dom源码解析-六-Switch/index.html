@@ -286,7 +286,7 @@
 <p>一句话开头, 希望能带着这种劲头, 开始今天的<code>Switch</code>的学习…</p>
 <h2 id="细说"><a href="#细说" class="headerlink" title="细说"></a><strong>细说</strong></h2><hr>
 <h3 id="前置知识"><a href="#前置知识" class="headerlink" title="前置知识"></a>前置知识</h3><p>经过上一次的<code>Route</code>的源码学习, 我们学习到了<code>Route</code>组件的设计思路, 即:</p>
-<p><img src="/2019/01/30/react-router-dom源码解析-六-Switch/images/1.jpg" alt="Route回顾"></p>
+<p><img src="https://oos.blog.yyge.top/2019/1/30/react-router-dom%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90%28%E5%85%AD%29%20-Switch/images/1.jpg?imageView2/0/q/75|watermark/2/text/6Ziz5ZOl5bCP56uZ/font/5b6u6L2v6ZuF6buR/fontsize/440/fill/IzE4OTBGRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10|imageslim" alt="Route回顾"></p>
 <p><code>Route</code>的作用主要是计算<code>match</code>, 根据<code>match</code>和决定渲染<code>component</code>, 那么这篇文章学的<code>Switch</code>, 则是:</p>
 <blockquote>
 <p>计算match, 将计算之后的<code>computedMatch</code>传递给<code>Route</code></p>
@@ -330,15 +330,15 @@
 <p>然后, 在<code>App.tsx</code>中, 引入<code>Switch.tsx</code>和<code>Four.tsx</code>组件, 在render中新增测试代码:</p>
 <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">return</span> (</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    &lt;BrowserRouter&gt;</span><br><span class="line">      &lt;Switch&gt;</span><br><span class="line">        &lt;Route</span><br><span class="line">          path=&#123;[<span class="string">"/user/:name/profile/:secret"</span>]&#125;</span><br><span class="line">          render=&#123;<span class="function"><span class="params">()</span> =&gt;</span> (</span><br><span class="line">            &lt;Switch&gt;</span><br><span class="line">              &lt;Route path=<span class="string">"/user/:name/profile/:secret"</span> exact component=&#123;One&#125; /&gt;</span><br><span class="line">              &lt;Route path=<span class="string">"/user/:name/profile/:secret/test"</span> exact component=&#123;Three&#125; /&gt;</span><br><span class="line">              &lt;Route path=<span class="string">"/user/:name/profile/:secret/test2"</span> exact component=&#123;Four&#125; /&gt;</span><br><span class="line">            &lt;<span class="regexp">/Switch&gt;</span></span><br><span class="line"><span class="regexp">          )&#125;</span></span><br><span class="line"><span class="regexp">        /</span>&gt;</span><br><span class="line">      &lt;Switch&gt;</span><br><span class="line">    &lt;BrowserRouter&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
 <p>打开浏览器, 可以看到, 此时此刻是空白的, 因为我们现在处于根url下, 分别在url栏中输入上面三个测试地址:</p>
-<p><img src="/2019/01/30/react-router-dom源码解析-六-Switch/images/2.gif" alt="测试Switch"></p>
+<p><img src="https://oos.blog.yyge.top/2019/1/30/react-router-dom%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90%28%E5%85%AD%29%20-Switch/images/2.gif?imageView2/0/q/75|watermark/2/text/6Ziz5ZOl5bCP56uZ/font/5b6u6L2v6ZuF6buR/fontsize/440/fill/IzE4OTBGRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10|imageslim" alt="测试Switch"></p>
 <p>上面的gif, 可以清楚看到是正常渲染的, 进而证明我们自己的思路是正确的.</p>
 <h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a><strong>源码</strong></h2><hr>
 <p>由于源码文件很分散, 所以传到了<a href="https://github.com/ddzy/yyg-react-router-dom" target="_blank" rel="noopener">Gayhub</a>.</p>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a><strong>总结</strong></h2><hr>
 <blockquote>
-<p>一张图片结束今天的学习</p>
+<p>一张思维脑图结束今天的学习</p>
 </blockquote>
-<p><img src="/2019/01/30/react-router-dom源码解析-六-Switch/images/3.jpg" alt="脑图总结"></p>
+<p><img src="https://oos.blog.yyge.top/2019/1/30/react-router-dom%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90%28%E5%85%AD%29%20-Switch/images/3.jpg?imageView2/0/q/75|watermark/2/text/6Ziz5ZOl5bCP56uZ/font/5b6u6L2v6ZuF6buR/fontsize/440/fill/IzE4OTBGRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10|imageslim" alt="脑图总结"></p>
 
       
     
