@@ -286,7 +286,7 @@
 <li>吃饭多多</li>
 <li>找个好工作</li>
 </ul>
-<p><img src="/2019/02/05/react-router-dom源码解析-七-Link/images/1.jpg" alt="过年好, 疯狂暗示"></p>
+<p><img src="https://oos.blog.yyge.top/2019/2/5/react-router-dom%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90%28%E4%B8%83%29%20-Link/images/1.jpg?imageView2/0/q/75|watermark/2/text/6Ziz5ZOl5bCP56uZ/font/5b6u6L2v6ZuF6buR/fontsize/440/fill/IzE4OTBGRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10|imageslim" alt="过年好, 疯狂暗示"></p>
 <p>早上7点起来, 朦朦胧胧, 坐在电脑桌前, 一脸懵逼…</p>
 <p>想了想, 今天还是继续之前的源码学习吧, 上一次学习了<code>Switch</code>组件, 今天主要是来看一下<code>Link</code>.</p>
 <h2 id="细说"><a href="#细说" class="headerlink" title="细说"></a><strong>细说</strong></h2><hr>
@@ -295,7 +295,7 @@
 <p>虽然不知道作者这么做的意图, 但是佩服就对了</p>
 </blockquote>
 <p>但这些都是次要的, 打开<code>Link.js</code>文件, 预览一下大致的结构, 可以看到, 源码行数与<code>Switch</code>并无两样, 仔细看, <code>Link</code>类中, 其实只有一个<code>handleClick</code>处理方法. 所以, 按理说, 并不应该很难理解:</p>
-<p><img src="/2019/02/05/react-router-dom源码解析-七-Link/images/2.gif" alt="疯狂暗示_动图"></p>
+<p><img src="https://oos.blog.yyge.top/2019/2/5/react-router-dom%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90%28%E4%B8%83%29%20-Link/images/2.gif?imageView2/0/q/75|watermark/2/text/6Ziz5ZOl5bCP56uZ/font/5b6u6L2v6ZuF6buR/fontsize/440/fill/IzE4OTBGRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10|imageslim" alt="疯狂暗示_动图"></p>
 <p>正式开始分析之前, 先来回想一下使用思路? 平时用到最多的可能就是<code>Link</code>了, 一般都是做<code>Menu</code>点击跳转之类的, 与之功能类似的有一个<code>history.push</code>, 两者功能差不多. 与<code>Link</code>对应的还有一个<code>NavLink</code>, 可以自定义<code>active</code>样式, 这个下一篇再说吧.</p>
 <blockquote>
 <p><code>Link</code>点击跳转, <code>url</code>改变, 对应<code>模块</code>展现, 一气呵成.</p>
@@ -350,13 +350,13 @@
 <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// src/test/One.tsx</span></span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">      &lt;h1&gt;Page One&lt;<span class="regexp">/h1&gt;</span></span><br><span class="line"><span class="regexp">      &lt;ul&gt;</span></span><br><span class="line"><span class="regexp">        &lt;li&gt;</span></span><br><span class="line"><span class="regexp">          &lt;Link</span></span><br><span class="line"><span class="regexp">            to="/</span>test/home<span class="string">"</span></span><br><span class="line"><span class="string">          &gt;Home&lt;/Link&gt;</span></span><br><span class="line"><span class="string">        &lt;/li&gt;</span></span><br><span class="line"><span class="string">        &lt;li&gt;</span></span><br><span class="line"><span class="string">          &lt;Link</span></span><br><span class="line"><span class="string">            to=&#123;&#123;</span></span><br><span class="line"><span class="string">              pathname: '/test/product',</span></span><br><span class="line"><span class="string">              state: &#123;</span></span><br><span class="line"><span class="string">                id: '19980808',</span></span><br><span class="line"><span class="string">                name: 'duan',</span></span><br><span class="line"><span class="string">              &#125;,</span></span><br><span class="line"><span class="string">            &#125;&#125;</span></span><br><span class="line"><span class="string">          &gt;Product&lt;/Link&gt;</span></span><br><span class="line"><span class="string">        &lt;/li&gt;</span></span><br><span class="line"><span class="string">      &lt;/ul&gt;</span></span><br><span class="line"><span class="string">    &lt;/div&gt;</span></span><br><span class="line"><span class="string">  );</span></span><br></pre></td></tr></table></figure>
 <p>测试代码并不是固定的, 自己随意测试即可…</p>
 <p>之后, 打开<code>CentBrowser</code>, 可以看到:</p>
-<p><img src="/2019/02/05/react-router-dom源码解析-七-Link/images/3.gif" alt="entbrowser测试"></p>
+<p><img src="https://oos.blog.yyge.top/2019/2/5/react-router-dom%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90%28%E4%B8%83%29%20-Link/images/3.gif?imageView2/0/q/75|watermark/2/text/6Ziz5ZOl5bCP56uZ/font/5b6u6L2v6ZuF6buR/fontsize/440/fill/IzE4OTBGRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10|imageslim" alt="entbrowser测试"></p>
 <p>通过点击使用<code>Link</code>组件, 浏览器url可以正常改变, 并且对应的组件可以正常渲染, 充分证明我们自己封装的Link没有问题.</p>
 <h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a><strong>源码</strong></h2><hr>
 <p>完整源码已上传至 <a href="https://github.com/ddzy/yyg-react-router-dom" target="_blank" rel="noopener">Gayhub</a></p>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a><strong>总结</strong></h2><hr>
 <p>最后, 以一张脑图来结束今天的学习:</p>
-<p><img src="/2019/02/05/react-router-dom源码解析-七-Link/images/4.jpg" alt="思维脑图"></p>
+<p><img src="https://oos.blog.yyge.top/2019/2/5/react-router-dom%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90%28%E4%B8%83%29%20-Link/images/4.jpg?imageView2/0/q/75|watermark/2/text/6Ziz5ZOl5bCP56uZ/font/5b6u6L2v6ZuF6buR/fontsize/440/fill/IzE4OTBGRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10|imageslim" alt="思维脑图"></p>
 
       
     
