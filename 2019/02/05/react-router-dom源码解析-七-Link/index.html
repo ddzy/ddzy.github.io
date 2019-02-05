@@ -289,8 +289,14 @@
 <p><img src="/2019/02/05/react-router-dom源码解析-七-Link/images/1.jpg" alt="过年好, 疯狂暗示"></p>
 <p>早上7点起来, 朦朦胧胧, 坐在电脑桌前, 一脸懵逼…</p>
 <p>想了想, 今天还是继续之前的源码学习吧, 上一次学习了<code>Switch</code>组件, 今天主要是来看一下<code>Link</code>.</p>
-<p><img src="/2019/02/05/react-router-dom源码解析-七-Link/images/2.gif" alt="疯狂暗示_动图"></p>
 <h2 id="细说"><a href="#细说" class="headerlink" title="细说"></a><strong>细说</strong></h2><hr>
+<p><code>Link</code>组件被放置在<code>packages</code>下的<code>react-router-dom</code>包中, 与<code>react-router</code>做了隔离,</p>
+<blockquote>
+<p>虽然不知道作者这么做的意图, 但是佩服就对了</p>
+</blockquote>
+<p>但这些都是次要的, 打开<code>Link.js</code>文件, 预览一下大致的结构, 可以看到, 源码行数与<code>Switch</code>并无两样, 仔细看, <code>Link</code>类中, 其实只有一个<code>handleClick</code>处理方法. 所以, 按理说, 并不应该很难理解:</p>
+<p><img src="/2019/02/05/react-router-dom源码解析-七-Link/images/2.gif" alt="疯狂暗示_动图"></p>
+<p>正式开始分析之前, 先来猜测一下<code>Link</code>的设计思路? 平时用到最多的可能就是<code>Link</code>了, 一般都是做<code>Menu</code>点击跳转之类的, 与之功能类似的有一个<code>history.push</code>, 两者功能差不多. 与<code>Link</code>对应的还有一个<code>NavLink</code>, 可以自定义<code>active</code>样式, 这个下一篇再说吧.</p>
 <h2 id="实践"><a href="#实践" class="headerlink" title="实践"></a><strong>实践</strong></h2><hr>
 <h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a><strong>测试</strong></h2><hr>
 <h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a><strong>源码</strong></h2><hr>
