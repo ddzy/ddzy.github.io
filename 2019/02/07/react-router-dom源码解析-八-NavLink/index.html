@@ -387,9 +387,16 @@
 <p>可以看到, 总共有三个<code>锚点</code>, 第一个为<code>Link</code>, 为了与<code>NavLink</code>的效果加以区分, 然后在最下方放置需要<code>router-view</code>, 也就是需要渲染的组件. 大致结构与在项目中使用的差不多的…</p>
 <p>接着, 在浏览器中可以看到效果:</p>
 <p><img src="/2019/02/07/react-router-dom源码解析-八-NavLink/images/2.gif" alt="测试NavLink"></p>
-<p>点击<code>Home</code>按钮, 视图变了, 但是链接颜色没变化? 当然了, 因为这是<code>Link</code>组件</p>
+<p>点击<code>Home</code>按钮, 视图变了, 但是链接颜色没变化? 当然了, 因为这只是普通的<code>Link</code>组件, 你想它有啥效果? 接着看下面两个, prefect, 两个锚点样式随着url变化而改变.</p>
+<p>此时, 对于<code>NavLink</code>的测试工作已经完美结束了</p>
 <h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a><strong>源码</strong></h2><hr>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a><strong>总结</strong></h2>
+<p>源码已上传, 点<a href="https://github.com/ddzy/yyg-react-router-dom" target="_blank" rel="noopener">这里</a></p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a><strong>总结</strong></h2><blockquote>
+<p>路漫漫其修远兮, 吾必反复求其知</p>
+</blockquote>
+<p>最后, 一张思维脑图来结束今天的源码学习</p>
+<p><img src="/2019/02/07/react-router-dom源码解析-八-NavLink/images/3.jpg" alt="NavLink思维图解"></p>
+
       
     
     </div>
