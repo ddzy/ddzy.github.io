@@ -281,8 +281,13 @@
 <a id="more"></a>
 <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a><strong>前言</strong></h2><hr>
 <p>经过上一篇文章<img src="https://blog.yyge.top/2019/02/05/react-router-dom%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90-%E4%B8%83-Link" alt="Link">的战火洗礼, 可以了解到, <code>Link</code>作为沟通<code>react-router</code>和<code>react</code>之间的桥梁, 经历<code>click -&gt; url变化 -&gt; history(onListen) -&gt; Switch -&gt; Route render</code>的过程, 据此, 有关<code>Link</code>的面试题便可迎刃而解</p>
-<p>那么, 有了<code>Link</code>的前车之鉴,</p>
+<p>那么, 有了<code>Link</code>的前车之鉴, 去学习<code>NavLink</code>便能少几分疑惑.</p>
 <h2 id="细说"><a href="#细说" class="headerlink" title="细说"></a><strong>细说</strong></h2><hr>
+<p>正式开始分析之前, 先来回想一下我们平时是如何使用<code>NavLink</code>的?</p>
+<blockquote>
+<p>传入对应的<code>activeStyle</code>或者<code>activeClass</code>, 点击之后, 如果对应的组件成功渲染, 则该<code>NavLink</code>的样式也会改变.</p>
+</blockquote>
+<p>带着平时使用的思路去分析源码, 会又事半功倍的效果.</p>
 <h2 id="实践"><a href="#实践" class="headerlink" title="实践"></a><strong>实践</strong></h2><hr>
 <h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a><strong>测试</strong></h2><hr>
 <h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a><strong>源码</strong></h2><hr>
