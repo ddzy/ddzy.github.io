@@ -67,11 +67,9 @@
   <meta name="keywords" content="博客 blog 个人博客">
 
 
-  <title>
-  
-    归档 · DZY
-  
-</title>
+  <meta name="keywords" content="react, Nlvi">
+
+  <title> react-router-dom源码解析(八) -NavLink · DZY </title>
 </head>
 <body>
   <div class="progress">
@@ -157,6 +155,17 @@
     <a href="/tags/react/" style="font-size: 14px;">react</a> <a href="/tags/vscode/" style="font-size: 14px;">vscode</a> <a href="/tags/webpack/" style="font-size: 14px;">webpack</a> <a href="/tags/七牛云/" style="font-size: 14px;">七牛云</a> <a href="/tags/毕设/" style="font-size: 14px;">毕设</a>
   </div>
 </div>
+
+  
+  <aside class="post-toc">
+    <span class="title" id="toc-switch"><span>文章导航</span></span>
+    <div class="toc-inner syuanpi back-1" style="display:none;">
+      <li class="title-link"><a href="javascript:;" class="toTop">react-router-dom源码解析(八) -NavLink</a></li>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#细说"><span class="toc-text">细说</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实践"><span class="toc-text">实践</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#测试"><span class="toc-text">测试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#源码"><span class="toc-text">源码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-text">总结</span></a></li></ol>
+    </div>
+  </aside>
+
+
   
     
   </div>
@@ -235,135 +244,104 @@
         <div class="main-wrapper">
           
     
-    <div class="archive syuanpi fadeInUp" id="archive">
-        
-            <h1 class="archive-title">Total</h1>
-            <span class="archive-num">一共有 18 篇文章</span>
-        
-        <div class="archive-list">
-            <ul>
-        
+  
+  <article class="
+  post
+   is_post 
+  ">
+    <header class="post-header">
+      <div class="post-time syuanpi fadeInUpShort back-1">
+        <div class="post-time-wrapper">
+          <span>2019-02-07</span>
+          
             
-                
-                
-                
-                    
-                     
-                        <h2 class="archive-year"> 2019 </h2>
-                    
-                
+              <span class="post-category"><a href="/categories/frontend/">frontend</a></span>
             
+          
+          
             
-            <li class="archive-post">
-                <span class="archive-post-time">
-                
-                    01-23
-                
-                </span>
-                <span class="archive-post-link">
-                    <a href="/2019/01/23/毕设之路-二/">毕设之路(二)</a>
-                </span>
-            </li>
-
-        
+              <aside class="post-tags syuanpi fadeInUpShort back-3">
+              
+                <a href="/tags/react/">react</a>
+              
+              </aside>
             
-                
-                
-                
-            
-            
-            <li class="archive-post">
-                <span class="archive-post-time">
-                
-                    01-21
-                
-                </span>
-                <span class="archive-post-link">
-                    <a href="/2019/01/21/webpack常用plugins-一/">webpack常用plugins(一)</a>
-                </span>
-            </li>
-
-        
-            
-                
-                
-                
-            
-            
-            <li class="archive-post">
-                <span class="archive-post-time">
-                
-                    01-21
-                
-                </span>
-                <span class="archive-post-link">
-                    <a href="/2019/01/21/webpack常用loader-一/">webpack常用loader(一)</a>
-                </span>
-            </li>
-
-        
-            
-                
-                
-                
-            
-            
-            <li class="archive-post">
-                <span class="archive-post-time">
-                
-                    01-21
-                
-                </span>
-                <span class="archive-post-link">
-                    <a href="/2019/01/21/webpack错误集锦-一/">webpack错误集锦(一)</a>
-                </span>
-            </li>
-
-        
-            
-                
-                
-                
-            
-            
-            <li class="archive-post">
-                <span class="archive-post-time">
-                
-                    01-21
-                
-                </span>
-                <span class="archive-post-link">
-                    <a href="/2019/01/21/webpack精读-一/">webpack精读(一)</a>
-                </span>
-            </li>
-
-        
-            
-                
-                
-                
-            
-            
-            <li class="archive-post">
-                <span class="archive-post-time">
-                
-                    01-20
-                
-                </span>
-                <span class="archive-post-link">
-                    <a href="/2019/01/20/毕设之路-一/">毕设之路(一)</a>
-                </span>
-            </li>
-
-        
-            </ul>
+          
         </div>
+      </div>
+      <h1 class="post-title syuanpi fadeInUpShort back-2">
+        
+          react-router-dom源码解析(八) -NavLink
+        
+      </h1>
+    </header>
+    <div class="post-content syuanpi fadeInUpShort back-3">
+      
+        <p>前天学习了<code>Link</code>组件源码, 今天再来看一下与之相似的<code>NavLink</code></p>
+<a id="more"></a>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a><strong>前言</strong></h2><hr>
+<h2 id="细说"><a href="#细说" class="headerlink" title="细说"></a><strong>细说</strong></h2><hr>
+<h2 id="实践"><a href="#实践" class="headerlink" title="实践"></a><strong>实践</strong></h2><hr>
+<h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a><strong>测试</strong></h2><hr>
+<h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a><strong>源码</strong></h2><hr>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a><strong>总结</strong></h2>
+      
+    
     </div>
     
-  <nav class="pagination">
-      <a class="extend prev" rel="prev" href="/archives/2019/01/">< 上一页</a><a class="page-number" href="/archives/2019/01/">1</a><span class="page-number current">2</span>
+      
+
+      
+  <hr class="copy-line">
+  <div class="post-copyright">
+    <div class="copy-author">
+      <span>作者 :</span>
+      <span>zhaoyang Duan</span>
+    </div>
+    <div class="copy-url">
+      <span>地址 :</span>
+      <a href="https://blog.yyge.top/2019/02/07/react-router-dom源码解析-八-NavLink/">https://blog.yyge.top/2019/02/07/react-router-dom源码解析-八-NavLink/</a>
+    </div>
+    <div class="copy-origin">
+      <span>来源 :</span>
+      <a href="https://blog.yyge.top">https://blog.yyge.top</a>
+    </div>
+    <div class="copy-license">
+      
+      著作权归作者所有，转载请联系作者获得授权。
+    </div>
+  </div>
+
+    
+  </article>
+  
+    
+  <nav class="article-page">
+    
+    
+      <a href="/2019/02/05/react-router-dom源码解析-七-Link/" id="art-right" class="art-right">
+        <span class="prev-title"> 
+          react-router-dom源码解析(七) -Link<i class="iconfont icon-right"></i>  
+        </span>
+      </a>
+    
   </nav>
 
+    
+  <i id="com-switch" class="iconfont icon-more jumping-in long infinite" style="font-size:24px;display:block;text-align:center;transform:rotate(180deg);"></i>
+  <div class="post-comments" id="post-comments" style="display: block;margin: auto 16px;">
+    
+    
+    
+
+    
+
+  </div>
+
+
+
+  
+  
 
 
         </div>
