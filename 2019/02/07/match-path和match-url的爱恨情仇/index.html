@@ -161,7 +161,7 @@
     <span class="title" id="toc-switch"><span>文章导航</span></span>
     <div class="toc-inner syuanpi back-1" style="display:none;">
       <li class="title-link"><a href="javascript:;" class="toTop">match.path和match.url的爱恨情仇</a></li>
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#分析"><span class="toc-text">分析</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#分析"><span class="toc-text">分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#字面量"><span class="toc-text">字面量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#官网解释"><span class="toc-text">官网解释</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#个人解读"><span class="toc-text">个人解读</span></a></li></ol></li></ol>
     </div>
   </aside>
 
@@ -279,7 +279,7 @@
       
         <p><code>react-router-dom</code>中的<code>match</code>是个很重要的点, 而<code>match</code>中的<code>url</code>和<code>path</code>又很难区分, 今天来看一下…</p>
 <a id="more"></a>
-<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><hr>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a><strong>前言</strong></h2><hr>
 <p>在之前写毕设的过程中, 一直在用<code>match</code>这个对象, 但是对于</p>
 <ul>
 <li>match.path</li>
@@ -287,8 +287,33 @@
 </ul>
 <p>这两个东西总是分不清, 很困惑…</p>
 <p>之前在<code>Route</code>的源码分析章节, 对这两者有了简单的了解, 但并不是很深刻. 今天下定决心, 彻底搞清楚这两个参数.</p>
-<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><hr>
-
+<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a><strong>分析</strong></h2><hr>
+<h3 id="字面量"><a href="#字面量" class="headerlink" title="字面量"></a><strong>字面量</strong></h3><p>首先通过字面量来分析两者区别:</p>
+<blockquote>
+<p>何为字面量?</p>
+</blockquote>
+<p>这里的字面量就是<code>path</code>和<code>url</code>两者的中文语义, 分别是这样的:</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>url</td>
+<td>网址</td>
+</tr>
+<tr>
+<td>path</td>
+<td>路径</td>
+</tr>
+</tbody>
+</table>
+<p>哎, 瞎猫遇上死耗子, 通过中文并不能看出任何差别. 那么, 接着<a href="#官网解释">往下看</a></p>
+<h3 id="官网解释"><a href="#官网解释" class="headerlink" title="官网解释"></a><strong>官网解释</strong></h3><p>打开<a href="">react-router官网</a></p>
+<h3 id="个人解读"><a href="#个人解读" class="headerlink" title="个人解读"></a><strong>个人解读</strong></h3>
       
     
     </div>
