@@ -67,6 +67,8 @@
   <meta name="keywords" content="博客 blog 个人博客">
 
 
+  <meta name="keywords" content="react, Nlvi">
+
   <title> match.path和match.url的爱恨情仇 · DZY </title>
 </head>
 <body>
@@ -159,7 +161,7 @@
     <span class="title" id="toc-switch"><span>文章导航</span></span>
     <div class="toc-inner syuanpi back-1" style="display:none;">
       <li class="title-link"><a href="javascript:;" class="toTop">match.path和match.url的爱恨情仇</a></li>
-      
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#分析"><span class="toc-text">分析</span></a></li></ol>
     </div>
   </aside>
 
@@ -252,7 +254,17 @@
         <div class="post-time-wrapper">
           <span>2019-02-07</span>
           
+            
+              <span class="post-category"><a href="/categories/frontend/">frontend</a></span>
+            
           
+          
+            
+              <aside class="post-tags syuanpi fadeInUpShort back-3">
+              
+                <a href="/tags/react/">react</a>
+              
+              </aside>
             
           
         </div>
@@ -265,7 +277,18 @@
     </header>
     <div class="post-content syuanpi fadeInUpShort back-3">
       
-        
+        <p><code>react-router-dom</code>中的<code>match</code>是个很重要的点, 而<code>match</code>中的<code>url</code>和<code>path</code>又很难区分, 今天来看一下…</p>
+<a id="more"></a>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><hr>
+<p>在之前写毕设的过程中, 一直在用<code>match</code>这个对象, 但是对于</p>
+<ul>
+<li>match.path</li>
+<li>match.url</li>
+</ul>
+<p>这两个东西总是分不清, 很困惑…</p>
+<p>之前在<code>Route</code>的源码分析章节, 对这两者有了简单的了解, 但并不是很深刻. 今天下定决心, 彻底搞清楚这两个参数.</p>
+<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><hr>
+
       
     
     </div>
