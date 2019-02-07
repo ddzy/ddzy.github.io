@@ -298,6 +298,56 @@
 <p>接着来看一下<code>NavLink</code>接收了哪些<code>props</code>?</p>
 <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">NavLink</span>(<span class="params">&#123;</span></span></span><br><span class="line"><span class="function"><span class="params">  "aria-current": ariaCurrent = "page",</span></span></span><br><span class="line"><span class="function"><span class="params">  activeClassName = "active",</span></span></span><br><span class="line"><span class="function"><span class="params">  activeStyle,</span></span></span><br><span class="line"><span class="function"><span class="params">  className: classNameProp,</span></span></span><br><span class="line"><span class="function"><span class="params">  exact,</span></span></span><br><span class="line"><span class="function"><span class="params">  isActive: isActiveProp,</span></span></span><br><span class="line"><span class="function"><span class="params">  location,</span></span></span><br><span class="line"><span class="function"><span class="params">  strict,</span></span></span><br><span class="line"><span class="function"><span class="params">  style: styleProp,</span></span></span><br><span class="line"><span class="function"><span class="params">  to,</span></span></span><br><span class="line"><span class="function"><span class="params">  ...rest</span></span></span><br><span class="line"><span class="function"><span class="params">&#125;</span>) </span>&#123;...&#125;</span><br></pre></td></tr></table></figure>
 <p>对应的props的功能如下表所示:</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>aria-current</td>
+<td>残障人士专用, 可参考<a href="https://www.w3.org/TR/wai-aria-1.1/#aria-current" target="_blank" rel="noopener">这里</a></td>
+</tr>
+<tr>
+<td>activeClassName</td>
+<td>匹配时添加的类名</td>
+</tr>
+<tr>
+<td>activeStyle</td>
+<td>匹配时添加的样式</td>
+</tr>
+<tr>
+<td>className</td>
+<td>NavLink的类名, 会附加到Link</td>
+</tr>
+<tr>
+<td>exact</td>
+<td>是否实行完全匹配</td>
+</tr>
+<tr>
+<td>strict</td>
+<td>是否实行严格匹配</td>
+</tr>
+<tr>
+<td>isActive</td>
+<td>默认是否高亮</td>
+</tr>
+<tr>
+<td>location</td>
+<td>与当前<code>to</code>进行比较的location, 默认是<code>context.location</code></td>
+</tr>
+<tr>
+<td>style</td>
+<td>默认样式</td>
+</tr>
+<tr>
+<td>to</td>
+<td>跳转的url</td>
+</tr>
+</tbody>
+</table>
 <h2 id="实践"><a href="#实践" class="headerlink" title="实践"></a><strong>实践</strong></h2><hr>
 <h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a><strong>测试</strong></h2><hr>
 <h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a><strong>源码</strong></h2><hr>
