@@ -161,7 +161,7 @@
     <span class="title" id="toc-switch"><span>文章导航</span></span>
     <div class="toc-inner syuanpi back-1" style="display:none;">
       <li class="title-link"><a href="javascript:;" class="toTop">match.path和match.url的爱恨情仇</a></li>
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#分析"><span class="toc-text">分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#字面量"><span class="toc-text">字面量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#官网解释"><span class="toc-text">官网解释</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#个人解读"><span class="toc-text">个人解读</span></a></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#分析"><span class="toc-text">分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#字面量"><span class="toc-text">字面量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#官网解释"><span class="toc-text">官网解释</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#个人解读"><span class="toc-text">个人解读</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#match-path"><span class="toc-text">match.path</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#match-url"><span class="toc-text">match.url</span></a></li></ol></li></ol></li></ol>
     </div>
   </aside>
 
@@ -323,7 +323,18 @@
 <li>url - URL的匹配模式, 通常用来构建嵌套<code>Link</code>.</li>
 </ul>
 <p>🆗, 这是官方的解释, 好像并没有什么卵用? 相信没有看过源码的话, 看到这个肯定是一脸懵逼? 继续<a href="#个人解读">往下看</a>:</p>
-<h3 id="个人解读"><a href="#个人解读" class="headerlink" title="个人解读"></a><strong>个人解读</strong></h3>
+<h3 id="个人解读"><a href="#个人解读" class="headerlink" title="个人解读"></a><strong>个人解读</strong></h3><h4 id="match-path"><a href="#match-path" class="headerlink" title="match.path"></a><strong>match.path</strong></h4><p>首先, 贴一张<code>Gayhub</code>上<code>react-router</code>的源码部分截图:</p>
+<p><img src="/2019/02/07/match-path和match-url的爱恨情仇/images/1.jpg" alt="react-router部分源码"></p>
+<p>通过遍历<code>paths</code>数组<code>path</code>, 看到<code>黄色标记</code>部分, 直接将符合条件的<code>path</code>赋值给<code>match</code>, 那么, 可以轻松的得出这样的结论:</p>
+<blockquote>
+<p>match.path === Route.props.path</p>
+</blockquote>
+<p>也就是说, <code>match</code>的<code>path</code>参数, 其实就是将匹配成功的Route的<code>path</code>props原封不动的传递过去.</p>
+<p>OK, 可能有点晦涩, 看一个例子:</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 扮演 `location.pathname`</span></span><br><span class="line"><span class="keyword">const</span> pathname = <span class="string">'/user/duan/profile/19980808'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 对应的 `嵌套路由`</span></span><br><span class="line">&lt;BrowserRouter&gt;</span><br><span class="line">  &lt;Switch&gt;</span><br><span class="line">    &lt;Route path=<span class="string">"/user/:name/profile/:secret"</span> component=&#123;xxx&#125;&gt;</span><br><span class="line">  &lt;Switch&gt;</span><br><span class="line">&lt;BrowserRouter&gt;</span><br></pre></td></tr></table></figure>
+<p>那么此时, <code>match.path</code>就是<code>/user/:name/profile/:secret</code>.</p>
+<h4 id="match-url"><a href="#match-url" class="headerlink" title="match.url"></a><strong>match.url</strong></h4><p>同样, 引用上面的截图中的部分代码:</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
       
     
     </div>
@@ -358,9 +369,9 @@
   <nav class="article-page">
     
     
-      <a href="/2019/02/07/react-router中match-url和match-path的区分/" id="art-right" class="art-right">
+      <a href="/2019/02/07/react-router-dom源码解析-八-NavLink/" id="art-right" class="art-right">
         <span class="prev-title"> 
-          react-router中match.url和match.path的区分<i class="iconfont icon-right"></i>  
+          react-router-dom源码解析(八) -NavLink<i class="iconfont icon-right"></i>  
         </span>
       </a>
     
