@@ -161,7 +161,7 @@
     <span class="title" id="toc-switch"><span>文章导航</span></span>
     <div class="toc-inner syuanpi back-1" style="display:none;">
       <li class="title-link"><a href="javascript:;" class="toTop">match.path和match.url的爱恨情仇</a></li>
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#分析"><span class="toc-text">分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#字面量"><span class="toc-text">字面量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#官网解释"><span class="toc-text">官网解释</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#个人解读"><span class="toc-text">个人解读</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#match-path"><span class="toc-text">match.path</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#match-url"><span class="toc-text">match.url</span></a></li></ol></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#分析"><span class="toc-text">分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#字面量"><span class="toc-text">字面量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#官网解释"><span class="toc-text">官网解释</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#个人解读"><span class="toc-text">个人解读</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#match-path"><span class="toc-text">match.path</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#match-url"><span class="toc-text">match.url</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#结论"><span class="toc-text">结论</span></a></li></ol>
     </div>
   </aside>
 
@@ -332,9 +332,26 @@
 <p>也就是说, <code>match</code>的<code>path</code>参数, 其实就是将匹配成功的Route的<code>path</code>props原封不动的传递过去.</p>
 <p>OK, 可能有点晦涩, 看一个例子:</p>
 <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 扮演 `location.pathname`</span></span><br><span class="line"><span class="keyword">const</span> pathname = <span class="string">'/user/duan/profile/19980808'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 对应的 `嵌套路由`</span></span><br><span class="line">&lt;BrowserRouter&gt;</span><br><span class="line">  &lt;Switch&gt;</span><br><span class="line">    &lt;Route path=<span class="string">"/user/:name/profile/:secret"</span> component=&#123;xxx&#125;&gt;</span><br><span class="line">  &lt;Switch&gt;</span><br><span class="line">&lt;BrowserRouter&gt;</span><br></pre></td></tr></table></figure>
-<p>那么此时, <code>match.path</code>就是<code>/user/:name/profile/:secret</code>.</p>
+<p>那么此时, <code>match.path</code>就等于<code>/user/:name/profile/:secret</code>.</p>
 <h4 id="match-url"><a href="#match-url" class="headerlink" title="match.url"></a><strong>match.url</strong></h4><p>同样, 引用上面的截图中的部分代码:</p>
-<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> &#123; regexp, keys &#125; = compilePath(path, &#123;</span><br><span class="line">  end: exact,</span><br><span class="line">  strict,</span><br><span class="line">  sensitive</span><br><span class="line">&#125;);</span><br><span class="line"><span class="keyword">const</span> match = regexp.exec(pathname);</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> [url, ...values] = match;</span><br><span class="line"><span class="keyword">const</span> isExact = pathname === url;</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> &#123;</span><br><span class="line">  url: path === <span class="string">"/"</span> &amp;&amp; url === <span class="string">""</span> ? <span class="string">"/"</span> : url,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>通过调用<code>path-to-regexp</code>库, 将<code>path</code>转化为<code>RegExp</code>对象, 并调用<code>regexp.exec()</code>方法, 得到一个<code>execMatch</code>, 长这样:</p>
+<p><img src="/2019/02/07/match-path和match-url的爱恨情仇/images/2.jpg" alt="exec到的match对象"></p>
+<p>该对象的第一个参数, 就是匹配后的<code>url</code>, 由此可以得出:</p>
+<blockquote>
+<p>url = path.match(regexp)[0]</p>
+</blockquote>
+<h2 id="结论"><a href="#结论" class="headerlink" title="结论"></a><strong>结论</strong></h2><p>经过上面的要点分析, 可以很轻松的看出来:</p>
+<ul>
+<li>match.path只是一种匹配模式, 就是告诉你<code>根据这种模式</code>去匹配.</li>
+<li>match.url则是<code>match.path</code>执行精确匹配后的具体路径</li>
+</ul>
+<p>一般情况下:</p>
+<ul>
+<li>match.path = Route.props.path</li>
+<li>match.url = location.pathname</li>
+</ul>
+
       
     
     </div>
