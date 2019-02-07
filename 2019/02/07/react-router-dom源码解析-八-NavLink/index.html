@@ -288,7 +288,16 @@
 <p>带着平时使用的思路去分析源码, 会又事半功倍的效果.</p>
 <p>OK, 正式开始对<code>NavLink</code>的探索.</p>
 <h2 id="细说"><a href="#细说" class="headerlink" title="细说"></a><strong>细说</strong></h2><hr>
-<p>先来看一下</p>
+<p>先来看一下<code>NavLink</code>的大致结构, 可以看到, 其实<code>NavLink</code>是一个<code>functional</code>组件, <code>functional</code>相较于<code>classes</code>的优势很多:</p>
+<ul>
+<li>高度可拓展</li>
+<li>易于优化重构</li>
+<li>渲染性能较优</li>
+</ul>
+<p>在<code>react v16.7</code>之后的<code>hooks</code>加持之下, 可用性更是飞步提升.</p>
+<p>接着来看一下<code>NavLink</code>接收了哪些<code>props</code>?</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">NavLink</span>(<span class="params">&#123;</span></span></span><br><span class="line"><span class="function"><span class="params">  "aria-current": ariaCurrent = "page",</span></span></span><br><span class="line"><span class="function"><span class="params">  activeClassName = "active",</span></span></span><br><span class="line"><span class="function"><span class="params">  activeStyle,</span></span></span><br><span class="line"><span class="function"><span class="params">  className: classNameProp,</span></span></span><br><span class="line"><span class="function"><span class="params">  exact,</span></span></span><br><span class="line"><span class="function"><span class="params">  isActive: isActiveProp,</span></span></span><br><span class="line"><span class="function"><span class="params">  location,</span></span></span><br><span class="line"><span class="function"><span class="params">  strict,</span></span></span><br><span class="line"><span class="function"><span class="params">  style: styleProp,</span></span></span><br><span class="line"><span class="function"><span class="params">  to,</span></span></span><br><span class="line"><span class="function"><span class="params">  ...rest</span></span></span><br><span class="line"><span class="function"><span class="params">&#125;</span>) </span>&#123;...&#125;</span><br></pre></td></tr></table></figure>
+<p>对应的props的功能如下表所示:</p>
 <h2 id="实践"><a href="#实践" class="headerlink" title="实践"></a><strong>实践</strong></h2><hr>
 <h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a><strong>测试</strong></h2><hr>
 <h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a><strong>源码</strong></h2><hr>
