@@ -352,6 +352,13 @@
 </tr>
 </tbody>
 </table>
+<p>接着, 可以看到下面:</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> path = <span class="keyword">typeof</span> to === <span class="string">"object"</span> ? to.pathname : to;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Regex taken from: https://github.com/pillarjs/path-to-regexp/blob/master/index.js#L202</span></span><br><span class="line"><span class="keyword">const</span> escapedPath = path &amp;&amp; path.replace(<span class="regexp">/([.+*?=^!:$&#123;&#125;()[\]|/\\])/g</span>, <span class="string">"\\$1"</span>);</span><br></pre></td></tr></table></figure>
+<p>值得注意的是, 这里的<code>excapedPath</code>很奇怪, 一直想不通为什么要进行这个操作? 怀着好奇的心理点开注释的链接, 可以看到:</p>
+<p><img src="/2019/02/07/react-router-dom源码解析-八-NavLink/images/1.jpg" alt="excapedPath"></p>
+<p>该函数会将字符串中的特殊字符进行转义处理, 那么这到底有咩用? 假设有一个特殊的<code>path</code>序列是这样的:</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> path: <span class="built_in">string</span> = <span class="string">'/user\duan/profile/se+cr*et'</span>;</span><br></pre></td></tr></table></figure>
+<p>用户想传递该<code>path</code>, 该<code>path</code>中含有特殊字符, 那么<code>escaped</code>会将转义字符再此进行转义, 便于传递.</p>
 <h2 id="实践"><a href="#实践" class="headerlink" title="实践"></a><strong>实践</strong></h2><hr>
 <h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a><strong>测试</strong></h2><hr>
 <h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a><strong>源码</strong></h2><hr>
