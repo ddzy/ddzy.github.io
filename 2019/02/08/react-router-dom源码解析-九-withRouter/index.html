@@ -268,6 +268,10 @@
         <p><code>withRouter</code>作为一个非常常用的组件, 重要性不言而喻, 而它的底层原理你知道吗? 今天来看一下!</p>
 <a id="more"></a>
 <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a><strong>前言</strong></h2><hr>
+<p>看完<code>流浪地球</code>, 睡一觉起来继续更新…</p>
+<p>不知不觉<code>react-router-dom</code>源码分析系列已经写了<code>9</code>篇, 历经<code>15</code>天寒假, 虽然耗了点实践, 但是总体还是挺值得的.</p>
+<p>通过<code>Router</code>、<code>Route</code>的源码学习, 掌握了<code>history</code>流向<code>react-router-dom</code>顶层, 通过<code>history.listen</code>监听浏览器<code>location</code>变化, 触发<code>setState</code>更新机制, 更新<code>RouterContext</code>. <code>Route</code>接收到最新的<code>context</code>, 结合<code>path-to-regexp</code>库计算出<code>match</code>. 同时也掌握了通过<code>Link</code>组件的自定义链接跳转机制, <code>url</code>变化, 从而触发<code>listen</code>钩子, 调度一系列更新.</p>
+<p>今天要学习的<code>withRouter</code>, 同样非常常用, 它可以帮助我们获取到最新的<code>路由信息</code>, 当然也可以执行<code>更新路由</code>等操作.</p>
 <h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a><strong>分析</strong></h2><hr>
 <h2 id="实践"><a href="#实践" class="headerlink" title="实践"></a><strong>实践</strong></h2><hr>
 <h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a><strong>测试</strong></h2><hr>
