@@ -273,7 +273,11 @@
 <p>通过<code>Router</code>、<code>Route</code>的源码学习, 掌握了<code>history</code>流向<code>react-router-dom</code>顶层, 通过<code>history.listen</code>监听浏览器<code>location</code>变化, 触发<code>setState</code>更新机制, 更新<code>RouterContext</code>. <code>Route</code>接收到最新的<code>context</code>, 结合<code>path-to-regexp</code>库计算出<code>match</code>. 同时也掌握了通过<code>Link</code>组件的自定义链接跳转机制, <code>url</code>变化, 从而触发<code>listen</code>钩子, 调度一系列更新.</p>
 <p>今天要学习的<code>withRouter</code>, 同样非常常用, 它可以帮助我们获取到最新的<code>路由信息</code>, 当然也可以执行<code>更新路由</code>等操作.</p>
 <h2 id="细说"><a href="#细说" class="headerlink" title="细说"></a>细说</h2><hr>
-<h2 id="实践"><a href="#实践" class="headerlink" title="实践"></a>实践</h2><hr>
+<h3 id="hoist-non-react-statics"><a href="#hoist-non-react-statics" class="headerlink" title="hoist-non-react-statics"></a>hoist-non-react-statics</h3><p>正式开始之前, 先来盘一下<code>hoist-non-react-statics</code>这个库.</p>
+<p>进入<a href="https://github.com/mridgway/hoist-non-react-statics#hoist-non-react-statics" target="_blank" rel="noopener">官网</a>, 看到官方的一段英文解释如下:</p>
+<p><img src="/2019/02/08/react-router-dom源码解析-九-withRouter/images/1.png" alt="官方解释"></p>
+<p>可以了解到, 该库的作用是解决<code>HOC</code>无法传递<code>静态方法</code>的问题. 好吧, 以前从没遇到这个问题, 也许是见识短的缘故吧, 今天先简单了解一下这个库, 知道它怎么用, 后续再深入探究其底层原理.</p>
+<h3 id="start"><a href="#start" class="headerlink" title="start"></a>start</h3><h2 id="实践"><a href="#实践" class="headerlink" title="实践"></a>实践</h2><hr>
 <h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><hr>
 <h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h2><hr>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><hr>
@@ -341,7 +345,7 @@
     <span class="title" id="toc-switch"><span>文章导航</span></span>
     <div class="toc-inner syuanpi back-1" style="display:none;">
       <li class="title-link"><a href="javascript:;" class="toTop">react-router-dom源码解析(九) -withRouter</a></li>
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#细说"><span class="toc-text">细说</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实践"><span class="toc-text">实践</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#测试"><span class="toc-text">测试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#源码"><span class="toc-text">源码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-text">总结</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#细说"><span class="toc-text">细说</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#hoist-non-react-statics"><span class="toc-text">hoist-non-react-statics</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#start"><span class="toc-text">start</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实践"><span class="toc-text">实践</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#测试"><span class="toc-text">测试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#源码"><span class="toc-text">源码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-text">总结</span></a></li></ol>
     </div>
   </aside>
 
