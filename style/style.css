@@ -1129,6 +1129,9 @@ h6 {
 .post .post-content li {
   margin-top: 8px;
 }
+.post .post-content figure {
+  margin: 20px 0;
+}
 .post .post-content p {
   font-family: inherit;
   line-height: 2;
