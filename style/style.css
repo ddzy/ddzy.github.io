@@ -1029,7 +1029,7 @@ h6 {
 }
 .post .post-content h1 {
   font-family: 'Optima' , 'PingFang SC' , 'Roboto' , 'Noto SansCJK' , 'Helvetica Neue' , 'Helvetica' , "Microsoft YaHei" , "YaHei-Consolas-Hybrid" , sans-serif;
-  font-weight: inherit;
+  font-weight: 600;
   margin: 16px 0;
 }
 .post .post-content h1:before {
@@ -1037,7 +1037,7 @@ h6 {
 }
 .post .post-content h2 {
   font-family: 'Optima' , 'PingFang SC' , 'Roboto' , 'Noto SansCJK' , 'Helvetica Neue' , 'Helvetica' , "Microsoft YaHei" , "YaHei-Consolas-Hybrid" , sans-serif;
-  font-weight: inherit;
+  font-weight: 600;
   margin: 16px 0;
 }
 .post .post-content h2:before {
@@ -1045,7 +1045,7 @@ h6 {
 }
 .post .post-content h3 {
   font-family: 'Optima' , 'PingFang SC' , 'Roboto' , 'Noto SansCJK' , 'Helvetica Neue' , 'Helvetica' , "Microsoft YaHei" , "YaHei-Consolas-Hybrid" , sans-serif;
-  font-weight: inherit;
+  font-weight: 600;
   margin: 16px 0;
 }
 .post .post-content h3:before {
@@ -1053,7 +1053,7 @@ h6 {
 }
 .post .post-content h4 {
   font-family: 'Optima' , 'PingFang SC' , 'Roboto' , 'Noto SansCJK' , 'Helvetica Neue' , 'Helvetica' , "Microsoft YaHei" , "YaHei-Consolas-Hybrid" , sans-serif;
-  font-weight: inherit;
+  font-weight: 600;
   margin: 16px 0;
 }
 .post .post-content h4:before {
@@ -1061,7 +1061,7 @@ h6 {
 }
 .post .post-content h5 {
   font-family: 'Optima' , 'PingFang SC' , 'Roboto' , 'Noto SansCJK' , 'Helvetica Neue' , 'Helvetica' , "Microsoft YaHei" , "YaHei-Consolas-Hybrid" , sans-serif;
-  font-weight: inherit;
+  font-weight: 600;
   margin: 16px 0;
 }
 .post .post-content h5:before {
@@ -1069,7 +1069,7 @@ h6 {
 }
 .post .post-content h6 {
   font-family: 'Optima' , 'PingFang SC' , 'Roboto' , 'Noto SansCJK' , 'Helvetica Neue' , 'Helvetica' , "Microsoft YaHei" , "YaHei-Consolas-Hybrid" , sans-serif;
-  font-weight: inherit;
+  font-weight: 600;
   margin: 16px 0;
 }
 .post .post-content h6:before {
@@ -1125,6 +1125,8 @@ h6 {
 .post .post-content p {
   font-family: inherit;
   line-height: 2;
+  margin-bottom: 16px;
+  margin-top: 0;
 }
 .post .post-content strong {
   font-weight: 600;
