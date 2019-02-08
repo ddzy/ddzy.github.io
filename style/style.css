@@ -1122,11 +1122,14 @@ h6 {
   left: 0;
   right: 0;
 }
+.post .post-content li {
+  margin-top: 8px;
+}
 .post .post-content p {
   font-family: inherit;
   line-height: 2;
   margin-bottom: 16px;
-  margin-top: 0;
+  margin-top: 16px;
 }
 .post .post-content strong {
   font-weight: 600;
