@@ -492,6 +492,10 @@ h6 {
   border-bottom: 2px dashed #7597f9;
   height: 16px;
 }
+.post-copyright {
+  text-align: center;
+  margin: 16px 0;
+}
 .post-copyright .copy-author,
 .post-copyright .copy-url,
 .post-copyright .copy-origin,
