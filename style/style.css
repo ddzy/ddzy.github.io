@@ -1167,6 +1167,7 @@ h6 {
   background-color: rgba(89,111,239,0.1);
   border-left: 4px solid #596fef;
   color: #404a8a;
+  box-shadow: 3px 4px 20px rgba(64,74,138,0.2);
 }
 .post .post-content blockquote:before {
   content: '';
