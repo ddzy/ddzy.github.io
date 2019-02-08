@@ -1162,8 +1162,8 @@ h6 {
 }
 .post .post-content blockquote {
   position: relative;
-  margin: 8px 16px;
-  padding: 2px 8px;
+  margin: 16px;
+  padding: 6px 18px;
   background-color: rgba(89,111,239,0.1);
   border-left: 4px solid #596fef;
   color: #404a8a;
