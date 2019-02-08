@@ -272,11 +272,11 @@
 <p>不知不觉<code>react-router-dom</code>源码分析系列已经写了<code>9</code>篇, 历经<code>15</code>天寒假, 虽然耗了点实践, 但是总体还是挺值得的.</p>
 <p>通过<code>Router</code>、<code>Route</code>的源码学习, 掌握了<code>history</code>流向<code>react-router-dom</code>顶层, 通过<code>history.listen</code>监听浏览器<code>location</code>变化, 触发<code>setState</code>更新机制, 更新<code>RouterContext</code>. <code>Route</code>接收到最新的<code>context</code>, 结合<code>path-to-regexp</code>库计算出<code>match</code>. 同时也掌握了通过<code>Link</code>组件的自定义链接跳转机制, <code>url</code>变化, 从而触发<code>listen</code>钩子, 调度一系列更新.</p>
 <p>今天要学习的<code>withRouter</code>, 同样非常常用, 它可以帮助我们获取到最新的<code>路由信息</code>, 当然也可以执行<code>更新路由</code>等操作.</p>
-<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a><strong>分析</strong></h2><hr>
-<h2 id="实践"><a href="#实践" class="headerlink" title="实践"></a><strong>实践</strong></h2><hr>
-<h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a><strong>测试</strong></h2><hr>
-<h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a><strong>源码</strong></h2><hr>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a><strong>总结</strong></h2><hr>
+<h2 id="细说"><a href="#细说" class="headerlink" title="细说"></a>细说</h2><hr>
+<h2 id="实践"><a href="#实践" class="headerlink" title="实践"></a>实践</h2><hr>
+<h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><hr>
+<h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h2><hr>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><hr>
 
       
     
@@ -341,7 +341,7 @@
     <span class="title" id="toc-switch"><span>文章导航</span></span>
     <div class="toc-inner syuanpi back-1" style="display:none;">
       <li class="title-link"><a href="javascript:;" class="toTop">react-router-dom源码解析(九) -withRouter</a></li>
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#分析"><span class="toc-text">分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实践"><span class="toc-text">实践</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#测试"><span class="toc-text">测试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#源码"><span class="toc-text">源码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-text">总结</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#细说"><span class="toc-text">细说</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实践"><span class="toc-text">实践</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#测试"><span class="toc-text">测试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#源码"><span class="toc-text">源码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-text">总结</span></a></li></ol>
     </div>
   </aside>
 
