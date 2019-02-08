@@ -1,281 +1,99 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html>
 <head><meta name="generator" content="Hexo 3.8.0">
-  <link rel="stylesheet" href="/style/style.css">
-<script>
-  var nlviconfig = {
-    title: "DZY",
-    author: "zhaoyang Duan",
-    baseUrl: "/",
-    theme: {
-      scheme: "balance",
-      lightbox: true,
-      animate: true,
-      search: false,
-      friends: false,
-      reward: false,
-      lazy: true
-    }
-  }
-</script>
+  <meta charset="utf-8">
+  
 
-
-
-
-    <link rel="stylesheet" href="/script/lib/lightbox/css/lightbox.min.css">
-
-
-
-
-    <link rel="stylesheet" href="/syuanpi/syuanpi.min.css">
-
-
-
-
-    <link rel="icon" href="/favicon.ico" type="image/x-ico">
-
-
-
-
-
-
-
-    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-
-<meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta name="browsermode" content="application">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-title" content="DZY">
-<meta name="apple-mobile-web-app-status-bar-style" content="default">
-<meta name="msapplication-navbutton-color" content="#666666">
-<meta name="format-detection" content="telephone=no">
-<meta name="keywords" content="nlvi, Nlvi">
-
-  <link rel="apple-touch-icon" sizes="72x72" href="/favicon.ico">
-  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/favicon.ico">
-
-
-  <meta name="subtitle" content="大三老猫-frontender">
-
-
-  <meta name="description" content="个人博客, 记录frontend的点点滴滴">
-
-
-  <meta name="keywords" content="博客 blog 个人博客">
-
-
-  <meta name="keywords" content="react, Nlvi">
-
-  <title> react-router-dom源码解析(九) -withRouter · DZY </title>
+  
+  <title>react-router-dom源码解析(九) -withRouter | DZY</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="withRouter作为一个非常常用的组件, 重要性不言而喻, 而它的底层原理你知道吗? 今天来看一下!">
+<meta name="keywords" content="react">
+<meta property="og:type" content="article">
+<meta property="og:title" content="react-router-dom源码解析(九) -withRouter">
+<meta property="og:url" content="https://blog.yyge.top/2019/02/08/react-router-dom源码解析-九-withRouter/index.html">
+<meta property="og:site_name" content="DZY">
+<meta property="og:description" content="withRouter作为一个非常常用的组件, 重要性不言而喻, 而它的底层原理你知道吗? 今天来看一下!">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-02-08T01:05:33.036Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="react-router-dom源码解析(九) -withRouter">
+<meta name="twitter:description" content="withRouter作为一个非常常用的组件, 重要性不言而喻, 而它的底层原理你知道吗? 今天来看一下!">
+  
+    <link rel="alternate" href="/atom.xml" title="DZY" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
 </head>
+</html>
 <body>
-  <div class="progress">
-  <div class="progress-inner"></div>
-</div>
-
-  
-
-  <div class="container" style="display:none;">
-
-    <header class="header" id="header">
-  <div class="header-wrapper">
-    <div class="logo">
-  <div class="logo-inner syuanpi tvIn">
-    <span><a href="/">DZY</a></span>
-    
-      <span id="subtitle">大三老猫-frontender</span>
-    
-  </div>
-</div>
-    <nav class="main-nav">
-  
-  <ul class="main-nav-list syuanpi tvIn">
-  
-  
-    
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">DZY</a>
+      </h1>
       
-    
-    <li class="menu-item">
-      <a href="/" id="article">
-        <span class="base-name">文章</span>
-        
-          <span class="menu-item-label">article</span>
-        
-      </a>
-    </li>
-  
-    
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">大三老猫-frontender</a>
+        </h2>
       
-    
-    <li class="menu-item">
-      <a href="/categories" id="categories">
-        <span class="base-name">分类</span>
-        
-          <span class="menu-item-label">categories</span>
-        
-      </a>
-    </li>
-  
-    
-      
-    
-    <li class="menu-item">
-      <a href="/archives" id="archives">
-        <span class="base-name">归档</span>
-        
-          <span class="menu-item-label">archives</span>
-        
-      </a>
-    </li>
-  
-    
-      
-    
-    <li class="menu-item">
-      <a href="javascript:;" id="tags">
-        <span class="base-name">标签</span>
-        
-          <span class="menu-item-label">tags</span>
-        
-      </a>
-    </li>
-  
-  </ul>
-  
-</nav>
-
-    
-    
-      <div class="tagcloud-mask"></div>  
-<div class="tagcloud" id="tagcloud">
-  <div class="tagcloud-inner">
-    <a href="/tags/react/" style="font-size: 14px;">react</a> <a href="/tags/vscode/" style="font-size: 14px;">vscode</a> <a href="/tags/webpack/" style="font-size: 14px;">webpack</a> <a href="/tags/七牛云/" style="font-size: 14px;">七牛云</a> <a href="/tags/毕设/" style="font-size: 14px;">毕设</a>
-  </div>
-</div>
-
-  
-  <aside class="post-toc">
-    <span class="title" id="toc-switch"><span>文章导航</span></span>
-    <div class="toc-inner syuanpi back-1" style="display:none;">
-      <li class="title-link"><a href="javascript:;" class="toTop">react-router-dom源码解析(九) -withRouter</a></li>
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#分析"><span class="toc-text">分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实践"><span class="toc-text">实践</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#测试"><span class="toc-text">测试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#源码"><span class="toc-text">源码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-text">总结</span></a></li></ol>
     </div>
-  </aside>
-
-
-  
-    
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://blog.yyge.top"></form>
+      </div>
+    </div>
   </div>
 </header>
-<div class="mobile-header">
-  <div class="mobile-header-body">
-    <div class="mobile-header-list">
-      
-        
-            <div class="mobile-nav-item">
-                <a href="/">
-                    <span>文章</span>
-                    
-                        <span class="menu-item-label">article</span>
-                    
-                </a>
-            </div>
-        
-      
-        
-            <div class="mobile-nav-item">
-                <a href="/categories">
-                    <span>分类</span>
-                    
-                        <span class="menu-item-label">categories</span>
-                    
-                </a>
-            </div>
-        
-      
-        
-            <div class="mobile-nav-item">
-                <a href="/archives">
-                    <span>归档</span>
-                    
-                        <span class="menu-item-label">archives</span>
-                    
-                </a>
-            </div>
-        
-      
-        
-          <div class="mobile-nav-item inner-cloud">
-            <div class="mobile-nav-tag">
-              <a href="javascript:;" id="mobile-tags">
-                <span>标签</span>
-                
-                    <span class="menu-item-label">tags</span>
-                
-              </a>
-            </div>
-            <div class="mobile-nav-tagcloud">
-              <div class="mobile-tagcloud-inner">
-                <a href="/tags/react/" style="font-size: 14px;">react</a> <a href="/tags/vscode/" style="font-size: 14px;">vscode</a> <a href="/tags/webpack/" style="font-size: 14px;">webpack</a> <a href="/tags/七牛云/" style="font-size: 14px;">七牛云</a> <a href="/tags/毕设/" style="font-size: 14px;">毕设</a>
-              </div>
-            </div>
-          </div>
-        
-      
-    </div>
-  </div>
-  <div class="mobile-header-nav">
-    <div class="mobile-header-item" id="mobile-left">
-      <div class="header-menu-item">
-        <span class="header-menu-line"></span>
-      </div>
-    </div>
-    <h1 class="mobile-header-title">
-      <a href="/">DZY</a>
-    </h1>
-    <div class="mobile-header-item"></div>
-  </div>
-</div>
-    <div class="container-inner">
-      <main class="main" id="main">
-        <div class="main-wrapper">
-          
+      <div class="outer">
+        <section id="main"><article id="post-react-router-dom源码解析-九-withRouter" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/02/08/react-router-dom源码解析-九-withRouter/" class="article-date">
+  <time datetime="2019-02-08T01:02:18.000Z" itemprop="datePublished">2019-02-08</time>
+</a>
     
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/frontend/">frontend</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-  <article class="
-  post
-   is_post 
-  ">
-    <header class="post-header">
-      <div class="post-time syuanpi fadeInUpShort back-1">
-        <div class="post-time-wrapper">
-          <span>2019-02-08</span>
-          
-            
-              <span class="post-category"><a href="/categories/frontend/">frontend</a></span>
-            
-          
-          
-            
-              <aside class="post-tags syuanpi fadeInUpShort back-3">
-              
-                <a href="/tags/react/">react</a>
-              
-              </aside>
-            
-          
-        </div>
-      </div>
-      <h1 class="post-title syuanpi fadeInUpShort back-2">
-        
-          react-router-dom源码解析(九) -withRouter
-        
-      </h1>
-    </header>
-    <div class="post-content syuanpi fadeInUpShort back-3">
+    <h1 class="article-title" itemprop="name">
+      react-router-dom源码解析(九) -withRouter
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
       
         <p><code>withRouter</code>作为一个非常常用的组件, 重要性不言而喻, 而它的底层原理你知道吗? 今天来看一下!</p>
 <a id="more"></a>
@@ -287,169 +105,137 @@
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a><strong>总结</strong></h2><hr>
 
       
-    
     </div>
-    
+    <footer class="article-footer">
+      <a data-url="https://blog.yyge.top/2019/02/08/react-router-dom源码解析-九-withRouter/" data-id="cjrvcpw02000520d3561yh0ho" class="article-share-link">Share</a>
       
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react/">react</a></li></ul>
 
-      
-  <hr class="copy-line">
-  <div class="post-copyright">
-    <div class="copy-author">
-      <span>作者 :</span>
-      <span>zhaoyang Duan</span>
-    </div>
-    <div class="copy-url">
-      <span>地址 :</span>
-      <a href="https://blog.yyge.top/2019/02/08/react-router-dom源码解析-九-withRouter/">https://blog.yyge.top/2019/02/08/react-router-dom源码解析-九-withRouter/</a>
-    </div>
-    <div class="copy-origin">
-      <span>来源 :</span>
-      <a href="https://blog.yyge.top">https://blog.yyge.top</a>
-    </div>
-    <div class="copy-license">
-      
-      著作权归作者所有，转载请联系作者获得授权。
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2019/02/07/match-path和match-url的爱恨情仇/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">match.path和match.url的爱恨情仇</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/freebie/">freebie</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/frontend/">frontend</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/tool/">tool</a></li></ul>
     </div>
   </div>
 
-    
-  </article>
+
   
     
-  <nav class="article-page">
-    
-    
-      <a href="/2019/02/07/match-path和match-url的爱恨情仇/" id="art-right" class="art-right">
-        <span class="prev-title"> 
-          match.path和match.url的爱恨情仇<i class="iconfont icon-right"></i>  
-        </span>
-      </a>
-    
-  </nav>
-
-    
-  <i id="com-switch" class="iconfont icon-more jumping-in long infinite" style="font-size:24px;display:block;text-align:center;transform:rotate(180deg);"></i>
-  <div class="post-comments" id="post-comments" style="display: block;margin: auto 16px;">
-    
-    
-    
-
-    
-
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/react/">react</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vscode/">vscode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpack/">webpack</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/七牛云/">七牛云</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/毕设/">毕设</a></li></ul>
+    </div>
   </div>
 
 
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/react/" style="font-size: 20px;">react</a> <a href="/tags/vscode/" style="font-size: 10px;">vscode</a> <a href="/tags/webpack/" style="font-size: 17.5px;">webpack</a> <a href="/tags/七牛云/" style="font-size: 12.5px;">七牛云</a> <a href="/tags/毕设/" style="font-size: 15px;">毕设</a>
+    </div>
+  </div>
 
   
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">二月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">一月 2019</a></li></ul>
+    </div>
+  </div>
+
+
   
-
-
-        </div>
-      </main>
-
-      <footer class="footer syuanpi fadeIn" id="footer">
-  <hr>
-  <div class="footer-wrapper">
-    <div class="left">
-      <div class="contact-icon">
     
-    
-    
-    
-    
-    
-    
-    
-    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
         
+          <li>
+            <a href="/2019/02/08/react-router-dom源码解析-九-withRouter/">react-router-dom源码解析(九) -withRouter</a>
+          </li>
         
+          <li>
+            <a href="/2019/02/07/match-path和match-url的爱恨情仇/">match.path和match.url的爱恨情仇</a>
+          </li>
         
+          <li>
+            <a href="/2019/02/07/react-router-dom源码解析-八-NavLink/">react-router-dom源码解析(八) -NavLink</a>
+          </li>
         
-            <a href="https://www.zhihu.com/people/bu-jing-tong-jsbu-zhao-dui-xiang-81/activities" class="iconfont icon-zhihu" title="zhihu"></a>
+          <li>
+            <a href="/2019/02/05/react-router-dom源码解析-七-Link/">react-router-dom源码解析(七) -Link</a>
+          </li>
         
+          <li>
+            <a href="/2019/01/31/vscode插件开发总结/">vscode插件开发总结</a>
+          </li>
         
-        
-        
-        
-    
-        
-            <a href="https://github.com/ddzy" class="iconfont icon-social-github" title="github"></a>
-        
-        
-        
-        
-        
-        
-        
-        
-    
-</div>
-
+      </ul>
     </div>
-    <div class="right">
-      <div class="copyright">
-    <div class="info">
-        <span>&copy;</span>
-        <span>2018 ~ 2019</span>
-        <span>❤</span>
-        <span>zhaoyang Duan</span>
-    </div>
-    <div class="theme">
-        <span>
-            动力来源于
-            <a href="http://hexo.io/" target="_blank">Hexo </a>
-        </span>
-        <span>
-            主题
-            <a href="https://github.com/ColMugX/hexo-theme-Nlvi"> Nlvi </a>
-        </span>
-    </div>
-    
-    <div class="visit_count">
-        <span id="busuanzi_container_site_pv">
-            本站总访问量:
-            <span id="busuanzi_value_site_pv"></span>次
-        </span>
-    </div>
-    
-</div>
+  </div>
 
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 zhaoyang Duan<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
 </footer>
     </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
   </div>
-  <script src="/script/lib/jquery/jquery-3.2.1.min.js"></script>
-
-
-  <script src="/script/lib/lightbox/js/lightbox.min.js"></script>
-
-
-
-  <script src="https://cdn.bootcss.com/mathjax/2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-  <script type="text/x-mathjax-config;executed=true">MathJax.Hub.Config({tex2jax: {inlineMath: [["$","$"], ["\\(","\\)"]]}});</script>
-
-
-
-  <script src="/script/lib/lazyload/lazyload.min.js"></script>
-
-
-
-
-<script src="/script/src/nlvi.js"></script>
-
-  <script src="/script/scheme/balance.js"></script>
-
-<script src="/script/bootstarp.js"></script>
-
-
-<div class="backtop syuanpi melt toTop" id="backtop">
-    <i class="iconfont icon-up"></i>
-    <span style="text-align:center;font-family:Georgia;"><span style="font-family:Georgia;" id="scrollpercent">1</span>%</span>
-</div>
-
-
-
 </body>
 </html>
