@@ -275,7 +275,7 @@
 <h2 id="细说"><a href="#细说" class="headerlink" title="细说"></a>细说</h2><hr>
 <h3 id="hoist-non-react-statics"><a href="#hoist-non-react-statics" class="headerlink" title="hoist-non-react-statics"></a>hoist-non-react-statics</h3><p>正式开始之前, 先来盘一下<code>hoist-non-react-statics</code>这个库.</p>
 <p>进入<a href="https://github.com/mridgway/hoist-non-react-statics#hoist-non-react-statics" target="_blank" rel="noopener">官网</a>, 看到官方的一段英文解释如下:</p>
-<p><img src="/2019/02/08/react-router-dom源码解析-九-withRouter/images/1.png" alt="官方解释"></p>
+<p><img src="https://oos.blog.yyge.top/2019/2/8/react-router-dom%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90%28%E4%B9%9D%29%20-withRouter/images/1.png?imageView2/0/q/75|watermark/2/text/6Ziz5ZOl5bCP56uZ/font/5b6u6L2v6ZuF6buR/fontsize/440/fill/IzE4OTBGRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10|imageslim" alt="官方解释"></p>
 <p>可以了解到, 该库的作用是解决<code>HOC</code>无法传递<code>静态方法</code>的问题. 好吧, 以前从没遇到这个问题, 也许是见识短的缘故吧, 今天先简单了解一下这个库, 知道它怎么用, 后续再深入探究其底层原理.</p>
 <h3 id="withRouter"><a href="#withRouter" class="headerlink" title="withRouter"></a>withRouter</h3><p>接着看<code>withRouter</code>的总体结构:</p>
 <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> hoistStatics <span class="keyword">from</span> <span class="string">"hoist-non-react-statics"</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">withRouter</span>(<span class="params">Component</span>) </span>&#123;</span><br><span class="line">  ...</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> hoistStatics(C, Component);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -287,7 +287,7 @@
 <p>源码在<a href="https://github.com/ddzy/yyg-react-router-dom" target="_blank" rel="noopener">这里</a></p>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><hr>
 <p>最后, 照例画一张<code>withRouter</code>的思维脑图, 毕竟一图胜千言.</p>
-<p><img src="/2019/02/08/react-router-dom源码解析-九-withRouter/images/2.png" alt="总结"></p>
+<p><img src="https://oos.blog.yyge.top/2019/2/8/react-router-dom%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90%28%E4%B9%9D%29%20-withRouter/images/2.png?imageView2/0/q/75|watermark/2/text/6Ziz5ZOl5bCP56uZ/font/5b6u6L2v6ZuF6buR/fontsize/440/fill/IzE4OTBGRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10|imageslim" alt="总结"></p>
 
       
     
