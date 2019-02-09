@@ -67,9 +67,9 @@
   <meta name="keywords" content="博客 blog 个人博客">
 
 
-  <meta name="keywords" content="毕设, Nlvi">
+  <meta name="keywords" content="leetcode, Nlvi">
 
-  <title> 毕设之路(二) · DZY </title>
+  <title> leetcode题解 · DZY </title>
 </head>
 <body>
   <div class="progress">
@@ -240,17 +240,17 @@
     <header class="post-header">
       <div class="post-time syuanpi fadeInUpShort back-1">
         <div class="post-time-wrapper">
-          <span>2019-01-23</span>
+          <span>2019-02-09</span>
           
             
-              <span class="post-category"><a href="/categories/frontend/">frontend</a></span>
+              <span class="post-category"><a href="/categories/algorithm/">algorithm</a></span>
             
           
           
             
               <aside class="post-tags syuanpi fadeInUpShort back-3">
               
-                <a href="/tags/毕设/">毕设</a>
+                <a href="/tags/leetcode/">leetcode</a>
               
               </aside>
             
@@ -259,73 +259,17 @@
       </div>
       <h1 class="post-title syuanpi fadeInUpShort back-2">
         
-          毕设之路(二)
+          leetcode题解
         
       </h1>
     </header>
     <div class="post-content syuanpi fadeInUpShort back-3">
       
-        <p>毕设踩坑之路第二跳</p>
+        <p>闲时玩玩算法, 不失为一个好的选择.</p>
 <a id="more"></a>
-<h2 id="提取评论展示组件"><a href="#提取评论展示组件" class="headerlink" title="提取评论展示组件"></a><strong>提取评论展示组件</strong></h2><hr>
-<blockquote>
-<p>不同的评论下, 切换回复框显隐状态</p>
-</blockquote>
-<p><strong>解决</strong>: 在组件中设置<code>state</code></p>
-<blockquote>
-<p>提取commentItem组件, 多个组件会共享一个props</p>
-</blockquote>
-<p><strong>解决</strong>: <code>将baseCommentInput</code>变为非受控组件, 自己管理状态</p>
-<blockquote>
-<p>动态创建展示组件</p>
-</blockquote>
-<ul>
-<li>ReactDOM.render</li>
+<h2 id="Array"><a href="#Array" class="headerlink" title="Array"></a>Array</h2><ul>
+<li><a href="#%E6%A6%82%E8%A7%88">两数之和</a></li>
 </ul>
-<p>当<code>display</code>的时候, 生命周期无法正常执行, 而且此方法不能<code>append</code></p>
-<ul>
-<li>控制<code>state</code>动态append</li>
-</ul>
-<blockquote>
-<p>创建评论&amp;回复</p>
-</blockquote>
-<p><strong>解决</strong>: 只需添加<code>from</code> &amp;&amp; <code>to</code>字段即可</p>
-<h2 id="ts重构后台"><a href="#ts重构后台" class="headerlink" title="ts重构后台"></a><strong>ts重构后台</strong></h2><hr>
-<blockquote>
-<p><code>nodemon</code> 无法直接解析 <code>.ts</code> 文件</p>
-</blockquote>
-<p><strong>解决</strong>: 添加 <code>ts-node</code> 模块, 可自动执行编译ts文件</p>
-<blockquote>
-<p><code>package.json</code> 配置启动命令</p>
-</blockquote>
-<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">scripts: &#123;</span><br><span class="line">  <span class="string">"server"</span>: <span class="string">"nodemon --watch ./server/**/*.ts --ignore ./server/**/*.spec.ts --exec ts-node ./server/server.ts"</span>,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>执行<code>2</code>步骤后, 后台报错</p>
-</blockquote>
-<p><strong>解决</strong>: 将<code>tsconfig.json</code>的<code>&quot;module&quot;</code>: <code>&quot;esnext&quot;</code>改为 <code>&quot;commentjs&quot;</code>.</p>
-<blockquote>
-<p>执行<code>3</code>步骤后, <code>antd</code> 无法解析</p>
-</blockquote>
-<p><strong>原因</strong>: <code>antd</code> 依赖<code>esnext</code></p>
-<p><strong>解决</strong>: 修改<code>config-overridge.js</code></p>
-<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> tsLoader = getLoader(</span><br><span class="line">  config.module.rules,</span><br><span class="line">  (rule) =&gt; (</span><br><span class="line">    rule.loader</span><br><span class="line">      &amp;&amp; <span class="keyword">typeof</span> rule.loader === <span class="string">'string'</span></span><br><span class="line">      &amp;&amp; rule.loader.includes(<span class="string">'ts-loader'</span>),</span><br><span class="line">  ),</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line">tsLoader.options = &#123;</span><br><span class="line">  transpileOnly: <span class="literal">true</span>,</span><br><span class="line">  getCustomTransforms: <span class="function"><span class="params">()</span> =&gt;</span> (&#123;</span><br><span class="line">    before: [tsImportPluginFactory(&#123;</span><br><span class="line">      libraryDirectory: <span class="string">'es'</span>,</span><br><span class="line">      libraryName: <span class="string">'antd'</span>,</span><br><span class="line">      style: <span class="string">'css'</span> | <span class="literal">true</span>,</span><br><span class="line">    &#125;)],</span><br><span class="line">  &#125;),</span><br><span class="line">  compilerOptions: &#123;</span><br><span class="line">    <span class="keyword">module</span>: 'es2015',</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h2 id="mongoose"><a href="#mongoose" class="headerlink" title="mongoose"></a><strong>mongoose</strong></h2><hr>
-<blockquote>
-<p>关联存储问题</p>
-</blockquote>
-<p><strong>解决</strong>: 互相依赖的字段, 例如 <code>comments</code> &amp; <code>replys</code>, 创建新的 <code>reply</code> 时, 要将其push同步到 <code>comments</code>中.</p>
-<h2 id="react"><a href="#react" class="headerlink" title="react"></a><strong>react</strong></h2><hr>
-<blockquote>
-<p><code>componentDidMount</code>执行两次的问题</p>
-</blockquote>
-<p><strong>原因</strong>: 使用<code>react-transition-group</code>作路由过渡, 每次enter和leave的时候, componentDidMount会执行两次</p>
-<p><strong>解决</strong>: 重构<code>RouterConfig</code></p>
-<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">&lt;CSSTransition exit=&#123;<span class="literal">false</span>&#125;&gt;</span><br><span class="line">  &lt;Switch location=&#123;props.location&#125;&gt;</span><br><span class="line">    &#123;...&#125;</span><br><span class="line">  &lt;<span class="regexp">/Switch&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>CSSTransition&gt;</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>Can’t setState (or forceUpdate) on an unmounted component, This is a no-op, but it indicates a memory leak in your application.</p>
-</blockquote>
-<p><strong>原因</strong>: 未及时清理副作用</p>
-<p><strong>解决</strong>: <code>componentWillUnmount</code> 中清理 <code>定时器</code> | <code>监听器</code> | <code>setState</code> 等.</p>
 
       
     
@@ -342,7 +286,7 @@
     </div>
     <div class="copy-url">
       <span>地址 :</span>
-      <a href="https://blog.yyge.top/2019/01/23/毕设之路-二/">https://blog.yyge.top/2019/01/23/毕设之路-二/</a>
+      <a href="https://blog.yyge.top/2019/02/09/leetcode题解/">https://blog.yyge.top/2019/02/09/leetcode题解/</a>
     </div>
     <div class="copy-origin">
       <span>来源 :</span>
@@ -360,16 +304,16 @@
     
   <nav class="article-page">
     
-      <a href="/2019/01/23/毕设之路-三/" id="art-left" class="art-left">
+      <a href="/2019/02/09/leetcode-twoSum/" id="art-left" class="art-left">
         <span class="next-title">
-          <i class="iconfont icon-left"></i>毕设之路(三)
+          <i class="iconfont icon-left"></i>leetcode -twoSum
         </span>
       </a>
     
     
-      <a href="/2019/01/21/webpack常用plugins-一/" id="art-right" class="art-right">
+      <a href="/2019/02/08/react-router-dom源码解析-九-withRouter/" id="art-right" class="art-right">
         <span class="prev-title"> 
-          webpack常用plugins(一)<i class="iconfont icon-right"></i>  
+          react-router-dom源码解析(九) -withRouter<i class="iconfont icon-right"></i>  
         </span>
       </a>
     
@@ -395,8 +339,8 @@
   <aside class="post-toc">
     <span class="title" id="toc-switch"><span>文章导航</span></span>
     <div class="toc-inner syuanpi back-1" style="display:none;">
-      <li class="title-link"><a href="javascript:;" class="toTop">毕设之路(二)</a></li>
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#提取评论展示组件"><span class="toc-text">提取评论展示组件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ts重构后台"><span class="toc-text">ts重构后台</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#mongoose"><span class="toc-text">mongoose</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#react"><span class="toc-text">react</span></a></li></ol>
+      <li class="title-link"><a href="javascript:;" class="toTop">leetcode题解</a></li>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Array"><span class="toc-text">Array</span></a></li></ol>
     </div>
   </aside>
 
