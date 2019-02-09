@@ -267,7 +267,16 @@
       
         <p>Leetcode题解之 —— 两数之和</p>
 <a id="more"></a>
-
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><hr>
+<blockquote>
+<p>双指针解法</p>
+</blockquote>
+<ul>
+<li>两个指针</li>
+<li><code>右指针 = 左指针 + 1</code>时重置</li>
+<li>返回结果</li>
+</ul>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @param &#123;number[]&#125; nums</span></span><br><span class="line"><span class="comment"> * @param &#123;number&#125; target</span></span><br><span class="line"><span class="comment"> * @return &#123;number[]&#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> twoSum = <span class="function"><span class="keyword">function</span>(<span class="params">nums, target</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> [left, right] = [<span class="number">0</span>, nums.length - <span class="number">1</span>];</span><br><span class="line"></span><br><span class="line">  <span class="keyword">while</span> (right &gt; <span class="number">0</span> &amp;&amp; right !== left) &#123;</span><br><span class="line">    <span class="keyword">if</span> (nums[left] + nums[right] === target) &#123;</span><br><span class="line">      <span class="keyword">return</span> [left, right];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (right === left + <span class="number">1</span>) &#123;</span><br><span class="line">      left++;</span><br><span class="line">      right = nums.length;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    right--;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
       
     
     </div>
@@ -331,7 +340,7 @@
     <span class="title" id="toc-switch"><span>文章导航</span></span>
     <div class="toc-inner syuanpi back-1" style="display:none;">
       <li class="title-link"><a href="javascript:;" class="toTop">leetcode -twoSum</a></li>
-      
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#思路"><span class="toc-text">思路</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#题解"><span class="toc-text">题解</span></a></li></ol>
     </div>
   </aside>
 
