@@ -67,12 +67,9 @@
   <meta name="keywords" content="博客 blog 个人博客">
 
 
-  <title>
-  DZY
-  
-    | 大三老猫-frontender
-  
-</title>
+  <meta name="keywords" content="leetcode, Nlvi">
+
+  <title> leetcode -mergeTwoLinkLists · DZY </title>
 </head>
 <body>
   <div class="progress">
@@ -234,383 +231,124 @@
       <main class="main" id="main">
         <div class="main-wrapper">
           
-  
-
-<section class="posts">
-  
     
   
   <article class="
   post
-  
+   is_post 
   ">
     <header class="post-header">
       <div class="post-time syuanpi fadeInUpShort back-1">
         <div class="post-time-wrapper">
-          <span>2019-01-23</span>
+          <span>2019-02-10</span>
           
             
-              <span class="post-category"><a href="/categories/freebie/">freebie</a></span>
+              <span class="post-category"><a href="/categories/algorithm/">algorithm</a></span>
             
           
+          
+            
+              <aside class="post-tags syuanpi fadeInUpShort back-3">
+              
+                <a href="/tags/leetcode/">leetcode</a>
+              
+              </aside>
+            
           
         </div>
       </div>
       <h1 class="post-title syuanpi fadeInUpShort back-2">
         
-          <a href="/2019/01/23/七牛云绑定域名/">七牛云绑定域名</a>
+          leetcode -mergeTwoLinkLists
         
       </h1>
     </header>
     <div class="post-content syuanpi fadeInUpShort back-3">
       
-        
-          <p>由于之前使用了七牛云赠送的免费域名, 使用期限只有30天, 过期之后, 项目的图片等文件无法直接访问. 所以, 这里将绑定自定义域名的过程记录下来.</p>
-        
+        <p>Leetcode题解之 —— 合并两个有序列表</p>
+<a id="more"></a>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><hr>
+<blockquote>
+<p>js原生不具有<code>LinkList</code>, 使用<code>Array</code>实现</p>
+</blockquote>
+<ul>
+<li>push至数组</li>
+<li>排序</li>
+<li>重置指针</li>
+<li>参数为空情况</li>
+</ul>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><hr>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @param &#123;ListNode&#125; l1</span></span><br><span class="line"><span class="comment"> * @param &#123;ListNode&#125; l2</span></span><br><span class="line"><span class="comment"> * @return &#123;ListNode&#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> mergeTwoLists = <span class="function"><span class="keyword">function</span>(<span class="params">l1, l2</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> cache = [];</span><br><span class="line"></span><br><span class="line">  <span class="keyword">while</span> (l1) &#123;</span><br><span class="line">    cache.push(<span class="keyword">new</span> ListNode(l1.val));</span><br><span class="line">    l1 = l1.next;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">while</span> (l2) &#123;</span><br><span class="line">    cache.push(<span class="keyword">new</span> ListNode(l2.val));</span><br><span class="line">    l2 = l2.next;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  cache.sort(<span class="function">(<span class="params">a, b</span>) =&gt;</span> a.val - b.val);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">let</span> [count, len] = [<span class="number">0</span>, cache.length];</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (len) &#123;</span><br><span class="line">    <span class="keyword">while</span>(count &lt; len - <span class="number">1</span>)&#123;</span><br><span class="line">      cache[count].next = cache[count + <span class="number">1</span>];</span><br><span class="line">      count++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> cache[<span class="number">0</span>];</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
       
-    
-      <p class="content-link">
-        <a href="/2019/01/23/七牛云绑定域名/#more">
-          <span>继续阅读</span>
-        </a>
-      </p>
     
     </div>
     
-  </article>
-  
-  
-    
-  
+      
 
-  
-    
-  
-  <article class="
-  post
-  
-  ">
-    <header class="post-header">
-      <div class="post-time syuanpi fadeInUpShort back-1">
-        <div class="post-time-wrapper">
-          <span>2019-01-23</span>
-          
-            
-              <span class="post-category"><a href="/categories/frontend/">frontend</a></span>
-            
-          
-          
-        </div>
-      </div>
-      <h1 class="post-title syuanpi fadeInUpShort back-2">
-        
-          <a href="/2019/01/23/毕设之路-三/">毕设之路(三)</a>
-        
-      </h1>
-    </header>
-    <div class="post-content syuanpi fadeInUpShort back-3">
       
-        
-          <p>毕设踩坑之路第三跳</p>
-        
-      
-    
-      <p class="content-link">
-        <a href="/2019/01/23/毕设之路-三/#more">
-          <span>继续阅读</span>
-        </a>
-      </p>
-    
+  <hr class="copy-line">
+  <div class="post-copyright">
+    <div class="copy-author">
+      <span>作者 :</span>
+      <span>zhaoyang Duan</span>
     </div>
-    
-  </article>
-  
-  
-    
-  
-
-  
-    
-  
-  <article class="
-  post
-  
-  ">
-    <header class="post-header">
-      <div class="post-time syuanpi fadeInUpShort back-1">
-        <div class="post-time-wrapper">
-          <span>2019-01-23</span>
-          
-            
-              <span class="post-category"><a href="/categories/frontend/">frontend</a></span>
-            
-          
-          
-        </div>
-      </div>
-      <h1 class="post-title syuanpi fadeInUpShort back-2">
-        
-          <a href="/2019/01/23/毕设之路-二/">毕设之路(二)</a>
-        
-      </h1>
-    </header>
-    <div class="post-content syuanpi fadeInUpShort back-3">
-      
-        
-          <p>毕设踩坑之路第二跳</p>
-        
-      
-    
-      <p class="content-link">
-        <a href="/2019/01/23/毕设之路-二/#more">
-          <span>继续阅读</span>
-        </a>
-      </p>
-    
+    <div class="copy-url">
+      <span>地址 :</span>
+      <a href="https://blog.yyge.top/2019/02/10/leetcode-mergeTwoLinkLists/">https://blog.yyge.top/2019/02/10/leetcode-mergeTwoLinkLists/</a>
     </div>
-    
-  </article>
-  
-  
-    
-  
-
-  
-    
-  
-  <article class="
-  post
-  
-  ">
-    <header class="post-header">
-      <div class="post-time syuanpi fadeInUpShort back-1">
-        <div class="post-time-wrapper">
-          <span>2019-01-21</span>
-          
-            
-              <span class="post-category"><a href="/categories/frontend/">frontend</a></span>
-            
-          
-          
-        </div>
-      </div>
-      <h1 class="post-title syuanpi fadeInUpShort back-2">
-        
-          <a href="/2019/01/21/webpack常用plugins-一/">webpack常用plugins(一)</a>
-        
-      </h1>
-    </header>
-    <div class="post-content syuanpi fadeInUpShort back-3">
-      
-        
-          <p>对webpack常用的plugin作一个整合</p>
-        
-      
-    
-      <p class="content-link">
-        <a href="/2019/01/21/webpack常用plugins-一/#more">
-          <span>继续阅读</span>
-        </a>
-      </p>
-    
+    <div class="copy-origin">
+      <span>来源 :</span>
+      <a href="https://blog.yyge.top">https://blog.yyge.top</a>
     </div>
-    
-  </article>
-  
-  
-    
-  
-
-  
-    
-  
-  <article class="
-  post
-  
-  ">
-    <header class="post-header">
-      <div class="post-time syuanpi fadeInUpShort back-1">
-        <div class="post-time-wrapper">
-          <span>2019-01-21</span>
-          
-            
-              <span class="post-category"><a href="/categories/frontend/">frontend</a></span>
-            
-          
-          
-        </div>
-      </div>
-      <h1 class="post-title syuanpi fadeInUpShort back-2">
-        
-          <a href="/2019/01/21/webpack常用loader-一/">webpack常用loader(一)</a>
-        
-      </h1>
-    </header>
-    <div class="post-content syuanpi fadeInUpShort back-3">
+    <div class="copy-license">
       
-        
-          <p>对使用webpack过程中常用的loader做一个总结</p>
-        
-      
-    
-      <p class="content-link">
-        <a href="/2019/01/21/webpack常用loader-一/#more">
-          <span>继续阅读</span>
-        </a>
-      </p>
-    
+      著作权归作者所有，转载请联系作者获得授权。
     </div>
+  </div>
+
     
   </article>
   
-  
     
-  
-
-  
+  <nav class="article-page">
     
-  
-  <article class="
-  post
-  
-  ">
-    <header class="post-header">
-      <div class="post-time syuanpi fadeInUpShort back-1">
-        <div class="post-time-wrapper">
-          <span>2019-01-21</span>
-          
-            
-              <span class="post-category"><a href="/categories/frontend/">frontend</a></span>
-            
-          
-          
-        </div>
-      </div>
-      <h1 class="post-title syuanpi fadeInUpShort back-2">
-        
-          <a href="/2019/01/21/webpack错误集锦-一/">webpack错误集锦(一)</a>
-        
-      </h1>
-    </header>
-    <div class="post-content syuanpi fadeInUpShort back-3">
-      
-        
-          <p>自己配置使用webpack过程中遇到的常见错误, 小本子记录下来, 后续也可以做个参考.</p>
-        
-      
     
-      <p class="content-link">
-        <a href="/2019/01/21/webpack错误集锦-一/#more">
-          <span>继续阅读</span>
-        </a>
-      </p>
+      <a href="/2019/02/10/leetcode-isValidParentheses/" id="art-right" class="art-right">
+        <span class="prev-title"> 
+          leetcode -isValidParentheses<i class="iconfont icon-right"></i>  
+        </span>
+      </a>
     
-    </div>
-    
-  </article>
-  
-  
-    
-  
-
-  
-    
-  
-  <article class="
-  post
-  
-  ">
-    <header class="post-header">
-      <div class="post-time syuanpi fadeInUpShort back-1">
-        <div class="post-time-wrapper">
-          <span>2019-01-21</span>
-          
-            
-              <span class="post-category"><a href="/categories/frontend/">frontend</a></span>
-            
-          
-          
-        </div>
-      </div>
-      <h1 class="post-title syuanpi fadeInUpShort back-2">
-        
-          <a href="/2019/01/21/webpack精读-一/">webpack精读(一)</a>
-        
-      </h1>
-    </header>
-    <div class="post-content syuanpi fadeInUpShort back-3">
-      
-        
-          <p>厌倦了整日的写项目, 想起来之前学过的webpack基本忘得差不多了, webpack又很重要, 几乎贯穿了整个前端生涯. 所以还是加足马力, 学它一波, 顺便做个笔记, 日后也好做个对照.</p>
-        
-      
-    
-      <p class="content-link">
-        <a href="/2019/01/21/webpack精读-一/#more">
-          <span>继续阅读</span>
-        </a>
-      </p>
-    
-    </div>
-    
-  </article>
-  
-  
-    
-  
-
-  
-    
-  
-  <article class="
-  post
-  
-  ">
-    <header class="post-header">
-      <div class="post-time syuanpi fadeInUpShort back-1">
-        <div class="post-time-wrapper">
-          <span>2019-01-20</span>
-          
-            
-              <span class="post-category"><a href="/categories/frontend/">frontend</a></span>
-            
-          
-          
-        </div>
-      </div>
-      <h1 class="post-title syuanpi fadeInUpShort back-2">
-        
-          <a href="/2019/01/20/毕设之路-一/">毕设之路(一)</a>
-        
-      </h1>
-    </header>
-    <div class="post-content syuanpi fadeInUpShort back-3">
-      
-        
-          <p>写这个毕业设计真是难受, 各种坑, 踩过这个又来那个, 而且由于没有合理的记录, 下一次遇到又是一脸懵逼, 所以特将这些东西记录下来, 以示警醒.</p>
-        
-      
-    
-      <p class="content-link">
-        <a href="/2019/01/20/毕设之路-一/#more">
-          <span>继续阅读</span>
-        </a>
-      </p>
-    
-    </div>
-    
-  </article>
-  
-  
-    
-  
-
-  
-</section>
-  
-  <nav class="pagination">
-      <a class="extend prev" rel="prev" href="/page/2/">< 上一页</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
   </nav>
+
+    
+  <i id="com-switch" class="iconfont icon-more jumping-in long infinite" style="font-size:24px;display:block;text-align:center;transform:rotate(180deg);"></i>
+  <div class="post-comments" id="post-comments" style="display: block;margin: auto 16px;">
+    
+    
+    
+
+    
+
+  </div>
+
+
+
+  
+  
+    
+  
+  <aside class="post-toc">
+    <span class="title" id="toc-switch"><span>文章导航</span></span>
+    <div class="toc-inner syuanpi back-1" style="display:none;">
+      <li class="title-link"><a href="javascript:;" class="toTop">leetcode -mergeTwoLinkLists</a></li>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#思路"><span class="toc-text">思路</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#题解"><span class="toc-text">题解</span></a></li></ol>
+    </div>
+  </aside>
+
+
+
+  
 
 
         </div>
