@@ -67,11 +67,9 @@
   <meta name="keywords" content="博客 blog 个人博客">
 
 
-  <title>
-  
-    归档 · DZY
-  
-</title>
+  <meta name="keywords" content="leetcode, Nlvi">
+
+  <title> leetcode -lengthOfLastWord · DZY </title>
 </head>
 <body>
   <div class="progress">
@@ -234,207 +232,122 @@
         <div class="main-wrapper">
           
     
-    <div class="archive syuanpi fadeInUp" id="archive">
-        
-            <h1 class="archive-title">Total</h1>
-            <span class="archive-num">一共有 35 篇文章</span>
-        
-        <div class="archive-list">
-            <ul>
-        
+  
+  <article class="
+  post
+   is_post 
+  ">
+    <header class="post-header">
+      <div class="post-time syuanpi fadeInUpShort back-1">
+        <div class="post-time-wrapper">
+          <span>2019-02-11</span>
+          
             
-                
-                
-                
-                    
-                     
-                        <h2 class="archive-year"> 2019 </h2>
-                    
-                
+              <span class="post-category"><a href="/categories/algorithm/">algorithm</a></span>
             
+          
+          
             
-            <li class="archive-post">
-                <span class="archive-post-time">
-                
-                    01-30
-                
-                </span>
-                <span class="archive-post-link">
-                    <a href="/2019/01/30/react-router-dom源码解析-六-Switch/">react-router-dom源码解析(六) -Switch</a>
-                </span>
-            </li>
-
-        
+              <aside class="post-tags syuanpi fadeInUpShort back-3">
+              
+                <a href="/tags/leetcode/">leetcode</a>
+              
+              </aside>
             
-                
-                
-                
-            
-            
-            <li class="archive-post">
-                <span class="archive-post-time">
-                
-                    01-30
-                
-                </span>
-                <span class="archive-post-link">
-                    <a href="/2019/01/30/七牛云域名HTTPS配置/">七牛云域名HTTPS配置</a>
-                </span>
-            </li>
-
-        
-            
-                
-                
-                
-            
-            
-            <li class="archive-post">
-                <span class="archive-post-time">
-                
-                    01-27
-                
-                </span>
-                <span class="archive-post-link">
-                    <a href="/2019/01/27/react-router-dom源码解析-五-Route/">react-router-dom源码解析(五) -Route</a>
-                </span>
-            </li>
-
-        
-            
-                
-                
-                
-            
-            
-            <li class="archive-post">
-                <span class="archive-post-time">
-                
-                    01-26
-                
-                </span>
-                <span class="archive-post-link">
-                    <a href="/2019/01/26/react-router-dom源码解析-四-Router/">react-router-dom源码解析(四) -Router</a>
-                </span>
-            </li>
-
-        
-            
-                
-                
-                
-            
-            
-            <li class="archive-post">
-                <span class="archive-post-time">
-                
-                    01-26
-                
-                </span>
-                <span class="archive-post-link">
-                    <a href="/2019/01/26/react-router-dom源码解析-三-BrowserRouter/">react-router-dom源码解析(三) -BrowserRouter</a>
-                </span>
-            </li>
-
-        
-            
-                
-                
-                
-            
-            
-            <li class="archive-post">
-                <span class="archive-post-time">
-                
-                    01-24
-                
-                </span>
-                <span class="archive-post-link">
-                    <a href="/2019/01/24/react-router-dom源码解析-二-index/">react-router-dom源码解析(二) -index</a>
-                </span>
-            </li>
-
-        
-            
-                
-                
-                
-            
-            
-            <li class="archive-post">
-                <span class="archive-post-time">
-                
-                    01-24
-                
-                </span>
-                <span class="archive-post-link">
-                    <a href="/2019/01/24/react-router-dom源码解析(一) -开篇/">react-router-dom源码解析(一) -开篇</a>
-                </span>
-            </li>
-
-        
-            
-                
-                
-                
-            
-            
-            <li class="archive-post">
-                <span class="archive-post-time">
-                
-                    01-23
-                
-                </span>
-                <span class="archive-post-link">
-                    <a href="/2019/01/23/七牛云绑定域名/">七牛云绑定域名</a>
-                </span>
-            </li>
-
-        
-            
-                
-                
-                
-            
-            
-            <li class="archive-post">
-                <span class="archive-post-time">
-                
-                    01-23
-                
-                </span>
-                <span class="archive-post-link">
-                    <a href="/2019/01/23/毕设之路-三/">毕设之路(三)</a>
-                </span>
-            </li>
-
-        
-            
-                
-                
-                
-            
-            
-            <li class="archive-post">
-                <span class="archive-post-time">
-                
-                    01-23
-                
-                </span>
-                <span class="archive-post-link">
-                    <a href="/2019/01/23/毕设之路-二/">毕设之路(二)</a>
-                </span>
-            </li>
-
-        
-            </ul>
+          
         </div>
+      </div>
+      <h1 class="post-title syuanpi fadeInUpShort back-2">
+        
+          leetcode -lengthOfLastWord
+        
+      </h1>
+    </header>
+    <div class="post-content syuanpi fadeInUpShort back-3">
+      
+        <p>Leetcode题解之 —— 最后一个单词的长度</p>
+<a id="more"></a>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><hr>
+<blockquote>
+<p>正则</p>
+</blockquote>
+<ul>
+<li><code>(?!x)</code></li>
+<li>正则断言</li>
+<li><code>match</code>分组</li>
+</ul>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><hr>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @param &#123;string&#125; s</span></span><br><span class="line"><span class="comment"> * @return &#123;number&#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> lengthOfLastWord = <span class="function"><span class="keyword">function</span>(<span class="params">s</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> reg = <span class="regexp">/\w+(?!\w+)/g</span>;</span><br><span class="line">  <span class="keyword">const</span> matched = s.match(reg);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> matched</span><br><span class="line">    ? (matched[matched.length - <span class="number">1</span>]).length</span><br><span class="line">    : <span class="number">0</span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+      
+    
     </div>
     
-  <nav class="pagination">
-      <a class="extend prev" rel="prev" href="/archives/2019/page/2/">< 上一页</a><a class="page-number" href="/archives/2019/">1</a><a class="page-number" href="/archives/2019/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/archives/2019/page/4/">4</a><a class="extend next" rel="next" href="/archives/2019/page/4/">下一页 ></a>
+      
+
+      
+  <hr class="copy-line">
+  <div class="post-copyright">
+    <div class="copy-author">
+      <span>作者 :</span>
+      <span>zhaoyang Duan</span>
+    </div>
+    <div class="copy-url">
+      <span>地址 :</span>
+      <a href="https://blog.yyge.top/2019/02/11/leetcode-lengthOfLastWord/">https://blog.yyge.top/2019/02/11/leetcode-lengthOfLastWord/</a>
+    </div>
+    <div class="copy-origin">
+      <span>来源 :</span>
+      <a href="https://blog.yyge.top">https://blog.yyge.top</a>
+    </div>
+    <div class="copy-license">
+      
+      著作权归作者所有，转载请联系作者获得授权。
+    </div>
+  </div>
+
+    
+  </article>
+  
+    
+  <nav class="article-page">
+    
+    
+      <a href="/2019/02/11/leetcode-maxSubArray/" id="art-right" class="art-right">
+        <span class="prev-title"> 
+          leetcode -maxSubArray<i class="iconfont icon-right"></i>  
+        </span>
+      </a>
+    
   </nav>
 
+    
+  <i id="com-switch" class="iconfont icon-more jumping-in long infinite" style="font-size:24px;display:block;text-align:center;transform:rotate(180deg);"></i>
+  <div class="post-comments" id="post-comments" style="display: block;margin: auto 16px;">
+    
+    
+    
+
+    
+
+  </div>
+
+
+
+  
+  
+    
+  
+  <aside class="post-toc">
+    <span class="title" id="toc-switch"><span>文章导航</span></span>
+    <div class="toc-inner syuanpi back-1" style="display:none;">
+      <li class="title-link"><a href="javascript:;" class="toTop">leetcode -lengthOfLastWord</a></li>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#思路"><span class="toc-text">思路</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#题解"><span class="toc-text">题解</span></a></li></ol>
+    </div>
+  </aside>
+
+
+
+  
 
 
         </div>
