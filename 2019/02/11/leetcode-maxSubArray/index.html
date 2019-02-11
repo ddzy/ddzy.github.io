@@ -69,7 +69,7 @@
 
   <meta name="keywords" content="leetcode, Nlvi">
 
-  <title> leetcode -countAndSay · DZY </title>
+  <title> leetcode -maxSubArray · DZY </title>
 </head>
 <body>
   <div class="progress">
@@ -259,24 +259,24 @@
       </div>
       <h1 class="post-title syuanpi fadeInUpShort back-2">
         
-          leetcode -countAndSay
+          leetcode -maxSubArray
         
       </h1>
     </header>
     <div class="post-content syuanpi fadeInUpShort back-3">
       
-        <p>Leetcode题解之 —— 报数</p>
+        <p>Leetcode题解之 —— 最大子序和</p>
 <a id="more"></a>
 <h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><hr>
 <blockquote>
-<p>正则</p>
+<p>动态规划</p>
 </blockquote>
 <ul>
-<li>下一次的值依赖于<code>current</code>的值</li>
-<li>统计<code>current</code>的出现次数</li>
+<li><code>Math.max</code>更新最大值</li>
+<li>更新<code>currentSum</code>, 即当前序列和</li>
 </ul>
 <h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><hr>
-<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @param &#123;number&#125; n</span></span><br><span class="line"><span class="comment"> * @return &#123;string&#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> countAndSay = <span class="function"><span class="keyword">function</span> (<span class="params">n</span>) </span>&#123;</span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">   * 1. one 1 -&gt; 一个1 -&gt; 1</span></span><br><span class="line"><span class="comment">   * 2. two 1 -&gt; 两个1 -&gt; 11</span></span><br><span class="line"><span class="comment">   * 3. one 2 + one 1 -&gt; 一个2, 一个1 -&gt; 21</span></span><br><span class="line"><span class="comment">   * 4. one 1 + one 2 + two 1 -&gt; 一个1, 一个2, 一个1 -&gt; 1211</span></span><br><span class="line"><span class="comment">   * 5. one 1 + one 2 + two 1 -&gt; 一个1, 一个2, 两个1 -&gt; 111221</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">let</span> [count, result, reg] = [<span class="number">1</span>, <span class="string">'1'</span>,</span><br><span class="line">    /(?:<span class="number">1</span>)+|(?:<span class="number">2</span>)+|(?:<span class="number">3</span>)+|(?:<span class="number">4</span>)+|(?:<span class="number">5</span>)+|(?:<span class="number">6</span>)+|(?:<span class="number">7</span>)+|(?:<span class="number">8</span>)+|(?:<span class="number">9</span>)+<span class="regexp">/g,</span></span><br><span class="line"><span class="regexp">  ];</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">  while (count &lt; n) &#123;</span></span><br><span class="line"><span class="regexp">    result = result</span></span><br><span class="line"><span class="regexp">      .match(reg)</span></span><br><span class="line"><span class="regexp">      .map((v) =&gt; `$&#123;v.length&#125;$&#123;v[0]&#125;`)</span></span><br><span class="line"><span class="regexp">      .join('');</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">    count++;</span></span><br><span class="line"><span class="regexp">  &#125;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">  return result;</span></span><br><span class="line"><span class="regexp">&#125;;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @param &#123;number[]&#125; nums</span></span><br><span class="line"><span class="comment"> * @return &#123;number&#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> maxSubArray = <span class="function"><span class="keyword">function</span>(<span class="params">nums</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> [maxSum, currentSum] = [-<span class="built_in">Number</span>.MAX_VALUE, <span class="number">0</span>];</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">const</span> value of nums) &#123;</span><br><span class="line">    currentSum += value;</span><br><span class="line"></span><br><span class="line">    maxSum = <span class="built_in">Math</span>.max(currentSum, maxSum);</span><br><span class="line">    currentSum = currentSum &lt; <span class="number">0</span> ? <span class="number">0</span> : currentSum;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> maxSum;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
       
     
     </div>
@@ -292,7 +292,7 @@
     </div>
     <div class="copy-url">
       <span>地址 :</span>
-      <a href="https://blog.yyge.top/2019/02/11/leetcode-countAndSay/">https://blog.yyge.top/2019/02/11/leetcode-countAndSay/</a>
+      <a href="https://blog.yyge.top/2019/02/11/leetcode-maxSubArray/">https://blog.yyge.top/2019/02/11/leetcode-maxSubArray/</a>
     </div>
     <div class="copy-origin">
       <span>来源 :</span>
@@ -310,16 +310,10 @@
     
   <nav class="article-page">
     
-      <a href="/2019/02/11/leetcode-maxSubArray/" id="art-left" class="art-left">
-        <span class="next-title">
-          <i class="iconfont icon-left"></i>leetcode -maxSubArray
-        </span>
-      </a>
     
-    
-      <a href="/2019/02/11/leetcode-searchInsert/" id="art-right" class="art-right">
+      <a href="/2019/02/11/leetcode-countAndSay/" id="art-right" class="art-right">
         <span class="prev-title"> 
-          leetcode -searchInsert<i class="iconfont icon-right"></i>  
+          leetcode -countAndSay<i class="iconfont icon-right"></i>  
         </span>
       </a>
     
@@ -345,7 +339,7 @@
   <aside class="post-toc">
     <span class="title" id="toc-switch"><span>文章导航</span></span>
     <div class="toc-inner syuanpi back-1" style="display:none;">
-      <li class="title-link"><a href="javascript:;" class="toTop">leetcode -countAndSay</a></li>
+      <li class="title-link"><a href="javascript:;" class="toTop">leetcode -maxSubArray</a></li>
       <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#思路"><span class="toc-text">思路</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#题解"><span class="toc-text">题解</span></a></li></ol>
     </div>
   </aside>
