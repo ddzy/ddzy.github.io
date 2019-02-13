@@ -67,9 +67,9 @@
   <meta name="keywords" content="博客 blog 个人博客">
 
 
-  <title>
-  
-</title>
+  <meta name="keywords" content="leetcode, Nlvi">
+
+  <title> leetcode -mySqrt · DZY </title>
 </head>
 <body>
   <div class="progress">
@@ -232,162 +232,117 @@
         <div class="main-wrapper">
           
     
-    <div class="archive syuanpi fadeInUp" id="archive">
-        
-            <h2 class="archive-title"> 正在查看 </h2>
-            <span class="archive-name"> — algorithm</span>
-        
-        <div class="archive-list">
-            <ul>
-        
+  
+  <article class="
+  post
+   is_post 
+  ">
+    <header class="post-header">
+      <div class="post-time syuanpi fadeInUpShort back-1">
+        <div class="post-time-wrapper">
+          <span>2019-02-13</span>
+          
             
+              <span class="post-category"><a href="/categories/algorithm/">algorithm</a></span>
             
-            <li class="archive-post">
-                <span class="archive-post-time">
-                
-                    2019-02-13
-                
-                </span>
-                <span class="archive-post-link">
-                    <a href="/2019/02/13/leetcode-mySqrt/">leetcode -mySqrt</a>
-                </span>
-            </li>
-
-        
+          
+          
             
+              <aside class="post-tags syuanpi fadeInUpShort back-3">
+              
+                <a href="/tags/leetcode/">leetcode</a>
+              
+              </aside>
             
-            <li class="archive-post">
-                <span class="archive-post-time">
-                
-                    2019-02-13
-                
-                </span>
-                <span class="archive-post-link">
-                    <a href="/2019/02/13/leetcode-addBinary/">leetcode -addBinary</a>
-                </span>
-            </li>
-
-        
-            
-            
-            <li class="archive-post">
-                <span class="archive-post-time">
-                
-                    2019-02-13
-                
-                </span>
-                <span class="archive-post-link">
-                    <a href="/2019/02/13/leetcode-lengthOfLongestSubstring/">leetcode -lengthOfLongestSubstring</a>
-                </span>
-            </li>
-
-        
-            
-            
-            <li class="archive-post">
-                <span class="archive-post-time">
-                
-                    2019-02-13
-                
-                </span>
-                <span class="archive-post-link">
-                    <a href="/2019/02/13/leetcode-addTwoNumbers/">leetcode -addTwoNumbers</a>
-                </span>
-            </li>
-
-        
-            
-            
-            <li class="archive-post">
-                <span class="archive-post-time">
-                
-                    2019-02-11
-                
-                </span>
-                <span class="archive-post-link">
-                    <a href="/2019/02/11/leetcode-plusOne/">leetcode -plusOne</a>
-                </span>
-            </li>
-
-        
-            
-            
-            <li class="archive-post">
-                <span class="archive-post-time">
-                
-                    2019-02-11
-                
-                </span>
-                <span class="archive-post-link">
-                    <a href="/2019/02/11/leetcode-lengthOfLastWord/">leetcode -lengthOfLastWord</a>
-                </span>
-            </li>
-
-        
-            
-            
-            <li class="archive-post">
-                <span class="archive-post-time">
-                
-                    2019-02-11
-                
-                </span>
-                <span class="archive-post-link">
-                    <a href="/2019/02/11/leetcode-maxSubArray/">leetcode -maxSubArray</a>
-                </span>
-            </li>
-
-        
-            
-            
-            <li class="archive-post">
-                <span class="archive-post-time">
-                
-                    2019-02-11
-                
-                </span>
-                <span class="archive-post-link">
-                    <a href="/2019/02/11/leetcode-countAndSay/">leetcode -countAndSay</a>
-                </span>
-            </li>
-
-        
-            
-            
-            <li class="archive-post">
-                <span class="archive-post-time">
-                
-                    2019-02-11
-                
-                </span>
-                <span class="archive-post-link">
-                    <a href="/2019/02/11/leetcode-searchInsert/">leetcode -searchInsert</a>
-                </span>
-            </li>
-
-        
-            
-            
-            <li class="archive-post">
-                <span class="archive-post-time">
-                
-                    2019-02-11
-                
-                </span>
-                <span class="archive-post-link">
-                    <a href="/2019/02/11/leetcode-strStr/">leetcode -strStr</a>
-                </span>
-            </li>
-
-        
-            </ul>
+          
         </div>
+      </div>
+      <h1 class="post-title syuanpi fadeInUpShort back-2">
+        
+          leetcode -mySqrt
+        
+      </h1>
+    </header>
+    <div class="post-content syuanpi fadeInUpShort back-3">
+      
+        <p>Leetcode题解之 —— x 的平方根</p>
+<a id="more"></a>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><hr>
+<blockquote>
+<p>原生<code>API</code></p>
+</blockquote>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><hr>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @param &#123;number&#125; x</span></span><br><span class="line"><span class="comment"> * @return &#123;number&#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> mySqrt = <span class="function"><span class="keyword">function</span> (<span class="params">x</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> ~~(<span class="built_in">Math</span>.sqrt(x));</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+      
+    
     </div>
     
-  <nav class="pagination">
-      <span class="page-number current">1</span><a class="page-number" href="/categories/algorithm/page/2/">2</a><a class="extend next" rel="next" href="/categories/algorithm/page/2/">下一页 ></a>
+      
+
+      
+  <hr class="copy-line">
+  <div class="post-copyright">
+    <div class="copy-author">
+      <span>作者 :</span>
+      <span>zhaoyang Duan</span>
+    </div>
+    <div class="copy-url">
+      <span>地址 :</span>
+      <a href="https://blog.yyge.top/2019/02/13/leetcode-mySqrt/">https://blog.yyge.top/2019/02/13/leetcode-mySqrt/</a>
+    </div>
+    <div class="copy-origin">
+      <span>来源 :</span>
+      <a href="https://blog.yyge.top">https://blog.yyge.top</a>
+    </div>
+    <div class="copy-license">
+      
+      著作权归作者所有，转载请联系作者获得授权。
+    </div>
+  </div>
+
+    
+  </article>
+  
+    
+  <nav class="article-page">
+    
+    
+      <a href="/2019/02/13/leetcode-addBinary/" id="art-right" class="art-right">
+        <span class="prev-title"> 
+          leetcode -addBinary<i class="iconfont icon-right"></i>  
+        </span>
+      </a>
+    
   </nav>
 
+    
+  <i id="com-switch" class="iconfont icon-more jumping-in long infinite" style="font-size:24px;display:block;text-align:center;transform:rotate(180deg);"></i>
+  <div class="post-comments" id="post-comments" style="display: block;margin: auto 16px;">
+    
+    
+    
+
+    
+
+  </div>
+
+
+
+  
+  
+    
+  
+  <aside class="post-toc">
+    <span class="title" id="toc-switch"><span>文章导航</span></span>
+    <div class="toc-inner syuanpi back-1" style="display:none;">
+      <li class="title-link"><a href="javascript:;" class="toTop">leetcode -mySqrt</a></li>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#思路"><span class="toc-text">思路</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#题解"><span class="toc-text">题解</span></a></li></ol>
+    </div>
+  </aside>
+
+
+
+  
 
 
         </div>
