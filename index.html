@@ -266,23 +266,14 @@
       
         
           <p>Leetcode题解之 —— 相同的树</p>
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><hr>
-<blockquote>
-<p>递归</p>
-</blockquote>
-<ul>
-<li>四种情况<ul>
-<li>都为叶节点</li>
-<li>其中一方为叶节点</li>
-<li><code>val</code>相等</li>
-<li>traversal</li>
-</ul>
-</li>
-</ul>
-<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><hr>
-<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @param &#123;TreeNode&#125; p</span></span><br><span class="line"><span class="comment"> * @param &#123;TreeNode&#125; q</span></span><br><span class="line"><span class="comment"> * @return &#123;boolean&#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> isSameTree = <span class="function"><span class="keyword">function</span> (<span class="params">p, q</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (!p &amp;&amp; !q) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">else</span> <span class="keyword">if</span> (!p || !q) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">else</span> <span class="keyword">if</span> (p.val === q.val) &#123;</span><br><span class="line">    <span class="keyword">return</span> isSameTree(p.left, q.left) &amp;&amp; isSameTree(p.right, q.right);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
         
       
+    
+      <p class="content-link">
+        <a href="/2019/02/15/leetcode-isSameTree/#more">
+          <span>继续阅读</span>
+        </a>
+      </p>
     
     </div>
     
