@@ -266,7 +266,17 @@
     <div class="post-content syuanpi fadeInUpShort back-3">
       
         <p>Leetcode题解之 —— 二叉树的最大深度</p>
-
+<a id="more"></a>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><hr>
+<blockquote>
+<p><code>BFS</code>深度优先搜索</p>
+</blockquote>
+<ul>
+<li>全局变量<code>max_depth</code>记录最大值</li>
+<li>依次遍历左右子树, 更新<code>current_deep</code></li>
+</ul>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><hr>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @param &#123;TreeNode&#125; root</span></span><br><span class="line"><span class="comment"> * @return &#123;number&#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">let</span> max_depth = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">dfs</span>(<span class="params">root, count</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (!root) &#123;</span><br><span class="line">    max_depth = <span class="built_in">Math</span>.max(max_depth, count);</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  dfs(root.left, count + <span class="number">1</span>);</span><br><span class="line">  dfs(root.right, count + <span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> maxDepth = <span class="function"><span class="keyword">function</span> (<span class="params">root</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (!root) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  max_depth = <span class="number">-1</span>;</span><br><span class="line">  dfs(root, <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> max_depth;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
       
     
     </div>
@@ -330,7 +340,7 @@
     <span class="title" id="toc-switch"><span>文章导航</span></span>
     <div class="toc-inner syuanpi back-1" style="display:none;">
       <li class="title-link"><a href="javascript:;" class="toTop">leetcode -maximunDepthOfBinaryTree</a></li>
-      
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#思路"><span class="toc-text">思路</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#题解"><span class="toc-text">题解</span></a></li></ol>
     </div>
   </aside>
 
