@@ -67,9 +67,9 @@
   <meta name="keywords" content="博客 blog 个人博客">
 
 
-  <meta name="keywords" content="leetcode, Nlvi">
+  <meta name="keywords" content="interview, Nlvi">
 
-  <title> leetcode -removeDuplicates · DZY </title>
+  <title> 面试之道 · DZY </title>
 </head>
 <body>
   <div class="progress">
@@ -240,17 +240,17 @@
     <header class="post-header">
       <div class="post-time syuanpi fadeInUpShort back-1">
         <div class="post-time-wrapper">
-          <span>2019-02-10</span>
+          <span>2019-02-18</span>
           
             
-              <span class="post-category"><a href="/categories/algorithm/">algorithm</a></span>
+              <span class="post-category"><a href="/categories/frontend/">frontend</a></span>
             
           
           
             
               <aside class="post-tags syuanpi fadeInUpShort back-3">
               
-                <a href="/tags/leetcode/">leetcode</a>
+                <a href="/tags/interview/">interview</a>
               
               </aside>
             
@@ -259,25 +259,15 @@
       </div>
       <h1 class="post-title syuanpi fadeInUpShort back-2">
         
-          leetcode -removeDuplicates
+          面试之道
         
       </h1>
     </header>
     <div class="post-content syuanpi fadeInUpShort back-3">
       
-        <p>Leetcode题解之 —— 删除排序数组中的重复项</p>
+        <p>经典面试题记录</p>
 <a id="more"></a>
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><hr>
-<blockquote>
-<p>遍历解法</p>
-</blockquote>
-<ul>
-<li>已排序</li>
-<li><code>当前项</code>与<code>下一项</code>关系</li>
-<li>重置<code>下标</code></li>
-</ul>
-<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><hr>
-<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> removeDuplicates = <span class="function"><span class="keyword">function</span> (<span class="params">nums</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> count = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">while</span> (count &lt; nums.length) &#123;</span><br><span class="line">    <span class="keyword">if</span> (nums[count] === nums[count + <span class="number">1</span>]) &#123;</span><br><span class="line">      nums.splice(count, <span class="number">1</span>);</span><br><span class="line">    &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">      count ++;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> nums.length;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="JS-Basic"><a href="#JS-Basic" class="headerlink" title="JS Basic"></a>JS Basic</h2><h2 id="ES6-amp-amp-TS"><a href="#ES6-amp-amp-TS" class="headerlink" title="ES6 &amp;&amp; TS"></a>ES6 &amp;&amp; TS</h2><h2 id="Async"><a href="#Async" class="headerlink" title="Async"></a>Async</h2><h2 id="Event-Loop"><a href="#Event-Loop" class="headerlink" title="Event Loop"></a>Event Loop</h2><h2 id="JS-Enhanced"><a href="#JS-Enhanced" class="headerlink" title="JS Enhanced"></a>JS Enhanced</h2><h2 id="JS-Thinking"><a href="#JS-Thinking" class="headerlink" title="JS Thinking"></a>JS Thinking</h2><h2 id="DevTools-Tips"><a href="#DevTools-Tips" class="headerlink" title="DevTools Tips"></a>DevTools Tips</h2><h2 id="Browser"><a href="#Browser" class="headerlink" title="Browser"></a>Browser</h2><h2 id="Browser-Cache"><a href="#Browser-Cache" class="headerlink" title="Browser Cache"></a>Browser Cache</h2><h2 id="Browser-Render"><a href="#Browser-Render" class="headerlink" title="Browser Render"></a>Browser Render</h2><h2 id="Browser-Security"><a href="#Browser-Security" class="headerlink" title="Browser Security"></a>Browser Security</h2><h2 id="HTTP"><a href="#HTTP" class="headerlink" title="HTTP"></a>HTTP</h2><h2 id="Design-Patterns"><a href="#Design-Patterns" class="headerlink" title="Design Patterns"></a>Design Patterns</h2><h2 id="Data-Structure"><a href="#Data-Structure" class="headerlink" title="Data Structure"></a>Data Structure</h2><h2 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h2>
       
     
     </div>
@@ -293,7 +283,7 @@
     </div>
     <div class="copy-url">
       <span>地址 :</span>
-      <a href="https://blog.yyge.top/2019/02/10/leetcode-removeDuplicates/">https://blog.yyge.top/2019/02/10/leetcode-removeDuplicates/</a>
+      <a href="https://blog.yyge.top/2019/02/18/面试之道/">https://blog.yyge.top/2019/02/18/面试之道/</a>
     </div>
     <div class="copy-origin">
       <span>来源 :</span>
@@ -311,16 +301,10 @@
     
   <nav class="article-page">
     
-      <a href="/2019/02/10/leetcode-removeElement/" id="art-left" class="art-left">
-        <span class="next-title">
-          <i class="iconfont icon-left"></i>leetcode -removeElement
-        </span>
-      </a>
     
-    
-      <a href="/2019/02/10/leetcode-mergeTwoLinkLists/" id="art-right" class="art-right">
+      <a href="/2019/02/16/leetcode-maximunDepthOfBinaryTree/" id="art-right" class="art-right">
         <span class="prev-title"> 
-          leetcode -mergeTwoLinkLists<i class="iconfont icon-right"></i>  
+          leetcode -maximunDepthOfBinaryTree<i class="iconfont icon-right"></i>  
         </span>
       </a>
     
@@ -346,8 +330,8 @@
   <aside class="post-toc">
     <span class="title" id="toc-switch"><span>文章导航</span></span>
     <div class="toc-inner syuanpi back-1" style="display:none;">
-      <li class="title-link"><a href="javascript:;" class="toTop">leetcode -removeDuplicates</a></li>
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#思路"><span class="toc-text">思路</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#题解"><span class="toc-text">题解</span></a></li></ol>
+      <li class="title-link"><a href="javascript:;" class="toTop">面试之道</a></li>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#JS-Basic"><span class="toc-text">JS Basic</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ES6-amp-amp-TS"><span class="toc-text">ES6 &amp;&amp; TS</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Async"><span class="toc-text">Async</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Event-Loop"><span class="toc-text">Event Loop</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JS-Enhanced"><span class="toc-text">JS Enhanced</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JS-Thinking"><span class="toc-text">JS Thinking</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DevTools-Tips"><span class="toc-text">DevTools Tips</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Browser"><span class="toc-text">Browser</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Browser-Cache"><span class="toc-text">Browser Cache</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Browser-Render"><span class="toc-text">Browser Render</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Browser-Security"><span class="toc-text">Browser Security</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HTTP"><span class="toc-text">HTTP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Design-Patterns"><span class="toc-text">Design Patterns</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Data-Structure"><span class="toc-text">Data Structure</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CSS"><span class="toc-text">CSS</span></a></li></ol>
     </div>
   </aside>
 
