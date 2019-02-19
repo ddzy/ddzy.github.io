@@ -269,9 +269,17 @@
 <a id="more"></a>
 <h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><hr>
 <blockquote>
+<p>二分法</p>
 </blockquote>
+<ul>
+<li>递归</li>
+<li>中间的值为当前节点</li>
+<li>左边数组为左子树</li>
+<li>右边数组为右子树</li>
+<li><code>nums</code>为空, <code>length</code>为一, 边界判断, 终止递归</li>
+</ul>
 <h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><hr>
-
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @param &#123;number[]&#125; nums</span></span><br><span class="line"><span class="comment"> * @return &#123;TreeNode&#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> sortedArrayToBST = <span class="function"><span class="keyword">function</span>(<span class="params">nums</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (!nums.length) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">else</span> <span class="keyword">if</span> (nums.length === <span class="number">1</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> TreeNode(nums[<span class="number">0</span>]);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">const</span> [middle] = [~~((nums.length) / <span class="number">2</span>)];</span><br><span class="line">  <span class="keyword">const</span> node = <span class="keyword">new</span> TreeNode(nums[middle]);</span><br><span class="line"></span><br><span class="line">  node.left = sortedArrayToBST(nums.slice(<span class="number">0</span>, middle));</span><br><span class="line">  node.right = sortedArrayToBST(nums.slice(middle + <span class="number">1</span>));</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> node;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
       
     
     </div>
