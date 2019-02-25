@@ -69,7 +69,7 @@
 
   <meta name="keywords" content="leetcode, Nlvi">
 
-  <title> leetcode -trailingZeroes · DZY </title>
+  <title> leetcode -rotateArray · DZY </title>
 </head>
 <body>
   <div class="progress">
@@ -259,21 +259,17 @@
       </div>
       <h1 class="post-title syuanpi fadeInUpShort back-2">
         
-          leetcode -trailingZeroes
+          leetcode -rotateArray
         
       </h1>
     </header>
     <div class="post-content syuanpi fadeInUpShort back-3">
       
-        <p>Leetcode题解之 —— 阶乘后的零</p>
+        <p>Leetcode题解之 —— 旋转数组</p>
 <a id="more"></a>
 <h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><hr>
-<p>很容易想到对<code>n</code>作阶乘的算法, 但是会出现爆栈的情况, 看了下<a href="https://leetcode-cn.com/problems/factorial-trailing-zeroes/comments/" target="_blank" rel="noopener">官方的题解</a>, 只需要找到<code>n</code>中<code>5</code>的因子的个数即可</p>
 <h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><hr>
-<p>首先想到的<code>阶乘法</code>, 会出现<code>Maximun stack...</code>的情况</p>
-<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @param &#123;number&#125; n</span></span><br><span class="line"><span class="comment"> * @return &#123;number&#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">factorial</span>(<span class="params">num</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> num === <span class="number">1</span></span><br><span class="line">    ? <span class="number">1</span></span><br><span class="line">    : num * factorial(num--);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> trailingZeroes = <span class="function"><span class="keyword">function</span>(<span class="params">n</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> factorialedNum = factorial(n);</span><br><span class="line">  <span class="keyword">const</span> stringedNum = <span class="built_in">String</span>(factorialedNum);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">let</span> [count, result] = [stringedNum.length - <span class="number">1</span>, <span class="number">0</span>];</span><br><span class="line"></span><br><span class="line">  <span class="keyword">while</span> (count &gt;= <span class="number">0</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (~~(stringedNum[count])) &#123;</span><br><span class="line">      <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    result++;</span><br><span class="line">    count--;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> result;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>最优解</p>
-<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @param &#123;number&#125; n</span></span><br><span class="line"><span class="comment"> * @return &#123;number&#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> trailingZeroes = <span class="function"><span class="keyword">function</span> (<span class="params">n</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> result = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">let</span> current = n;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">while</span> (current) &#123;</span><br><span class="line">    result += (n = ~~(n / <span class="number">5</span>));</span><br><span class="line">    current--;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> result;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
       
     
     </div>
@@ -289,7 +285,7 @@
     </div>
     <div class="copy-url">
       <span>地址 :</span>
-      <a href="https://blog.yyge.top/2019/02/25/leetcode-trailingZeroes/">https://blog.yyge.top/2019/02/25/leetcode-trailingZeroes/</a>
+      <a href="https://blog.yyge.top/2019/02/25/leetcode-rotateArray/">https://blog.yyge.top/2019/02/25/leetcode-rotateArray/</a>
     </div>
     <div class="copy-origin">
       <span>来源 :</span>
@@ -307,16 +303,10 @@
     
   <nav class="article-page">
     
-      <a href="/2019/02/25/leetcode-rotateArray/" id="art-left" class="art-left">
-        <span class="next-title">
-          <i class="iconfont icon-left"></i>leetcode -rotateArray
-        </span>
-      </a>
     
-    
-      <a href="/2019/02/25/leetcode-majorityElement/" id="art-right" class="art-right">
+      <a href="/2019/02/25/leetcode-trailingZeroes/" id="art-right" class="art-right">
         <span class="prev-title"> 
-          leetcode -majorityElement<i class="iconfont icon-right"></i>  
+          leetcode -trailingZeroes<i class="iconfont icon-right"></i>  
         </span>
       </a>
     
@@ -342,7 +332,7 @@
   <aside class="post-toc">
     <span class="title" id="toc-switch"><span>文章导航</span></span>
     <div class="toc-inner syuanpi back-1" style="display:none;">
-      <li class="title-link"><a href="javascript:;" class="toTop">leetcode -trailingZeroes</a></li>
+      <li class="title-link"><a href="javascript:;" class="toTop">leetcode -rotateArray</a></li>
       <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#思路"><span class="toc-text">思路</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#题解"><span class="toc-text">题解</span></a></li></ol>
     </div>
   </aside>
