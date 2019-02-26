@@ -277,6 +277,14 @@
 <blockquote>
 <p>方法二: 修改<code>next</code>指针</p>
 </blockquote>
+<ul>
+<li>创建<code>firstNode</code>节点, 指向<code>head</code></li>
+<li>两个指针<code>lastNode</code>、<code>currentNode</code><ul>
+<li>前者指向<code>firstNode</code>, 表示上一个节点</li>
+<li>后者指向<code>head</code>, 当前遍历的节点</li>
+</ul>
+</li>
+</ul>
 <h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><hr>
 <p>数组解法:</p>
 <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> cache = [];</span><br><span class="line"><span class="keyword">let</span> current = head;</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> (current) &#123;</span><br><span class="line">  cache.push(<span class="keyword">new</span> ListNode(current.val));</span><br><span class="line">  current = current.next;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (!cache.length) &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> temp = cache</span><br><span class="line">  .filter(<span class="function">(<span class="params">v</span>) =&gt;</span> v.val !== val)</span><br><span class="line">  .map(<span class="function">(<span class="params">v, i, self</span>) =&gt;</span> &#123;</span><br><span class="line">    v.next = self[i + <span class="number">1</span>];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> v;</span><br><span class="line">  &#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (!temp.length) &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> temp[<span class="number">0</span>];</span><br></pre></td></tr></table></figure>
