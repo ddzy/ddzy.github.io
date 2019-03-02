@@ -61,7 +61,8 @@ body {
   border-radius: 6px;
   transition: all .3s ease;
 }
-.admin-content-container .admin-content-info .info-inner-link .inner-link-wrapper a:link {
+.admin-content-container .admin-content-info .info-inner-link .inner-link-wrapper a:link,
+.admin-content-container .admin-content-info .info-inner-link .inner-link-wrapper a:visited {
   color: #fff;
 }
 .admin-content-container .admin-content-info .info-inner-link .inner-link-wrapper a:hover {
