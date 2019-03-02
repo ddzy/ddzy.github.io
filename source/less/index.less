@@ -15,16 +15,18 @@ html, body {
   height: 100%;
   .admin-content-bgimage {
     height: 100%;
+    background-color: rgba(255, 255, 255, 0.1);
     background-image: url(../images/section_bg.jpg);
     background-size: cover;
     background-repeat: repeat;
-    filter: blur(15px);
+    backdrop-filter: brightness(150%) blur(5px);
+    filter: blur(80px);
   }
   .admin-content-info {
     position:absolute;
     left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
+    top: 40%;
+    transform: translate(-50%, -40%);
     .info-inner-title {
       color: #fff;
       line-height: 50px;
@@ -46,9 +48,10 @@ html, body {
       .inner-link-wrapper {
         display: flex;
         flex-direction: column;
+        text-align: center;
         a {
           display: block;
-          padding: 12px 20px;
+          padding: 14px 42px;
           border: 1px solid #fff;
           text-decoration: none;
           border-radius: 6px;
@@ -57,7 +60,15 @@ html, body {
             color: #fff;
           }
           &:hover {
-            background-color: #1890ff;
+            background-color: #09c;
+            border-color: #09c;
+            span {
+              transform: translateX(15px);
+            }
+          }
+          span {
+            display: inline-block;
+            transition: all .3s ease;
           }
         }
         .inner-link-to-blog {
