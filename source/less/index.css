@@ -18,6 +18,7 @@ body {
   background-image: url(../images/section_bg.jpg);
   background-size: cover;
   background-repeat: repeat;
+  filter: blur(10px);
 }
 .admin-content-container .admin-content-info {
   position: absolute;
