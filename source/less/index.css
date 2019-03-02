@@ -25,9 +25,23 @@ body {
   position: absolute;
   left: 50%;
   top: 50%;
-  width: 400px;
-  height: 400px;
   margin-top: -200px;
   margin-left: -200px;
-  border: 1px solid #ccc;
+}
+.admin-content-container .admin-content-info .content-info-inner {
+  width: 600px;
+  height: 400px;
+}
+.admin-content-container .admin-content-info .info-inner-title {
+  color: #fff;
+  line-height: 50px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  cursor: pointer;
+}
+.admin-content-container .admin-content-info .info-inner-title h1 {
+  font-size: 35px;
+}
+.admin-content-container .admin-content-info .info-inner-title h2 {
+  font-size: 28px;
+  text-align: right;
 }
