@@ -10,11 +10,21 @@ html, body {
 }
 
 .admin-content-container {
-  height: 100%;
-  .admin-content-inner {
+  position: relative;
+  .admin-content-bgimage {
     height: 100%;
     background-image: url(../images/section_bg.jpg);
     background-size: cover;
     background-repeat: repeat;
   }
+  .admin-content-info {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 400px;
+    height: 400px;
+  }
 }
+
