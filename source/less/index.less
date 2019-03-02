@@ -21,15 +21,10 @@ html, body {
     filter: blur(15px);
   }
   .admin-content-info {
-    position: absolute;
+    position:absolute;
     left: 50%;
     top: 50%;
-    margin-top: -200px;
-    margin-left: -200px;
-    .content-info-inner {
-      width: 600px;
-      height: 400px;
-    }
+    transform: translate(-50%, -50%);
     .info-inner-title {
       color: #fff;
       line-height: 50px;
@@ -44,7 +39,31 @@ html, body {
       }
     }
     .info-inner-link {
-
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 50px;
+      .inner-link-wrapper {
+        display: flex;
+        flex-direction: column;
+        a {
+          display: block;
+          padding: 12px 20px;
+          border: 1px solid #fff;
+          text-decoration: none;
+          border-radius: 6px;
+          transition: all .3s ease;
+          &:link {
+            color: #fff;
+          }
+          &:hover {
+            background-color: #1890ff;
+          }
+        }
+        .inner-link-to-blog {
+          margin-top: 8px;
+        }
+      }
     }
   }
 }
