@@ -53,7 +53,9 @@ body {
   text-align: center;
 }
 .admin-content-container .admin-content-info .info-inner-link .inner-link-wrapper a {
+  position: relative;
   display: block;
+  overflow: hidden;
   padding: 14px 42px;
   border: 1px solid #fff;
   text-decoration: none;
@@ -65,8 +67,17 @@ body {
   color: #fff;
 }
 .admin-content-container .admin-content-info .info-inner-link .inner-link-wrapper a:hover {
+  color: #09c;
+  background-color: #ffffff;
+  border-color: #fff;
+}
+.admin-content-container .admin-content-info .info-inner-link .inner-link-wrapper a:hover::after {
+  right: 0;
   background-color: #09c;
-  border-color: #09c;
+}
+.admin-content-container .admin-content-info .info-inner-link .inner-link-wrapper a:hover::before {
+  left: 0;
+  background-color: #09c;
 }
 .admin-content-container .admin-content-info .info-inner-link .inner-link-wrapper a:hover span {
   transform: translateX(15px);
@@ -75,6 +86,27 @@ body {
   display: inline-block;
   transition: all .3s ease;
 }
-.admin-content-container .admin-content-info .info-inner-link .inner-link-wrapper .inner-link-to-blog {
+.admin-content-container .admin-content-info .info-inner-link .inner-link-wrapper a::after,
+.admin-content-container .admin-content-info .info-inner-link .inner-link-wrapper a::before {
+  content: '';
+  display: block;
+  width: 98%;
+  height: 2px;
+  background-color: #fff;
+  transition: left .5s ease,
+                      right .5s ease;
+}
+.admin-content-container .admin-content-info .info-inner-link .inner-link-wrapper a::after {
+  position: absolute;
+  top: 0;
+  right: -100%;
+}
+.admin-content-container .admin-content-info .info-inner-link .inner-link-wrapper a::before {
+  position: absolute;
+  bottom: 0;
+  left: -100%;
+}
+.admin-content-container .admin-content-info .info-inner-link .inner-link-wrapper .inner-link-to-blog,
+.admin-content-container .admin-content-info .info-inner-link .inner-link-wrapper .inner-link-to-github {
   margin-top: 8px;
 }

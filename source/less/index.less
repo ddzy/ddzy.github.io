@@ -49,7 +49,9 @@ html, body {
         flex-direction: column;
         text-align: center;
         a {
+          position: relative;
           display: block;
+          overflow: hidden;
           padding: 14px 42px;
           border: 1px solid #fff;
           text-decoration: none;
@@ -59,8 +61,17 @@ html, body {
             color: #fff;
           }
           &:hover {
-            background-color: #09c;
-            border-color: #09c;
+            color: #09c;
+            background-color: rgba(255, 255, 255, 1);
+            border-color: #fff;
+            &::after {
+              right: 0;
+              background-color: #09c;
+            }
+            &::before {
+              left: 0;
+              background-color: #09c;
+            }
             span {
               transform: translateX(15px);
             }
@@ -70,7 +81,26 @@ html, body {
             transition: all .3s ease;
           }
         }
-        .inner-link-to-blog {
+        a::after, a::before {
+          content: '';
+          display: block;
+          width: 98%;
+          height: 2px;
+          background-color: #fff;
+          transition: left .5s ease,
+                      right .5s ease;
+        }
+        a::after {
+          position: absolute;
+          top: 0;
+          right: -100%;
+        }
+        a::before {
+          position: absolute;
+          bottom: 0;
+          left: -100%;
+        }
+        .inner-link-to-blog, .inner-link-to-github {
           margin-top: 8px;
         }
       }
