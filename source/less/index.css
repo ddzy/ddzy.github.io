@@ -80,9 +80,11 @@ body {
   background-color: #09c;
 }
 .admin-content-container .admin-content-info .info-inner-link .inner-link-wrapper a:hover span {
-  transform: translateX(15px);
+  left: 15px;
 }
 .admin-content-container .admin-content-info .info-inner-link .inner-link-wrapper a span {
+  position: relative;
+  left: 0;
   display: inline-block;
   transition: all .3s ease;
 }
