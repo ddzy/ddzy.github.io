@@ -106,3 +106,20 @@ body {
 .admin-content-container .admin-content-info .info-inner-link .inner-link-wrapper .inner-link-to-github {
   margin-top: 8px;
 }
+.admin-content-container .admin-content-copyright {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+.admin-content-container .admin-content-copyright .content-copyright-wrapper {
+  display: flex;
+  justify-content: center;
+}
+.admin-content-container .admin-content-copyright .content-copyright-wrapper .copyright-text {
+  color: #1890ff;
+  font-size: 14px;
+}
+.admin-content-container .admin-content-copyright .content-copyright-wrapper a:link,
+.admin-content-container .admin-content-copyright .content-copyright-wrapper a:visited {
+  color: #1890ff;
+}
