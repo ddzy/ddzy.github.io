@@ -14,12 +14,7 @@ html, body {
   position: relative;
   height: 100%;
   .admin-content-bgimage {
-    height: 100%;
-    background-color: rgba(255, 255, 255, 0.1);
-    background-image: url(../images/section_bg_light.jpg);
-    background-size: cover;
-    background-repeat: repeat;
-    filter: blur(6px);
+    position: absolute;
   }
   .admin-content-info {
     position:absolute;
@@ -27,7 +22,7 @@ html, body {
     top: 40%;
     transform: translate(-50%, -40%);
     .info-inner-title {
-      color: #fff;
+      color: #1890ff;
       line-height: 50px;
       font-family: Georgia, 'Times New Roman', Times, serif;
       cursor: pointer;
@@ -53,24 +48,23 @@ html, body {
           display: block;
           overflow: hidden;
           padding: 14px 42px;
-          border: 1px solid #fff;
+          border: 1px solid #1890ff;
           text-decoration: none;
           border-radius: 6px;
           transition: all .3s ease;
           &:link, &:visited {
-            color: #fff;
+            color: #1890ff;
           }
           &:hover {
             color: #09c;
-            background-color: rgba(255, 255, 255, 1);
             border-color: #fff;
             &::after {
               right: 0;
-              background-color: #09c;
+              background-color: #1890ff;
             }
             &::before {
               left: 0;
-              background-color: #09c;
+              background-color: #1890ff;
             }
             span {
               left: 15px;
