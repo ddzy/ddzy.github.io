@@ -1,3 +1,25 @@
+html {
+  font-size: 62.5%
+}
+
+@media only screen and (min-width: 481px) {
+  html {
+    font-size:94%!important
+  }
+}
+
+  @media only screen and (min-width: 561px) {
+  html {
+    font-size:109%!important
+  }
+}
+
+@media only screen and (min-width: 641px) {
+  html {
+    font-size:125%!important
+  }
+}
+
 html, body {
   width: 100%;
   height: 100%;
@@ -27,10 +49,10 @@ html, body {
       font-family: Georgia, 'Times New Roman', Times, serif;
       cursor: pointer;
       h1 {
-        font-size: 35px;
+        font-size: 2.1875rem;
       }
       h2 {
-        font-size: 28px;
+        font-size: 1.75rem;
         text-align: right;
       }
     }
@@ -38,7 +60,7 @@ html, body {
       display: flex;
       justify-content: center;
       align-items: center;
-      margin-top: 50px;
+      margin-top: 3.125rem;
       .inner-link-wrapper {
         display: flex;
         flex-direction: column;
@@ -47,10 +69,10 @@ html, body {
           position: relative;
           display: block;
           overflow: hidden;
-          padding: 14px 42px;
-          border: 1px solid #1890ff;
+          padding: 0.875rem 2.625rem;
+          border: 0.0625rem solid #1890ff;
           text-decoration: none;
-          border-radius: 6px;
+          border-radius: 0.375rem;
           transition: all .3s ease;
           &:link, &:visited {
             color: #1890ff;
@@ -81,7 +103,7 @@ html, body {
           content: '';
           display: block;
           width: 98%;
-          height: 2px;
+          height: 0.125rem;
           background-color: #fff;
           transition: left .5s ease,
                       right .5s ease;
@@ -97,7 +119,7 @@ html, body {
           left: -100%;
         }
         .inner-link-to-blog, .inner-link-to-github {
-          margin-top: 8px;
+          margin-top: 0.5rem;
         }
       }
     }
@@ -111,7 +133,7 @@ html, body {
       justify-content: center;
       .copyright-text {
         color: #1890ff;
-        font-size: 14px;
+        font-size: 0.875rem;
       }
 
       a:link, a:visited {
