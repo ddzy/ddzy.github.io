@@ -134,8 +134,14 @@ body {
   justify-content: center;
 }
 .admin-content-container .admin-content-copyright .content-copyright-wrapper .copyright-text {
+  max-height: 32px;
   color: #1890ff;
   font-size: 0.875rem;
+}
+.admin-content-container .admin-content-copyright .content-copyright-wrapper img {
+  display: inline-block;
+  max-width: 32px;
+  height: 100%;
 }
 .admin-content-container .admin-content-copyright .content-copyright-wrapper a:link,
 .admin-content-container .admin-content-copyright .content-copyright-wrapper a:visited {
