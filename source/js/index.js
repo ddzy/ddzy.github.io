@@ -1,4 +1,13 @@
-window.onload = () => {
+/**
+ * @author ddzy
+ * @since 2019/6/22
+ */
+
+window.onload = function () {
+  initColorfulBubble();
+}
+
+function __init__() {
   initColorfulBubble();
 }
 
@@ -8,6 +17,10 @@ function initColorfulBubble() {
     cvsWidth: window.innerWidth,
     cvsHeight: window.innerHeight,
     cvsBgColor: '#fff',
-    bubbleNum: 100,
+    bubbleScaleRange: {
+      min: 1,
+      max: 2,
+    },
+    bubbleNum: 200,
   });
 }
