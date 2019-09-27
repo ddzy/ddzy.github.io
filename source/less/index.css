@@ -92,7 +92,7 @@ body {
   background-color: #1890ff;
 }
 .admin-content-container .admin-content-info .info-inner-link .inner-link-wrapper a:hover span {
-  left: 15px;
+  left: 0.9375rem;
 }
 .admin-content-container .admin-content-info .info-inner-link .inner-link-wrapper a span {
   position: relative;
@@ -134,13 +134,13 @@ body {
   justify-content: center;
 }
 .admin-content-container .admin-content-copyright .content-copyright-wrapper .copyright-text {
-  max-height: 32px;
+  max-height: 1.5rem;
   color: #1890ff;
-  font-size: 0.875rem;
+  font-size: 0.75rem;
 }
 .admin-content-container .admin-content-copyright .content-copyright-wrapper img {
   display: inline-block;
-  max-width: 32px;
+  width: 1.5rem;
   height: 100%;
 }
 .admin-content-container .admin-content-copyright .content-copyright-wrapper a:link,
