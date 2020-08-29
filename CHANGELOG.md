@@ -22,3 +22,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - 更新主页`title`
 - 更新`Github`按钮文字
 - 更新`插件地址`链接样式
+
+## [2020-8-29]
+
+### Changed
+
+- 更新百度统计值, 主页由 `ddzy.github.io` 迁移到 `yyge.top`
