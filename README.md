@@ -2,4 +2,4 @@
 
 ## Desc
 
-个人主页, [https://ddzy.github.io](https://ddzy.github.io)
+个人主页: [https://yyge.top](https://yyge.top)
