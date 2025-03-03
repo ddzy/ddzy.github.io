@@ -1,0 +1,35 @@
+node_modules
+npm-debug.log
+
+# 构建产物
+/dist
+/build
+/out
+
+# 缓存和临时文件
+.cache
+.temp
+.tmp
+
+# 环境变量
+.env
+.env.local
+.env.development
+.env.production
+
+# IDE相关
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# 日志文件
+*.log
+logs/
+
+# 系统文件
+.DS_Store
+Thumbs.db
