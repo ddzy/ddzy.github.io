@@ -1,17 +1,29 @@
 {
-  "name": "ddzy.github.io",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "preinstall": "npx only-allow pnpm",
-    "serve": "npx live-server --port=3001 --host=0.0.0.0 --open=index.html --wait=1000 --quiet --verbose"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "live-server": "^1.2.2"
-  }
+	"name": "ddzy.github.io",
+	"version": "2.0.0",
+	"private": true,
+	"scripts": {
+		"preinstall": "npx only-allow pnpm",
+		"dev": "vite",
+		"build": "vue-tsc --noEmit && vite build",
+		"preview": "vite preview"
+	},
+	"dependencies": {
+		"@unocss/reset": "^66.6.1",
+		"vue": "^3.5.39"
+	},
+	"devDependencies": {
+		"@unocss/preset-icons": "^66.6.1",
+		"@unocss/preset-uno": "^66.6.1",
+		"@vitejs/plugin-vue": "^6.0.8",
+		"typescript": "^5.9.3",
+		"unocss": "^66.6.1",
+		"vite": "^8.1.4",
+		"vue-tsc": "^3.3.7"
+	},
+	"packageManager": "pnpm@11.7.0",
+	"engines": {
+		"node": ">=24.18.0",
+		"pnpm": ">=10.0.0"
+	}
 }

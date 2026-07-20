@@ -1,30 +1,15 @@
 # Change Log
 
-The format is based on [Keep a Changelog](http://keepachangelog.com/).
-
-## [2019-5-8]
-
-### Added
-
-- 引入`百度统计`
-
-## [2019-6-22]
+## [2.0.0] - 2026-07-20
 
 ### Changed
 
-- 改进主页背景插件样式
-- 改进主页链接, 便于在`新窗口`打开
+- 将旧版原生 HTML、Less 与 Canvas 动画主页重构为 Vue 3、TypeScript、Vite 与 UnoCSS 工程。
+- 首页调整为响应式个人项目入口页，适配桌面端与移动端。
+- 统一 Node.js、pnpm 与 Prettier 配置，并将本地开发端口设为 `3008`。
+- 部署目标调整为主域名 `https://yyge.top`。
 
-## [2019-9-27]
+### Removed
 
-### Changed
-
-- 更新主页`title`
-- 更新`Github`按钮文字
-- 更新`插件地址`链接样式
-
-## [2020-8-29]
-
-### Changed
-
-- 更新百度统计值, 主页由 `ddzy.github.io` 迁移到 `yyge.top`
+- 移除旧版 `source/` 目录、百度统计、Canvas 气泡动画、Less 样式与 `live-server` 依赖。
+- 移除旧域名 `CNAME` 配置。
