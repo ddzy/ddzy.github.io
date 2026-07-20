@@ -10,16 +10,10 @@ defineProps<{
 	<article
 		class="project-card group flex h-full flex-col rounded-3xl border border-[var(--color-panel-border)] bg-[var(--color-panel)] p-6 shadow-[0_16px_36px_rgba(21,61,59,0.08)] transition duration-200 hover:-translate-y-1 hover:border-[#9bc7bf] hover:shadow-[0_20px_40px_rgba(21,61,59,0.14)] sm:p-7"
 	>
-		<div class="mb-8 flex items-start justify-between gap-4">
+		<div class="mb-8">
 			<h3 class="text-lg font-semibold tracking-[-0.02em] text-[var(--color-ink)]">
 				{{ project.name }}
 			</h3>
-			<span
-				v-if="project.featured"
-				class="shrink-0 rounded-full bg-[var(--color-primary-soft)] px-3 py-1 text-xs font-medium text-[var(--color-primary-dark)]"
-			>
-				精选
-			</span>
 		</div>
 
 		<p class="min-h-12 text-sm leading-7 text-[var(--color-muted)]">

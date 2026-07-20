@@ -36,10 +36,6 @@ a {
 		#eff3f4;
 }
 
-.profile-reserved {
-	min-height: clamp(7rem, 15vw, 10.5rem);
-}
-
 .project-section {
 	position: relative;
 }
@@ -55,10 +51,4 @@ a {
 	background: rgba(22, 129, 122, 0.08);
 	border-radius: 50%;
 	filter: blur(2px);
-}
-
-@media (max-width: 639px) {
-	.profile-reserved {
-		min-height: 5.5rem;
-	}
 }

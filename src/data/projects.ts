@@ -8,7 +8,6 @@ export type PersonalProject = {
 	description: string;
 	tags: readonly string[];
 	links: readonly ProjectLink[];
-	featured?: boolean;
 };
 
 export const personalProjects: readonly PersonalProject[] = [
@@ -17,7 +16,6 @@ export const personalProjects: readonly PersonalProject[] = [
 		description: '以清晰信息层级呈现的前端开发简历，适配桌面与移动端阅读。',
 		tags: ['Vue 3', 'TypeScript', 'Vite'],
 		links: [{ label: '打开简历', href: 'https://resume.yyge.top' }],
-		featured: true,
 	},
 	{
 		name: '企业知识库与工具 Agent',
@@ -30,7 +28,6 @@ export const personalProjects: readonly PersonalProject[] = [
 				href: 'https://github.com/ddzy/stage-07-agent-observability-evaluation',
 			},
 		],
-		featured: true,
 	},
 	{
 		name: 'vue3-ui',
@@ -39,6 +36,17 @@ export const personalProjects: readonly PersonalProject[] = [
 		links: [
 			{ label: '在线预览', href: 'https://vue3-ui.yyge.top' },
 			{ label: 'GitHub', href: 'https://github.com/ddzy/vue3-ui' },
+		],
+	},
+	{
+		name: 'VS-Code-Extension-Doc-ZH',
+		description: 'VS Code 插件开发中文文档。',
+		tags: ['VS Code', '文档', '开源'],
+		links: [
+			{
+				label: 'GitHub',
+				href: 'https://github.com/Liiked/VS-Code-Extension-Doc-ZH',
+			},
 		],
 	},
 	{
