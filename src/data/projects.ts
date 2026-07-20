@@ -13,13 +13,13 @@ export type PersonalProject = {
 export const personalProjects: readonly PersonalProject[] = [
 	{
 		name: '在线简历',
-		description: '以清晰信息层级呈现的前端开发简历，适配桌面与移动端阅读。',
+		description: '个人简历, 支持PC+移动端',
 		tags: ['Vue 3', 'TypeScript', 'Vite'],
 		links: [{ label: '打开简历', href: 'https://resume.yyge.top' }],
 	},
 	{
 		name: '企业知识库与工具 Agent',
-		description: '结合检索增强、工具调用与可观测能力的 AI 应用演示项目。',
+		description: '结合RAG、工具调用与可观测能力的 AI 应用演示项目。',
 		tags: ['Nuxt', 'LangChain', 'PostgreSQL'],
 		links: [
 			{ label: '在线预览', href: 'https://agent07.yyge.top' },
@@ -31,7 +31,8 @@ export const personalProjects: readonly PersonalProject[] = [
 	},
 	{
 		name: 'vue3-ui',
-		description: '面向 PC 端的 Vue 3 组件库，收录常用业务组件与使用文档。',
+		description:
+			'面向 PC 端的 Vue 3 组件库，实现常用业务组件与配套的使用文档。',
 		tags: ['Vue 3', '组件库', 'TypeScript'],
 		links: [
 			{ label: '在线预览', href: 'https://vue3-ui.yyge.top' },
