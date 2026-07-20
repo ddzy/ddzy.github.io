@@ -1,6 +1,6 @@
 # ddzy.github.io
 
-个人项目主页，展示代表项目及其 GitHub、在线预览入口。
+个人主页
 
 ## 技术栈
 
@@ -27,4 +27,4 @@ pnpm build
 
 ## 部署
 
-Jenkins 使用 [Jenkinsfile](./Jenkinsfile) 构建并发布静态产物到服务器的 `/srv/ddzy.github.io`，Nginx 负责 `https://yyge.top` 的 HTTPS 访问。
+[Jenkinsfile](./Jenkinsfile) 构建并发布静态产物到服务器的 `/srv/ddzy.github.io`
