@@ -8,6 +8,7 @@
 - 首页调整为响应式个人项目入口页，适配桌面端与移动端。
 - 统一 Node.js、pnpm 与 Prettier 配置，并将本地开发端口设为 `3008`。
 - 部署目标调整为主域名 `https://yyge.top`。
+- 新增 Jenkins 静态站点流水线，构建产物发布至 `/srv/ddzy.github.io`。
 
 ### Removed
 

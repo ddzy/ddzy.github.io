@@ -1,6 +1,6 @@
 # ddzy.github.io
 
-段朝阳的个人项目主页，展示代表项目及其 GitHub、在线预览入口。
+个人项目主页，展示代表项目及其 GitHub、在线预览入口。
 
 ## 技术栈
 
@@ -24,3 +24,7 @@ pnpm build
 ```
 
 构建产物位于 `dist/`，部署目标为 `https://yyge.top`。
+
+## 部署
+
+Jenkins 使用 [Jenkinsfile](./Jenkinsfile) 构建并发布静态产物到服务器的 `/srv/ddzy.github.io`，Nginx 负责 `https://yyge.top` 的 HTTPS 访问。
