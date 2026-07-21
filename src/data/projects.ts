@@ -12,13 +12,7 @@ export type PersonalProject = {
 
 export const personalProjects: readonly PersonalProject[] = [
 	{
-		name: '在线简历',
-		description: '个人简历, 支持PC+移动端',
-		tags: ['Vue 3', 'TypeScript', 'Vite'],
-		links: [{ label: '打开简历', href: 'https://resume.yyge.top' }],
-	},
-	{
-		name: '企业知识库与工具 Agent',
+		name: '知识库与工具 Agent',
 		description: '结合RAG、工具调用与可观测能力的 AI 应用演示项目。',
 		tags: ['Nuxt', 'LangChain', 'PostgreSQL'],
 		links: [
@@ -72,5 +66,12 @@ export const personalProjects: readonly PersonalProject[] = [
 				href: 'https://github.com/ddzy/ts-utility-plugins',
 			},
 		],
+	},
+	{
+		name: 'flutter-github-app',
+		description:
+			'基于 GitHub GraphQL API 的 Flutter 移动端 GitHub App，涵盖登录、仓库、Issue 与 Starred 等页面',
+		tags: ['Flutter', 'Graphql', 'Dart'],
+		links: [{ label: 'Github', href: 'https://github.com/ddzy/github' }],
 	},
 ];
